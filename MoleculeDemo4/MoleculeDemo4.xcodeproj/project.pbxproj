@@ -11,16 +11,10 @@
 		881D66C3253F80BC00054303 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D66C2253F80BC00054303 /* Bond.swift */; };
 		885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */; };
 		885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFAC2251AB1E90042EB4C /* XYZ_test_4.xyz */; };
-		8871B85A24F967DB0051A5BA /* Co.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 8871B85624F967DB0051A5BA /* Co.xyz */; };
-		8871B85B24F967DB0051A5BA /* Rh.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 8871B85724F967DB0051A5BA /* Rh.xyz */; };
-		8871B85C24F967DB0051A5BA /* Ir_2.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 8871B85824F967DB0051A5BA /* Ir_2.xyz */; };
-		8871B85D24F967DB0051A5BA /* Ir.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 8871B85924F967DB0051A5BA /* Ir.xyz */; };
-		8871B85F24F9691B0051A5BA /* Rh copy.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 8871B85E24F9691B0051A5BA /* Rh copy.xyz */; };
 		8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8880B6812579D28300ADB56B /* NodeTechnique.plist */; };
 		8880B6842579D28300ADB56B /* NodeRender.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8880B6822579D28300ADB56B /* NodeRender.metal */; };
 		888722DC252D023C000E808A /* XYZ_test_6.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 888722DB252D023C000E808A /* XYZ_test_6.xyz */; };
 		88A242A42560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88A242A32560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz */; };
-		88AC29BB250AD4D5000A24B8 /* XYZ_test_5.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88AC29BA250AD4D5000A24B8 /* XYZ_test_5.xyz */; };
 		88ADFAFE2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFAFD2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz */; };
 		88B82D6F24F57F1D0050F836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D6E24F57F1D0050F836 /* AppDelegate.swift */; };
 		88B82D7124F57F1D0050F836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D7024F57F1D0050F836 /* SceneDelegate.swift */; };
@@ -30,8 +24,6 @@
 		88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B82D7924F57F1E0050F836 /* LaunchScreen.storyboard */; };
 		88B82D8624F57F1E0050F836 /* MoleculeDemo3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D8524F57F1E0050F836 /* MoleculeDemo3Tests.swift */; };
 		88B82D9124F57F1E0050F836 /* MoleculeDemo3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D9024F57F1E0050F836 /* MoleculeDemo3UITests.swift */; };
-		88B82DA124F57F3C0050F836 /* XYZ_2.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88B82D9F24F57F3C0050F836 /* XYZ_2.xyz */; };
-		88B82DA224F57F3C0050F836 /* XYZ_1.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88B82DA024F57F3C0050F836 /* XYZ_1.xyz */; };
 		88B82DA424F583BE0050F836 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82DA324F583BE0050F836 /* Atom.swift */; };
 		88B82DA624F583D40050F836 /* AtomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82DA524F583D40050F836 /* AtomInfo.swift */; };
 		88C45F502548D6850049DCF3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C45F4F2548D6850049DCF3 /* Timer.swift */; };
@@ -61,16 +53,10 @@
 		881D66C2253F80BC00054303 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
 		885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_3.xyz; sourceTree = "<group>"; };
 		885BFAC2251AB1E90042EB4C /* XYZ_test_4.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_4.xyz; sourceTree = "<group>"; };
-		8871B85624F967DB0051A5BA /* Co.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Co.xyz; path = "../../../../../XYZ files/Co.xyz"; sourceTree = "<group>"; };
-		8871B85724F967DB0051A5BA /* Rh.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rh.xyz; path = "../../../../../XYZ files/Rh.xyz"; sourceTree = "<group>"; };
-		8871B85824F967DB0051A5BA /* Ir_2.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Ir_2.xyz; path = "../../../../../XYZ files/Ir_2.xyz"; sourceTree = "<group>"; };
-		8871B85924F967DB0051A5BA /* Ir.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Ir.xyz; path = "../../../../../XYZ files/Ir.xyz"; sourceTree = "<group>"; };
-		8871B85E24F9691B0051A5BA /* Rh copy.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Rh copy.xyz"; path = "../../../../../XYZ files/Rh copy.xyz"; sourceTree = "<group>"; };
 		8880B6812579D28300ADB56B /* NodeTechnique.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NodeTechnique.plist; sourceTree = "<group>"; };
 		8880B6822579D28300ADB56B /* NodeRender.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = NodeRender.metal; sourceTree = "<group>"; };
 		888722DB252D023C000E808A /* XYZ_test_6.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_6.xyz; sourceTree = "<group>"; };
 		88A242A32560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "OH-EtBr-SN2-traj5 2.xyz"; sourceTree = "<group>"; };
-		88AC29BA250AD4D5000A24B8 /* XYZ_test_5.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XYZ_test_5.xyz; path = "../../../../../XYZ files/XYZ_test_5.xyz"; sourceTree = "<group>"; };
 		88ADFAFD2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "OH-EtBr-SN2-traj5.xyz"; sourceTree = "<group>"; };
 		88B82D6B24F57F1D0050F836 /* MoleculeDemo4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoleculeDemo4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B82D6E24F57F1D0050F836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +72,6 @@
 		88B82D8C24F57F1E0050F836 /* MoleculeDemo4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoleculeDemo4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B82D9024F57F1E0050F836 /* MoleculeDemo3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeDemo3UITests.swift; sourceTree = "<group>"; };
 		88B82D9224F57F1E0050F836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88B82D9F24F57F3C0050F836 /* XYZ_2.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XYZ_2.xyz; path = "../../../../../XYZ files/XYZ_2.xyz"; sourceTree = "<group>"; };
-		88B82DA024F57F3C0050F836 /* XYZ_1.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XYZ_1.xyz; path = "../../../../../XYZ files/XYZ_1.xyz"; sourceTree = "<group>"; };
 		88B82DA324F583BE0050F836 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		88B82DA524F583D40050F836 /* AtomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomInfo.swift; sourceTree = "<group>"; };
 		88C45F4F2548D6850049DCF3 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -188,16 +172,8 @@
 				88ADFAFD2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz */,
 				88A242A32560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz */,
 				888722DB252D023C000E808A /* XYZ_test_6.xyz */,
-				88B82DA024F57F3C0050F836 /* XYZ_1.xyz */,
-				88B82D9F24F57F3C0050F836 /* XYZ_2.xyz */,
-				8871B85624F967DB0051A5BA /* Co.xyz */,
-				8871B85824F967DB0051A5BA /* Ir_2.xyz */,
-				8871B85924F967DB0051A5BA /* Ir.xyz */,
-				8871B85724F967DB0051A5BA /* Rh.xyz */,
-				8871B85E24F9691B0051A5BA /* Rh copy.xyz */,
 				885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */,
 				885BFAC2251AB1E90042EB4C /* XYZ_test_4.xyz */,
-				88AC29BA250AD4D5000A24B8 /* XYZ_test_5.xyz */,
 			);
 			path = "XYZ Files";
 			sourceTree = "<group>";
@@ -309,21 +285,13 @@
 			files = (
 				88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */,
 				885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */,
-				88AC29BB250AD4D5000A24B8 /* XYZ_test_5.xyz in Resources */,
 				8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */,
-				8871B85A24F967DB0051A5BA /* Co.xyz in Resources */,
 				888722DC252D023C000E808A /* XYZ_test_6.xyz in Resources */,
 				88B82D7824F57F1E0050F836 /* Assets.xcassets in Resources */,
 				88A242A42560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz in Resources */,
-				88B82DA224F57F3C0050F836 /* XYZ_1.xyz in Resources */,
-				88B82DA124F57F3C0050F836 /* XYZ_2.xyz in Resources */,
 				88ADFAFE2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz in Resources */,
 				88E2B01C256E05FE00C20672 /* SN2.xyz in Resources */,
-				8871B85C24F967DB0051A5BA /* Ir_2.xyz in Resources */,
 				885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */,
-				8871B85B24F967DB0051A5BA /* Rh.xyz in Resources */,
-				8871B85F24F9691B0051A5BA /* Rh copy.xyz in Resources */,
-				8871B85D24F967DB0051A5BA /* Ir.xyz in Resources */,
 				88B82D7624F57F1D0050F836 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
