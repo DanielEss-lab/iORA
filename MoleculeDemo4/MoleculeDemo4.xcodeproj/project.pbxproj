@@ -18,6 +18,11 @@
 		84970EAE270E164E0079C8BD /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EAA270E164E0079C8BD /* Atom.swift */; };
 		84970EB2270E169A0079C8BD /* cyclobutanetraj1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */; };
 		84970EB3270E169A0079C8BD /* bullvalenetraj.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */; };
+		84970EB4270E16FB0079C8BD /* testMol1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9C270E138F0079C8BD /* testMol1.sdf */; };
+		84970EB5270E16FB0079C8BD /* testMol2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9A270E138F0079C8BD /* testMol2.sdf */; };
+		84970EB6270E16FB0079C8BD /* testMol3.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9B270E138F0079C8BD /* testMol3.sdf */; };
+		84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */; };
+		84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */; };
 		8817C94C256468EB000065FB /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817C94B256468EB000065FB /* OptionsViewController.swift */; };
 		881D66C3253F80BC00054303 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D66C2253F80BC00054303 /* Bond.swift */; };
 		885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */; };
@@ -354,6 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */,
+				84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */,
+				84970EB4270E16FB0079C8BD /* testMol1.sdf in Resources */,
+				84970EB5270E16FB0079C8BD /* testMol2.sdf in Resources */,
+				84970EB6270E16FB0079C8BD /* testMol3.sdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
