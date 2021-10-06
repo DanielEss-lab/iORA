@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		84970E97270E135E0079C8BD /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970E95270E135E0079C8BD /* FileLoader.swift */; };
-		84970E98270E135E0079C8BD /* sdfFiles in Resources */ = {isa = PBXBuildFile; fileRef = 84970E96270E135E0079C8BD /* sdfFiles */; };
 		84970E9E270E138F0079C8BD /* testMol2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9A270E138F0079C8BD /* testMol2.sdf */; };
 		84970E9F270E138F0079C8BD /* testMol3.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9B270E138F0079C8BD /* testMol3.sdf */; };
 		84970EA0270E138F0079C8BD /* testMol1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9C270E138F0079C8BD /* testMol1.sdf */; };
-		84970EA2270E13B70079C8BD /* dataObjects in Resources */ = {isa = PBXBuildFile; fileRef = 84970EA1270E13B70079C8BD /* dataObjects */; };
 		84970EA3270E147D0079C8BD /* FileLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970E99270E138F0079C8BD /* FileLoaderTests.swift */; };
+		84970EAB270E164E0079C8BD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EA7270E164E0079C8BD /* State.swift */; };
+		84970EAC270E164E0079C8BD /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EA8270E164E0079C8BD /* Bond.swift */; };
+		84970EAD270E164E0079C8BD /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EA9270E164E0079C8BD /* Reaction.swift */; };
+		84970EAE270E164E0079C8BD /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EAA270E164E0079C8BD /* Atom.swift */; };
+		84970EB2270E169A0079C8BD /* cyclobutanetraj1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */; };
+		84970EB3270E169A0079C8BD /* bullvalenetraj.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */; };
 		8817C94C256468EB000065FB /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817C94B256468EB000065FB /* OptionsViewController.swift */; };
 		881D66C3253F80BC00054303 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D66C2253F80BC00054303 /* Bond.swift */; };
 		885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */; };
@@ -57,12 +61,16 @@
 
 /* Begin PBXFileReference section */
 		84970E95270E135E0079C8BD /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
-		84970E96270E135E0079C8BD /* sdfFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdfFiles; sourceTree = "<group>"; };
 		84970E99270E138F0079C8BD /* FileLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoaderTests.swift; sourceTree = "<group>"; };
 		84970E9A270E138F0079C8BD /* testMol2.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testMol2.sdf; sourceTree = "<group>"; };
 		84970E9B270E138F0079C8BD /* testMol3.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testMol3.sdf; sourceTree = "<group>"; };
 		84970E9C270E138F0079C8BD /* testMol1.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testMol1.sdf; sourceTree = "<group>"; };
-		84970EA1270E13B70079C8BD /* dataObjects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dataObjects; sourceTree = "<group>"; };
+		84970EA7270E164E0079C8BD /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		84970EA8270E164E0079C8BD /* Bond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
+		84970EA9270E164E0079C8BD /* Reaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		84970EAA270E164E0079C8BD /* Atom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
+		84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cyclobutanetraj1.sdf; sourceTree = "<group>"; };
+		84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bullvalenetraj.sdf; sourceTree = "<group>"; };
 		8817C94B256468EB000065FB /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		881D66C2253F80BC00054303 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
 		885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_3.xyz; sourceTree = "<group>"; };
@@ -118,6 +126,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84970EA6270E164E0079C8BD /* dataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				84970EA7270E164E0079C8BD /* State.swift */,
+				84970EA8270E164E0079C8BD /* Bond.swift */,
+				84970EA9270E164E0079C8BD /* Reaction.swift */,
+				84970EAA270E164E0079C8BD /* Atom.swift */,
+			);
+			path = dataObjects;
+			sourceTree = "<group>";
+		};
+		84970EAF270E169A0079C8BD /* sdfFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */,
+				84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */,
+			);
+			path = sdfFiles;
+			sourceTree = "<group>";
+		};
 		88B82D6224F57F1D0050F836 = {
 			isa = PBXGroup;
 			children = (
@@ -141,11 +169,11 @@
 		88B82D6D24F57F1D0050F836 /* MoleculeDemo3 */ = {
 			isa = PBXGroup;
 			children = (
-				84970EA1270E13B70079C8BD /* dataObjects */,
+				84970EAF270E169A0079C8BD /* sdfFiles */,
+				84970EA6270E164E0079C8BD /* dataObjects */,
 				88B82D7424F57F1D0050F836 /* Main.storyboard */,
 				88B82D7224F57F1D0050F836 /* 3DViewController.swift */,
 				84970E95270E135E0079C8BD /* FileLoader.swift */,
-				84970E96270E135E0079C8BD /* sdfFiles */,
 				8817C94B256468EB000065FB /* OptionsViewController.swift */,
 				88C45F4F2548D6850049DCF3 /* Timer.swift */,
 				88B82DA324F583BE0050F836 /* Atom.swift */,
@@ -307,16 +335,16 @@
 				88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */,
 				885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */,
 				8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */,
-				84970EA2270E13B70079C8BD /* dataObjects in Resources */,
 				888722DC252D023C000E808A /* XYZ_test_6.xyz in Resources */,
+				84970EB2270E169A0079C8BD /* cyclobutanetraj1.sdf in Resources */,
 				88B82D7824F57F1E0050F836 /* Assets.xcassets in Resources */,
 				84970E9E270E138F0079C8BD /* testMol2.sdf in Resources */,
 				84970EA0270E138F0079C8BD /* testMol1.sdf in Resources */,
 				88A242A42560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz in Resources */,
 				88ADFAFE2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz in Resources */,
 				88E2B01C256E05FE00C20672 /* SN2.xyz in Resources */,
-				84970E98270E135E0079C8BD /* sdfFiles in Resources */,
 				885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */,
+				84970EB3270E169A0079C8BD /* bullvalenetraj.sdf in Resources */,
 				84970E9F270E138F0079C8BD /* testMol3.sdf in Resources */,
 				88B82D7624F57F1D0050F836 /* Main.storyboard in Resources */,
 			);
@@ -343,14 +371,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84970EAD270E164E0079C8BD /* Reaction.swift in Sources */,
 				88B82DA624F583D40050F836 /* AtomInfo.swift in Sources */,
 				88B82D7324F57F1D0050F836 /* 3DViewController.swift in Sources */,
 				88B82D6F24F57F1D0050F836 /* AppDelegate.swift in Sources */,
 				84970E97270E135E0079C8BD /* FileLoader.swift in Sources */,
+				84970EAE270E164E0079C8BD /* Atom.swift in Sources */,
 				8880B6842579D28300ADB56B /* NodeRender.metal in Sources */,
 				8817C94C256468EB000065FB /* OptionsViewController.swift in Sources */,
 				881D66C3253F80BC00054303 /* Bond.swift in Sources */,
 				88DB3030252F960800AB899F /* MoleculeTableViewController.swift in Sources */,
+				84970EAB270E164E0079C8BD /* State.swift in Sources */,
+				84970EAC270E164E0079C8BD /* Bond.swift in Sources */,
 				88B82DA424F583BE0050F836 /* Atom.swift in Sources */,
 				88B82D7124F57F1D0050F836 /* SceneDelegate.swift in Sources */,
 				88C45F502548D6850049DCF3 /* Timer.swift in Sources */,
