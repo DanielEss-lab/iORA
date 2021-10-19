@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-struct Atom {
+struct SCNAtom {
     var name: String
     var x: Double
     var y: Double

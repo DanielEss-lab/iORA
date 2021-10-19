@@ -36,13 +36,13 @@ class MoleculeViewController: UIViewController {
     @IBOutlet weak var sceneView: SCNView!
     let cameraNode = SCNNode()
     
-    var atoms: [Atom] = []
+    var atoms: [SCNAtom] = []
     var atomNodes: [SCNNode] = []
     var selectedAtoms: [SCNNode] = []
-    var bondsUnused: [Bond] = []
+    var bondsUnused: [SCNBond] = []
     var bondNodes: [SCNNode] = []
     
-    var testBonds: [Bond] = []
+    var testBonds: [SCNBond] = []
     var testBondNodes: [SCNNode] = []
     
     @IBOutlet weak var firstAtomNameLabel: UILabel!
@@ -327,7 +327,7 @@ class MoleculeViewController: UIViewController {
         guard let radius = atomRadii[atomName]?.covalentRadius,
             let color = atomRadii[atomName]?.color else { return }
         
-        atoms.append(Atom(name: atomName, x: coords[0], y: coords[1], z: coords[2], radius: radius, positions: [SCNVector3(coords[0], coords[1], coords[2])], actions: [], bondedTo: []))
+        atoms.append(SCNAtom(name: atomName, x: coords[0], y: coords[1], z: coords[2], radius: radius, positions: [SCNVector3(coords[0], coords[1], coords[2])], actions: [], bondedTo: []))
         
         let atomGeometry = SCNSphere(radius: CGFloat(radius))
         let atomMaterial = SCNMaterial()
@@ -684,7 +684,7 @@ class MoleculeViewController: UIViewController {
         scene.rootNode.addChildNode(node)
     }
     
-    func isJoinable(atom: Atom) -> Bool {
+    func isJoinable(atom: SCNAtom) -> Bool {
         if atom.bondedTo.count < maxBonds[atom.name] ?? 0 {
             return true
         }

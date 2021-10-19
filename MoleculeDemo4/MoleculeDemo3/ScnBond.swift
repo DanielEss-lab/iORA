@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-struct Bond {
+struct SCNBond {
     var atom1: SCNNode
     var atom2: SCNNode
 }
