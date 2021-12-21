@@ -8,10 +8,10 @@
 import Foundation
 import SceneKit
 
-struct AtomInfo {
-    var positions: [SCNVector3]
-    var actions: [SCNAction]
-}
+//struct AtomInfo {
+//    var positions: [SCNVector3]
+//    var actions: [SCNAction]
+//}
 
 func parseXYZ(inputFile: String) {
     let path = Bundle.main.path(forResource: inputFile, ofType: "xyz")

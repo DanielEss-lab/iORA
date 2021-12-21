@@ -18,7 +18,7 @@ class Engine {
     {
         var fileLoader = FileLoader()
         
-        let fileName = "/Users/jeremiah/Documents/iORA/iORA-Test/iORA/sdfFiles/bullvalenetraj.sdf"
+        let fileName = "/Users/jeremiah/Documents/iORA/iORA/iORA/sdfFiles/bullvalenetraj.sdf"
         
         let url = URL(fileURLWithPath: fileName)
         
