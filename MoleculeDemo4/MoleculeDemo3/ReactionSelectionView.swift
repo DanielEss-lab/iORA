@@ -30,8 +30,8 @@ struct ReactionSelectionView: View {
     }
 }
 
-struct ReactionSelectionView_Previews: PreviewProvider {
+/*struct ReactionSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         ReactionSelectionView()
     }
-}
+}*/
