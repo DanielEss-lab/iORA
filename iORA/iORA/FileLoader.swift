@@ -140,7 +140,7 @@ public class FileLoader {
             }
             if let atom1 = Int(words[0]),
                let atom2 = Int(words[1]),
-               let order = Int(words[2]) {
+               let order = Double(words[2]) {
                 guard self.arrayAtoms.count >= atom1 && self.arrayAtoms.count >= atom2 else {
                     throw ReadFileError.invalidFileFormat
                 }

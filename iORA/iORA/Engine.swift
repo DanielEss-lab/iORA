@@ -18,9 +18,16 @@ class Engine {
     {
         var fileLoader = FileLoader()
         
-        let fileName = "/Users/jeremiah/Documents/iORA/iORA/iORA/sdfFiles/bullvalenetraj.sdf"
+        let fileName = "sdfFiles/bullvalenetraj"
         
-        let url = URL(fileURLWithPath: fileName)
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: fileName, ofType: "sdf")
+
+        guard let unwrappedPath = path else {
+            return
+        }
+        
+        let url = URL(fileURLWithPath: unwrappedPath)
         
         do {
             try fileLoader = fileLoader.parseReactionFile(inputFile: url)
