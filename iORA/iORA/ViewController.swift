@@ -10,12 +10,16 @@ import SceneKit
 
 let scene = SCNScene()
 
+var engine = Engine()
+
+let distMult = 1
+
 let masterAtom = SCNNode()
 let masterBond = SCNNode()
 
-var atoms: [SCNNode] = []
+var sceneAtoms: [SCNNode] = []
 var atomActions: [SCNNode: AtomInfo] = [:]
-var bonds: [SCNNode] = []
+var sceneBonds: [SCNNode] = []
 
 var stepDuration = 0.02
 var step = 0
@@ -36,17 +40,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parseXYZ(inputFile: "SN2")
-//        parseXYZ(inputFile: "Single")
-        sortAtoms()
-        makeBonds()
-        
-        drawBond(atom1: atoms[0], atom2: atoms[9], givenDist: 1.0)
+        engine.initialDraw();
         
         sceneSetup()
         
         // Animation timer 
-        if atomActions[atoms[0]]?.actions.count ?? 0 > 0 {
+        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
             weak var pass = self
             timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
         }
@@ -54,7 +53,7 @@ class ViewController: UIViewController {
     
     
     func sceneSetup() {
-        stepSlider.maximumValue = Float(atomActions[atoms[0]]?.actions.count ?? 1)
+        stepSlider.maximumValue = Float(atomActions[sceneAtoms[0]]?.actions.count ?? 1)
         
         scene.isPaused = true // FIXME: Delete
         
@@ -89,9 +88,10 @@ class ViewController: UIViewController {
         sceneView.scene = scene
     }
     
+    //FIXME: Not currently functioning
     @objc func animate() {
         if(!scene.isPaused) {
-            for atom in atoms {
+            for atom in sceneAtoms {
                 atom.runAction(atomActions[atom]!.actions[step])
             }
             step += 1
@@ -99,23 +99,20 @@ class ViewController: UIViewController {
             stepSlider.value = Float(step)
         }
         else {
-            for atom in atoms {
+            for atom in sceneAtoms {
                 atom.position = atomActions[atom]?.positions[step] ?? SCNVector3(0, 0, 0)
             }
             
         }
         
-        if step >= atomActions[atoms[0]]?.actions.count ?? 0 {
+        if step >= atomActions[sceneAtoms[0]]?.actions.count ?? 0 {
             step = 0
         }
         
-        
-        
-        
-        
-        updateBonds()
+        //updateBonds()
     }
     
+    //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
     }
@@ -128,10 +125,15 @@ class ViewController: UIViewController {
         return Float(max(finalX, finalY, finalZ))
     }
 
+    //FIXME: Not currently functioning
     func sortAtoms() {
-        atoms = atoms.sorted(by: { $0.name ?? "He" < $1.name ?? "He" })
+        sceneAtoms = sceneAtoms.sorted(by: { $0.name ?? "He" < $1.name ?? "He" })
         
         // Could I make it so that you could have a lookup hash map that will be sorted, then just run them off of that?
     }
 }
 
+struct AtomInfo {
+    var positions: [SCNVector3]
+    var actions: [SCNAction]
+}

@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88149A6025A648C500C7420F /* Bonds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88149A5F25A648C500C7420F /* Bonds.swift */; };
+		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
+		277E421827459239001B90F9 /* b.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 277E421727459239001B90F9 /* b.sdf */; };
+		277E421A2745924D001B90F9 /* c.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 277E42192745924D001B90F9 /* c.sdf */; };
+		27CB5E7E2716B049002A07A7 /* sdfFiles in Resources */ = {isa = PBXBuildFile; fileRef = 27CB5E7D2716B049002A07A7 /* sdfFiles */; };
+		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
+		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
+		27CB5E872716B982002A07A7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E862716B982002A07A7 /* State.swift */; };
+		27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E882716B99D002A07A7 /* Reaction.swift */; };
+		27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E8A2716BD59002A07A7 /* FileLoader.swift */; };
 		88BB930E25A43F760093746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930D25A43F760093746B /* AppDelegate.swift */; };
 		88BB931025A43F760093746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930F25A43F760093746B /* SceneDelegate.swift */; };
 		88BB931225A43F760093746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB931125A43F760093746B /* ViewController.swift */; };
@@ -16,7 +24,6 @@
 		88BB931A25A43F790093746B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BB931825A43F790093746B /* LaunchScreen.storyboard */; };
 		88BB932525A43F790093746B /* iORATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB932425A43F790093746B /* iORATests.swift */; };
 		88BB933025A43F7A0093746B /* iORAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB932F25A43F7A0093746B /* iORAUITests.swift */; };
-		88BB934125A43F970093746B /* Atoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB934025A43F970093746B /* Atoms.swift */; };
 		88BB934625A441660093746B /* SN2.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88BB934525A441660093746B /* SN2.xyz */; };
 		88BB934F25A4F6D20093746B /* AtomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB934E25A4F6D10093746B /* AtomInfo.swift */; };
 		88D431F125B65A490039C051 /* Single.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 88D431F025B65A480039C051 /* Single.xyz */; };
@@ -40,7 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		88149A5F25A648C500C7420F /* Bonds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonds.swift; sourceTree = "<group>"; };
+		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		277E421727459239001B90F9 /* b.sdf */ = {isa = PBXFileReference; lastKnownFileType = text; path = b.sdf; sourceTree = "<group>"; };
+		277E42192745924D001B90F9 /* c.sdf */ = {isa = PBXFileReference; lastKnownFileType = text; path = c.sdf; sourceTree = "<group>"; };
+		27CB5E7D2716B049002A07A7 /* sdfFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdfFiles; sourceTree = "<group>"; };
+		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
+		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
+		27CB5E862716B982002A07A7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		27CB5E882716B99D002A07A7 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		27CB5E8A2716BD59002A07A7 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
 		88BB930A25A43F760093746B /* iORA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iORA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BB930D25A43F760093746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BB930F25A43F760093746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +70,6 @@
 		88BB932B25A43F7A0093746B /* iORAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iORAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BB932F25A43F7A0093746B /* iORAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iORAUITests.swift; sourceTree = "<group>"; };
 		88BB933125A43F7A0093746B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88BB934025A43F970093746B /* Atoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atoms.swift; sourceTree = "<group>"; };
 		88BB934525A441660093746B /* SN2.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SN2.xyz; sourceTree = "<group>"; };
 		88BB934E25A4F6D10093746B /* AtomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomInfo.swift; sourceTree = "<group>"; };
 		88D431F025B65A480039C051 /* Single.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Single.xyz; sourceTree = "<group>"; };
@@ -86,6 +100,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		277E421627459203001B90F9 /* newSDF */ = {
+			isa = PBXGroup;
+			children = (
+				277E421727459239001B90F9 /* b.sdf */,
+				277E42192745924D001B90F9 /* c.sdf */,
+			);
+			path = newSDF;
+			sourceTree = "<group>";
+		};
+		27CB5E812716B92E002A07A7 /* Data Objects */ = {
+			isa = PBXGroup;
+			children = (
+				27CB5E822716B942002A07A7 /* Atom.swift */,
+				27CB5E842716B965002A07A7 /* Bond.swift */,
+				27CB5E862716B982002A07A7 /* State.swift */,
+				27CB5E882716B99D002A07A7 /* Reaction.swift */,
+			);
+			path = "Data Objects";
+			sourceTree = "<group>";
+		};
 		88BB930125A43F760093746B = {
 			isa = PBXGroup;
 			children = (
@@ -109,9 +143,10 @@
 		88BB930C25A43F760093746B /* iORA */ = {
 			isa = PBXGroup;
 			children = (
+				277E421627459203001B90F9 /* newSDF */,
+				27CB5E812716B92E002A07A7 /* Data Objects */,
+				27CB5E7D2716B049002A07A7 /* sdfFiles */,
 				88BB931125A43F760093746B /* ViewController.swift */,
-				88149A5F25A648C500C7420F /* Bonds.swift */,
-				88BB934025A43F970093746B /* Atoms.swift */,
 				88BB934E25A4F6D10093746B /* AtomInfo.swift */,
 				88BB931325A43F760093746B /* Main.storyboard */,
 				88BB931625A43F790093746B /* Assets.xcassets */,
@@ -119,9 +154,9 @@
 				88BB930D25A43F760093746B /* AppDelegate.swift */,
 				88BB931825A43F790093746B /* LaunchScreen.storyboard */,
 				88BB931B25A43F790093746B /* Info.plist */,
-				88BB934525A441660093746B /* SN2.xyz */,
-				88D431F025B65A480039C051 /* Single.xyz */,
 				88BB934A25A4416C0093746B /* XYZ Files */,
+				27CB5E8A2716BD59002A07A7 /* FileLoader.swift */,
+				2767D12C2758075000619CE1 /* Engine.swift */,
 			);
 			path = iORA;
 			sourceTree = "<group>";
@@ -147,6 +182,8 @@
 		88BB934A25A4416C0093746B /* XYZ Files */ = {
 			isa = PBXGroup;
 			children = (
+				88D431F025B65A480039C051 /* Single.xyz */,
+				88BB934525A441660093746B /* SN2.xyz */,
 			);
 			path = "XYZ Files";
 			sourceTree = "<group>";
@@ -254,7 +291,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277E421827459239001B90F9 /* b.sdf in Resources */,
+				27CB5E7E2716B049002A07A7 /* sdfFiles in Resources */,
 				88BB931A25A43F790093746B /* LaunchScreen.storyboard in Resources */,
+				277E421A2745924D001B90F9 /* c.sdf in Resources */,
 				88BB931725A43F790093746B /* Assets.xcassets in Resources */,
 				88D431F125B65A490039C051 /* Single.xyz in Resources */,
 				88BB931525A43F760093746B /* Main.storyboard in Resources */,
@@ -283,12 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88149A6025A648C500C7420F /* Bonds.swift in Sources */,
+				2767D12D2758075000619CE1 /* Engine.swift in Sources */,
 				88BB931225A43F760093746B /* ViewController.swift in Sources */,
+				27CB5E872716B982002A07A7 /* State.swift in Sources */,
+				27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */,
 				88BB930E25A43F760093746B /* AppDelegate.swift in Sources */,
+				27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */,
 				88BB934F25A4F6D20093746B /* AtomInfo.swift in Sources */,
+				27CB5E852716B965002A07A7 /* Bond.swift in Sources */,
 				88BB931025A43F760093746B /* SceneDelegate.swift in Sources */,
-				88BB934125A43F970093746B /* Atoms.swift in Sources */,
+				27CB5E832716B942002A07A7 /* Atom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,13 +509,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7XY4V4PZH2;
+				DEVELOPMENT_TEAM = DWS2YP7FLG;
 				INFOPLIST_FILE = iORA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabetrotro.iORA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremiah.iORA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,13 +528,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7XY4V4PZH2;
+				DEVELOPMENT_TEAM = DWS2YP7FLG;
 				INFOPLIST_FILE = iORA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabetrotro.iORA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeremiah.iORA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
