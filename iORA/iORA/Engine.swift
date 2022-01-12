@@ -12,34 +12,27 @@ import SceneKit
 //engine puts all of the atoms from the data classes into SceneKit nodes that are then rendered in the scene setup section of the ViewController
 
 class Engine {
-
     
-    func initialDraw()
-    {
-        var fileLoader = FileLoader()
-        
-        let fileName = "sdfFiles/bullvalenetraj"
-        
-        let bundle = Bundle(for: type(of: self))
+    func initialDraw() {
+        let fileLoader = FileLoader()
+        let fileName = "sdfFiles/" + globalReaction
+        let bundle = Bundle.main
         let path = bundle.path(forResource: fileName, ofType: "sdf")
-
         guard let unwrappedPath = path else {
             return
         }
-        
         let url = URL(fileURLWithPath: unwrappedPath)
         
+        let reaction: Reaction
         do {
-            try fileLoader = fileLoader.parseReactionFile(inputFile: url)
+            reaction = try fileLoader.parseReactionFile(inputFile: url).getReaction()
         }
-        catch
-        {
+        catch {
             print(error)
+            return
         }
         
         //FIXME: below is the code to just implement one state, so I am pulling the first one. I need to add the ability to handle multiple states but that is for later
-        
-        let reaction = fileLoader.getReaction()
         
         let states: [State] = reaction.getStates()
         let atoms: [Atom] = states[0].atoms

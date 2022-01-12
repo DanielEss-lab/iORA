@@ -60,7 +60,6 @@ class ViewController: UIViewController {
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: getCameraPosition(maxX: maxX, maxY: maxY, maxZ: maxZ))
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
-        print(cameraNode.position)
         scene.rootNode.addChildNode(cameraNode)
         
         // Scene light

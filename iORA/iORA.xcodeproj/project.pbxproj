@@ -16,6 +16,10 @@
 		27CB5E872716B982002A07A7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E862716B982002A07A7 /* State.swift */; };
 		27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E882716B99D002A07A7 /* Reaction.swift */; };
 		27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E8A2716BD59002A07A7 /* FileLoader.swift */; };
+		84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */; };
+		84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23C278F85C1002B2A53 /* ReactionView.swift */; };
+		84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23E278F861F002B2A53 /* HostingController.swift */; };
+		84FAC241278F868C002B2A53 /* View.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC240278F868C002B2A53 /* View.storyboard */; };
 		88BB930E25A43F760093746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930D25A43F760093746B /* AppDelegate.swift */; };
 		88BB931025A43F760093746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930F25A43F760093746B /* SceneDelegate.swift */; };
 		88BB931225A43F760093746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB931125A43F760093746B /* ViewController.swift */; };
@@ -56,6 +60,10 @@
 		27CB5E862716B982002A07A7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		27CB5E882716B99D002A07A7 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		27CB5E8A2716BD59002A07A7 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionSelectionView.swift; sourceTree = "<group>"; };
+		84FAC23C278F85C1002B2A53 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
+		84FAC23E278F861F002B2A53 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		84FAC240278F868C002B2A53 /* View.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = View.storyboard; sourceTree = "<group>"; };
 		88BB930A25A43F760093746B /* iORA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iORA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BB930D25A43F760093746B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BB930F25A43F760093746B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +165,10 @@
 				88BB934A25A4416C0093746B /* XYZ Files */,
 				27CB5E8A2716BD59002A07A7 /* FileLoader.swift */,
 				2767D12C2758075000619CE1 /* Engine.swift */,
+				84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */,
+				84FAC23C278F85C1002B2A53 /* ReactionView.swift */,
+				84FAC23E278F861F002B2A53 /* HostingController.swift */,
+				84FAC240278F868C002B2A53 /* View.storyboard */,
 			);
 			path = iORA;
 			sourceTree = "<group>";
@@ -297,6 +309,7 @@
 				277E421A2745924D001B90F9 /* c.sdf in Resources */,
 				88BB931725A43F790093746B /* Assets.xcassets in Resources */,
 				88D431F125B65A490039C051 /* Single.xyz in Resources */,
+				84FAC241278F868C002B2A53 /* View.storyboard in Resources */,
 				88BB931525A43F760093746B /* Main.storyboard in Resources */,
 				88BB934625A441660093746B /* SN2.xyz in Resources */,
 			);
@@ -323,9 +336,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */,
+				84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */,
 				2767D12D2758075000619CE1 /* Engine.swift in Sources */,
 				88BB931225A43F760093746B /* ViewController.swift in Sources */,
 				27CB5E872716B982002A07A7 /* State.swift in Sources */,
+				84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */,
 				27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */,
 				88BB930E25A43F760093746B /* AppDelegate.swift in Sources */,
 				27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */,
