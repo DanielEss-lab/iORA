@@ -30,6 +30,12 @@
 
 import UIKit
 import SceneKit
+import SwiftUI
+
+class MoleculeViewObservable: ObservableObject {
+    @Published var filename = ""
+    var onLoginAction: (()->Void)!
+}
 
 class MoleculeViewController: UIViewController {
     
@@ -90,6 +96,8 @@ class MoleculeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Global Reaction number of states:", globalReaction.getStates().count)
         
         
         

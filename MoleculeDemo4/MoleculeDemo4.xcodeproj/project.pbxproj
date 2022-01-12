@@ -24,6 +24,28 @@
 		84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */; };
 		84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */; };
 		84970EBA270E2C740079C8BD /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EB9270E2C740079C8BD /* ReactionSelectionView.swift */; };
+		84FAC224278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */; };
+		84FAC225278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */; };
+		84FAC226278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */; };
+		84FAC227278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */; };
+		84FAC228278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */; };
+		84FAC229278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */; };
+		84FAC22A278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */; };
+		84FAC22B278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */; };
+		84FAC22C278E2B73002B2A53 /* SN2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21D278E2B73002B2A53 /* SN2.sdf */; };
+		84FAC22D278E2B73002B2A53 /* SN2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21D278E2B73002B2A53 /* SN2.sdf */; };
+		84FAC22E278E2B73002B2A53 /* cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */; };
+		84FAC22F278E2B73002B2A53 /* cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */; };
+		84FAC230278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */; };
+		84FAC231278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */; };
+		84FAC232278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */; };
+		84FAC233278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */; };
+		84FAC234278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */; };
+		84FAC235278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */; };
+		84FAC236278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */; };
+		84FAC237278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */; };
+		84FAC238278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */; };
+		84FAC239278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */; };
 		84FF253C271E09430050074D /* SelectionHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF253B271E09430050074D /* SelectionHostingController.swift */; };
 		84FF2540271E14E10050074D /* Reaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF253F271E14E10050074D /* Reaction.storyboard */; };
 		84FF2542271F81FD0050074D /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF2541271F81FD0050074D /* ReactionView.swift */; };
@@ -80,6 +102,17 @@
 		84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cyclobutanetraj1.sdf; sourceTree = "<group>"; };
 		84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bullvalenetraj.sdf; sourceTree = "<group>"; };
 		84970EB9270E2C740079C8BD /* ReactionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionSelectionView.swift; sourceTree = "<group>"; };
+		84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TertButyl_RA_tertpentyl.sdf; sourceTree = "<group>"; };
+		84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-Bromobutane_SN2_2-Methoxybutane.sdf"; sourceTree = "<group>"; };
+		84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Butoxy_TS_hydroxybutyl.sdf; sourceTree = "<group>"; };
+		84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Iodotertbutane_SN1_tertbutyl.sdf; sourceTree = "<group>"; };
+		84FAC21D278E2B73002B2A53 /* SN2.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SN2.sdf; sourceTree = "<group>"; };
+		84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cyclohexane.sdf; sourceTree = "<group>"; };
+		84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = butadiene_ethene_DA_cyclohexane.sdf; sourceTree = "<group>"; };
+		84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf"; sourceTree = "<group>"; };
+		84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-Bromobutane_E2_Butene.sdf"; sourceTree = "<group>"; };
+		84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Butene_EA_bromobutane.sdf; sourceTree = "<group>"; };
+		84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hexadiene_cope_hexadiene.sdf; sourceTree = "<group>"; };
 		84FF253B271E09430050074D /* SelectionHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHostingController.swift; sourceTree = "<group>"; };
 		84FF253F271E14E10050074D /* Reaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reaction.storyboard; sourceTree = "<group>"; };
 		84FF2541271F81FD0050074D /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
@@ -151,6 +184,17 @@
 		84970EAF270E169A0079C8BD /* sdfFiles */ = {
 			isa = PBXGroup;
 			children = (
+				84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */,
+				84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */,
+				84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */,
+				84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */,
+				84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */,
+				84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */,
+				84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */,
+				84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */,
+				84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */,
+				84FAC21D278E2B73002B2A53 /* SN2.sdf */,
+				84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */,
 				84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */,
 				84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */,
 			);
@@ -347,16 +391,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */,
+				84FAC236278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */,
+				84FAC238278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */,
 				885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */,
 				8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */,
+				84FAC224278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */,
 				888722DC252D023C000E808A /* XYZ_test_6.xyz in Resources */,
 				84970EB2270E169A0079C8BD /* cyclobutanetraj1.sdf in Resources */,
+				84FAC226278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */,
+				84FAC232278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */,
 				88B82D7824F57F1E0050F836 /* Assets.xcassets in Resources */,
+				84FAC234278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */,
 				84970E9E270E138F0079C8BD /* testMol2.sdf in Resources */,
+				84FAC228278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */,
 				84970EA0270E138F0079C8BD /* testMol1.sdf in Resources */,
+				84FAC22E278E2B73002B2A53 /* cyclohexane.sdf in Resources */,
 				88A242A42560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz in Resources */,
 				88ADFAFE2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz in Resources */,
 				88E2B01C256E05FE00C20672 /* SN2.xyz in Resources */,
+				84FAC22A278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */,
+				84FAC22C278E2B73002B2A53 /* SN2.sdf in Resources */,
+				84FAC230278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */,
 				885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */,
 				84970EB3270E169A0079C8BD /* bullvalenetraj.sdf in Resources */,
 				84970E9F270E138F0079C8BD /* testMol3.sdf in Resources */,
@@ -369,10 +424,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FAC22F278E2B73002B2A53 /* cyclohexane.sdf in Resources */,
+				84FAC231278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */,
+				84FAC239278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */,
 				84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */,
 				84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */,
 				84970EB4270E16FB0079C8BD /* testMol1.sdf in Resources */,
+				84FAC225278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */,
+				84FAC229278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */,
+				84FAC22B278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */,
+				84FAC237278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */,
+				84FAC227278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */,
+				84FAC235278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */,
+				84FAC22D278E2B73002B2A53 /* SN2.sdf in Resources */,
 				84970EB5270E16FB0079C8BD /* testMol2.sdf in Resources */,
+				84FAC233278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */,
 				84970EB6270E16FB0079C8BD /* testMol3.sdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
