@@ -38,14 +38,24 @@ class Engine {
         let atoms: [Atom] = states[0].atoms
         let bonds: [Bond] = states[0].bonds
         
+        // reset scene
+        for atom in sceneAtoms {
+            atom.removeAllActions()
+            atom.removeFromParentNode()
+        }
+        for bond in sceneBonds {
+            bond.removeAllActions()
+            bond.removeFromParentNode()
+        }
+        atomActions = [:]
+        sceneBonds = []
+        sceneAtoms = []
+        
         //draw atoms
-        for atom in atoms
-        {
+        for atom in atoms {
             makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
         }
-        
-        for bond in bonds
-        {
+        for bond in bonds {
             drawBond(atom1: bond.atom1, atom2: bond.atom2, givenDist: 1.0)
         }
     }
