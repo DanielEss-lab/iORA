@@ -47,9 +47,9 @@ class Engine {
             bond.removeAllActions()
             bond.removeFromParentNode()
         }
-        atomActions = [:]
-        sceneBonds = []
-        sceneAtoms = []
+        atomActions.removeAll()
+        sceneAtoms.removeAll()
+        sceneBonds.removeAll()
         
         //draw atoms
         for atom in atoms {
@@ -156,8 +156,24 @@ class Engine {
     }
     
     func makeAtom(atomName: String, coords: [Double], scene: SCNScene) {
-        guard let radius = atomRadii[atomName]?.customRadius,
-              let color = atomRadii[atomName]?.color else { return }
+        guard let atomInfo = atomRadii[atomName] else {
+            return
+        }
+        
+        let radius: Double
+        if atomInfo.customRadius == nil {
+            guard let atomicRadius = atomInfo.atomicRadius else {
+                return
+            }
+            radius = atomicRadius * 0.75
+        } else {
+            guard let customRadius = atomInfo.customRadius else {
+                return
+            }
+            radius = customRadius
+        }
+        
+        let color = atomInfo.color
         
         let atomGeometry = SCNSphere(radius: CGFloat(radius))
         let atomMaterial = SCNMaterial()
