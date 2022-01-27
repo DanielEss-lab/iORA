@@ -35,6 +35,7 @@ struct ReactionSelectionView: View {
                 NavigationLink(destination: ReactionView(reactionFile: r)) {
                     Text(r.name)
                 }
+                .navigationBarTitleDisplayMode(.inline)
             }
             .navigationTitle("Reaction Selection")
         }
