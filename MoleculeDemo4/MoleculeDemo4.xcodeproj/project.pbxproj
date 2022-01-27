@@ -23,8 +23,34 @@
 		84970EB6270E16FB0079C8BD /* testMol3.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970E9B270E138F0079C8BD /* testMol3.sdf */; };
 		84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */; };
 		84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */; };
+		84970EBA270E2C740079C8BD /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84970EB9270E2C740079C8BD /* ReactionSelectionView.swift */; };
+		84FAC224278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */; };
+		84FAC225278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */; };
+		84FAC226278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */; };
+		84FAC227278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */; };
+		84FAC228278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */; };
+		84FAC229278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */; };
+		84FAC22A278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */; };
+		84FAC22B278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */; };
+		84FAC22C278E2B73002B2A53 /* SN2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21D278E2B73002B2A53 /* SN2.sdf */; };
+		84FAC22D278E2B73002B2A53 /* SN2.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21D278E2B73002B2A53 /* SN2.sdf */; };
+		84FAC22E278E2B73002B2A53 /* cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */; };
+		84FAC22F278E2B73002B2A53 /* cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */; };
+		84FAC230278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */; };
+		84FAC231278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */; };
+		84FAC232278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */; };
+		84FAC233278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */; };
+		84FAC234278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */; };
+		84FAC235278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */; };
+		84FAC236278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */; };
+		84FAC237278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */; };
+		84FAC238278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */; };
+		84FAC239278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */; };
+		84FF253C271E09430050074D /* SelectionHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF253B271E09430050074D /* SelectionHostingController.swift */; };
+		84FF2540271E14E10050074D /* Reaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF253F271E14E10050074D /* Reaction.storyboard */; };
+		84FF2542271F81FD0050074D /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF2541271F81FD0050074D /* ReactionView.swift */; };
 		8817C94C256468EB000065FB /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817C94B256468EB000065FB /* OptionsViewController.swift */; };
-		881D66C3253F80BC00054303 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D66C2253F80BC00054303 /* Bond.swift */; };
+		881D66C3253F80BC00054303 /* ScnBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D66C2253F80BC00054303 /* ScnBond.swift */; };
 		885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */; };
 		885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */ = {isa = PBXBuildFile; fileRef = 885BFAC2251AB1E90042EB4C /* XYZ_test_4.xyz */; };
 		8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8880B6812579D28300ADB56B /* NodeTechnique.plist */; };
@@ -38,9 +64,8 @@
 		88B82D7624F57F1D0050F836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B82D7424F57F1D0050F836 /* Main.storyboard */; };
 		88B82D7824F57F1E0050F836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B82D7724F57F1E0050F836 /* Assets.xcassets */; };
 		88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B82D7924F57F1E0050F836 /* LaunchScreen.storyboard */; };
-		88B82D8624F57F1E0050F836 /* MoleculeDemo3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D8524F57F1E0050F836 /* MoleculeDemo3Tests.swift */; };
 		88B82D9124F57F1E0050F836 /* MoleculeDemo3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82D9024F57F1E0050F836 /* MoleculeDemo3UITests.swift */; };
-		88B82DA424F583BE0050F836 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82DA324F583BE0050F836 /* Atom.swift */; };
+		88B82DA424F583BE0050F836 /* ScnAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82DA324F583BE0050F836 /* ScnAtom.swift */; };
 		88B82DA624F583D40050F836 /* AtomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B82DA524F583D40050F836 /* AtomInfo.swift */; };
 		88C45F502548D6850049DCF3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C45F4F2548D6850049DCF3 /* Timer.swift */; };
 		88DB3030252F960800AB899F /* MoleculeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB302F252F960800AB899F /* MoleculeTableViewController.swift */; };
@@ -76,8 +101,23 @@
 		84970EAA270E164E0079C8BD /* Atom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cyclobutanetraj1.sdf; sourceTree = "<group>"; };
 		84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bullvalenetraj.sdf; sourceTree = "<group>"; };
+		84970EB9270E2C740079C8BD /* ReactionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionSelectionView.swift; sourceTree = "<group>"; };
+		84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TertButyl_RA_tertpentyl.sdf; sourceTree = "<group>"; };
+		84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-Bromobutane_SN2_2-Methoxybutane.sdf"; sourceTree = "<group>"; };
+		84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Butoxy_TS_hydroxybutyl.sdf; sourceTree = "<group>"; };
+		84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Iodotertbutane_SN1_tertbutyl.sdf; sourceTree = "<group>"; };
+		84FAC21D278E2B73002B2A53 /* SN2.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SN2.sdf; sourceTree = "<group>"; };
+		84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cyclohexane.sdf; sourceTree = "<group>"; };
+		84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = butadiene_ethene_DA_cyclohexane.sdf; sourceTree = "<group>"; };
+		84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf"; sourceTree = "<group>"; };
+		84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-Bromobutane_E2_Butene.sdf"; sourceTree = "<group>"; };
+		84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Butene_EA_bromobutane.sdf; sourceTree = "<group>"; };
+		84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hexadiene_cope_hexadiene.sdf; sourceTree = "<group>"; };
+		84FF253B271E09430050074D /* SelectionHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHostingController.swift; sourceTree = "<group>"; };
+		84FF253F271E14E10050074D /* Reaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reaction.storyboard; sourceTree = "<group>"; };
+		84FF2541271F81FD0050074D /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
 		8817C94B256468EB000065FB /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		881D66C2253F80BC00054303 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
+		881D66C2253F80BC00054303 /* ScnBond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScnBond.swift; sourceTree = "<group>"; };
 		885BFABD251AA96D0042EB4C /* XYZ_test_3.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_3.xyz; sourceTree = "<group>"; };
 		885BFAC2251AB1E90042EB4C /* XYZ_test_4.xyz */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYZ_test_4.xyz; sourceTree = "<group>"; };
 		8880B6812579D28300ADB56B /* NodeTechnique.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NodeTechnique.plist; sourceTree = "<group>"; };
@@ -94,12 +134,11 @@
 		88B82D7A24F57F1E0050F836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B82D7C24F57F1E0050F836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B82D8124F57F1E0050F836 /* MoleculeDemo4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoleculeDemo4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88B82D8524F57F1E0050F836 /* MoleculeDemo3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeDemo3Tests.swift; sourceTree = "<group>"; };
 		88B82D8724F57F1E0050F836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B82D8C24F57F1E0050F836 /* MoleculeDemo4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoleculeDemo4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B82D9024F57F1E0050F836 /* MoleculeDemo3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeDemo3UITests.swift; sourceTree = "<group>"; };
 		88B82D9224F57F1E0050F836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88B82DA324F583BE0050F836 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
+		88B82DA324F583BE0050F836 /* ScnAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScnAtom.swift; sourceTree = "<group>"; };
 		88B82DA524F583D40050F836 /* AtomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomInfo.swift; sourceTree = "<group>"; };
 		88C45F4F2548D6850049DCF3 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		88DB302F252F960800AB899F /* MoleculeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +184,17 @@
 		84970EAF270E169A0079C8BD /* sdfFiles */ = {
 			isa = PBXGroup;
 			children = (
+				84FAC221278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf */,
+				84FAC21A278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf */,
+				84FAC220278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf */,
+				84FAC21F278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf */,
+				84FAC222278E2B73002B2A53 /* Butene_EA_bromobutane.sdf */,
+				84FAC21B278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf */,
+				84FAC21E278E2B73002B2A53 /* cyclohexane.sdf */,
+				84FAC223278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf */,
+				84FAC21C278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf */,
+				84FAC21D278E2B73002B2A53 /* SN2.sdf */,
+				84FAC219278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf */,
 				84970EB0270E169A0079C8BD /* cyclobutanetraj1.sdf */,
 				84970EB1270E169A0079C8BD /* bullvalenetraj.sdf */,
 			);
@@ -181,8 +231,8 @@
 				84970E95270E135E0079C8BD /* FileLoader.swift */,
 				8817C94B256468EB000065FB /* OptionsViewController.swift */,
 				88C45F4F2548D6850049DCF3 /* Timer.swift */,
-				88B82DA324F583BE0050F836 /* Atom.swift */,
-				881D66C2253F80BC00054303 /* Bond.swift */,
+				88B82DA324F583BE0050F836 /* ScnAtom.swift */,
+				881D66C2253F80BC00054303 /* ScnBond.swift */,
 				88B82DA524F583D40050F836 /* AtomInfo.swift */,
 				88DB302F252F960800AB899F /* MoleculeTableViewController.swift */,
 				8880B6822579D28300ADB56B /* NodeRender.metal */,
@@ -193,6 +243,10 @@
 				88B82D7024F57F1D0050F836 /* SceneDelegate.swift */,
 				88B82D7924F57F1E0050F836 /* LaunchScreen.storyboard */,
 				88B82D7C24F57F1E0050F836 /* Info.plist */,
+				84970EB9270E2C740079C8BD /* ReactionSelectionView.swift */,
+				84FF253B271E09430050074D /* SelectionHostingController.swift */,
+				84FF253F271E14E10050074D /* Reaction.storyboard */,
+				84FF2541271F81FD0050074D /* ReactionView.swift */,
 			);
 			path = MoleculeDemo3;
 			sourceTree = "<group>";
@@ -204,7 +258,6 @@
 				84970E9A270E138F0079C8BD /* testMol2.sdf */,
 				84970E9B270E138F0079C8BD /* testMol3.sdf */,
 				84970E99270E138F0079C8BD /* FileLoaderTests.swift */,
-				88B82D8524F57F1E0050F836 /* MoleculeDemo3Tests.swift */,
 				88B82D8724F57F1E0050F836 /* Info.plist */,
 			);
 			path = MoleculeDemo3Tests;
@@ -338,20 +391,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B82D7B24F57F1E0050F836 /* LaunchScreen.storyboard in Resources */,
+				84FAC236278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */,
+				84FAC238278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */,
 				885BFAC3251AB1E90042EB4C /* XYZ_test_4.xyz in Resources */,
 				8880B6832579D28300ADB56B /* NodeTechnique.plist in Resources */,
+				84FAC224278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */,
 				888722DC252D023C000E808A /* XYZ_test_6.xyz in Resources */,
 				84970EB2270E169A0079C8BD /* cyclobutanetraj1.sdf in Resources */,
+				84FAC226278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */,
+				84FAC232278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */,
 				88B82D7824F57F1E0050F836 /* Assets.xcassets in Resources */,
+				84FAC234278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */,
 				84970E9E270E138F0079C8BD /* testMol2.sdf in Resources */,
+				84FAC228278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */,
 				84970EA0270E138F0079C8BD /* testMol1.sdf in Resources */,
+				84FAC22E278E2B73002B2A53 /* cyclohexane.sdf in Resources */,
 				88A242A42560507700D67090 /* OH-EtBr-SN2-traj5 2.xyz in Resources */,
 				88ADFAFE2554977E003C5D8A /* OH-EtBr-SN2-traj5.xyz in Resources */,
 				88E2B01C256E05FE00C20672 /* SN2.xyz in Resources */,
+				84FAC22A278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */,
+				84FAC22C278E2B73002B2A53 /* SN2.sdf in Resources */,
+				84FAC230278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */,
 				885BFABE251AA96D0042EB4C /* XYZ_test_3.xyz in Resources */,
 				84970EB3270E169A0079C8BD /* bullvalenetraj.sdf in Resources */,
 				84970E9F270E138F0079C8BD /* testMol3.sdf in Resources */,
 				88B82D7624F57F1D0050F836 /* Main.storyboard in Resources */,
+				84FF2540271E14E10050074D /* Reaction.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,10 +424,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FAC22F278E2B73002B2A53 /* cyclohexane.sdf in Resources */,
+				84FAC231278E2B73002B2A53 /* butadiene_ethene_DA_cyclohexane.sdf in Resources */,
+				84FAC239278E2B73002B2A53 /* hexadiene_cope_hexadiene.sdf in Resources */,
 				84970EB7270E17070079C8BD /* cyclobutanetraj1.sdf in Resources */,
 				84970EB8270E17070079C8BD /* bullvalenetraj.sdf in Resources */,
 				84970EB4270E16FB0079C8BD /* testMol1.sdf in Resources */,
+				84FAC225278E2B73002B2A53 /* TertButyl_RA_tertpentyl.sdf in Resources */,
+				84FAC229278E2B73002B2A53 /* Butoxy_TS_hydroxybutyl.sdf in Resources */,
+				84FAC22B278E2B73002B2A53 /* Iodotertbutane_SN1_tertbutyl.sdf in Resources */,
+				84FAC237278E2B73002B2A53 /* Butene_EA_bromobutane.sdf in Resources */,
+				84FAC227278E2B73002B2A53 /* 2-Bromobutane_SN2_2-Methoxybutane.sdf in Resources */,
+				84FAC235278E2B73002B2A53 /* 2-Bromobutane_E2_Butene.sdf in Resources */,
+				84FAC22D278E2B73002B2A53 /* SN2.sdf in Resources */,
 				84970EB5270E16FB0079C8BD /* testMol2.sdf in Resources */,
+				84FAC233278E2B73002B2A53 /* Acetone_NA_2-hydroxy-2-methylpropanenitrile.sdf in Resources */,
 				84970EB6270E16FB0079C8BD /* testMol3.sdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84970EAD270E164E0079C8BD /* Reaction.swift in Sources */,
+				84FF2542271F81FD0050074D /* ReactionView.swift in Sources */,
 				88B82DA624F583D40050F836 /* AtomInfo.swift in Sources */,
 				88B82D7324F57F1D0050F836 /* 3DViewController.swift in Sources */,
 				88B82D6F24F57F1D0050F836 /* AppDelegate.swift in Sources */,
@@ -389,11 +466,13 @@
 				84970EAE270E164E0079C8BD /* Atom.swift in Sources */,
 				8880B6842579D28300ADB56B /* NodeRender.metal in Sources */,
 				8817C94C256468EB000065FB /* OptionsViewController.swift in Sources */,
-				881D66C3253F80BC00054303 /* Bond.swift in Sources */,
+				881D66C3253F80BC00054303 /* ScnBond.swift in Sources */,
 				88DB3030252F960800AB899F /* MoleculeTableViewController.swift in Sources */,
 				84970EAB270E164E0079C8BD /* State.swift in Sources */,
 				84970EAC270E164E0079C8BD /* Bond.swift in Sources */,
-				88B82DA424F583BE0050F836 /* Atom.swift in Sources */,
+				84FF253C271E09430050074D /* SelectionHostingController.swift in Sources */,
+				84970EBA270E2C740079C8BD /* ReactionSelectionView.swift in Sources */,
+				88B82DA424F583BE0050F836 /* ScnAtom.swift in Sources */,
 				88B82D7124F57F1D0050F836 /* SceneDelegate.swift in Sources */,
 				88C45F502548D6850049DCF3 /* Timer.swift in Sources */,
 			);
@@ -404,7 +483,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84970EA3270E147D0079C8BD /* FileLoaderTests.swift in Sources */,
-				88B82D8624F57F1E0050F836 /* MoleculeDemo3Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -557,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -573,7 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7XY4V4PZH2;
+				DEVELOPMENT_TEAM = 576Y5257HB;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = MoleculeDemo3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -594,7 +672,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7XY4V4PZH2;
+				DEVELOPMENT_TEAM = 576Y5257HB;
 				INFOPLIST_FILE = MoleculeDemo3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +692,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MoleculeDemo3Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,7 +712,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MoleculeDemo3Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

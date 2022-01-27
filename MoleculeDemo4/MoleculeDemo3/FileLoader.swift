@@ -1,6 +1,6 @@
 //
 //  FileLoader.swift
-//  MoleculeDemo4
+//  iORA
 //
 //  Created by Jared Rossberg on 9/28/21.
 //  Copyright © 2021 Gabriel Reed. All rights reserved.
@@ -41,7 +41,7 @@ public class FileLoader {
         self.reaction = Reaction()
     }
     
-    public func parseReactionFile(inputFile: String?) throws -> FileLoader {
+    public func parseReactionFile(inputFile: URL?) throws -> FileLoader {
         self.reaction = Reaction()
         self.resetVars()
         if let inputFile = inputFile {
@@ -65,11 +65,11 @@ public class FileLoader {
         self.arrayBonds = []
     }
     
-    private func parseSdfFile(inputFile: String) throws {
-        guard FileManager.default.fileExists(atPath: inputFile) else {
+    private func parseSdfFile(inputFile: URL) throws {
+        guard FileManager.default.fileExists(atPath: inputFile.path) else {
             throw ReadFileError.doesNotExist
         }
-        guard let filePointer:UnsafeMutablePointer<FILE> = fopen(inputFile ,"r") else {
+        guard let filePointer:UnsafeMutablePointer<FILE> = fopen(inputFile.path ,"r") else {
             throw ReadFileError.couldNotOpen
         }
         defer {
@@ -140,7 +140,7 @@ public class FileLoader {
             }
             if let atom1 = Int(words[0]),
                let atom2 = Int(words[1]),
-               let order = Int(words[2]) {
+               let order = Double(words[2]) {
                 guard self.arrayAtoms.count >= atom1 && self.arrayAtoms.count >= atom2 else {
                     throw ReadFileError.invalidFileFormat
                 }
@@ -165,3 +165,4 @@ public class FileLoader {
     }
     
 }
+
