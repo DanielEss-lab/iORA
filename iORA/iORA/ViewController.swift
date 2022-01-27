@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         sceneSetup()
         
-        // Animation timer 
+        // Animation timer
         if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
             weak var pass = self
             timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         lightNode.light = SCNLight()
         lightNode.light?.type = .omni
         lightNode.position = SCNVector3(x: -40, y: 40, z: 35)
+        //lightNode.light?.intensity *= 0.3
         scene.rootNode.addChildNode(lightNode)
         
         // Ambient light
@@ -75,7 +76,7 @@ class ViewController: UIViewController {
         ambientLightNode.light?.type = .ambient
         ambientLightNode.light?.color = UIColor.darkGray
         ambientLightNode.position = SCNVector3(0.0, 0.0, -20.0)
-        ambientLightNode.light?.intensity = 600 // Default 3500
+        ambientLightNode.light?.intensity = 1200 // Default 3500
         scene.rootNode.addChildNode(ambientLightNode)
         
         sceneView.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00) // Dark blue
