@@ -44,6 +44,9 @@ class ViewController: UIViewController {
         
         sceneSetup()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
+        sceneView.addGestureRecognizer(tap)
+        
         // Animation timer
         if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
             weak var pass = self
@@ -130,6 +133,10 @@ class ViewController: UIViewController {
         sceneAtoms = sceneAtoms.sorted(by: { $0.name ?? "He" < $1.name ?? "He" })
         
         // Could I make it so that you could have a lookup hash map that will be sorted, then just run them off of that?
+    }
+    
+    @objc func handleTap(rec: UITapGestureRecognizer) {
+        handleAtomTap(rec: rec, caller: self)
     }
 }
 
