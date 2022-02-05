@@ -65,6 +65,20 @@ class ViewController: UIViewController {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         scene.rootNode.addChildNode(cameraNode)
         
+        // ATOM GLOW
+        if let path = Bundle.main.path(forResource: "NodeTechnique", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path)  {
+                let dict2 = dict as! [String : AnyObject]
+                let technique = SCNTechnique(dictionary:dict2)
+                
+                // Set glow color
+                let color = SCNVector3(1.0, 0.0, 0.0)
+                technique?.setValue(NSValue(scnVector3: color), forKeyPath: "glowColorSymbol")
+                
+                sceneView.technique = technique
+            }
+        }
+        
         // Scene light
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
@@ -87,6 +101,7 @@ class ViewController: UIViewController {
         
         scene.rootNode.addChildNode(masterAtom)
         scene.rootNode.addChildNode(masterBond)
+        scene.rootNode.addChildNode(masterLine)
         
         sceneView.scene = scene
     }
@@ -135,9 +150,6 @@ class ViewController: UIViewController {
         // Could I make it so that you could have a lookup hash map that will be sorted, then just run them off of that?
     }
     
-    @objc func handleTap(rec: UITapGestureRecognizer) {
-        handleAtomTap(rec: rec, caller: self)
-    }
 }
 
 struct AtomInfo {
