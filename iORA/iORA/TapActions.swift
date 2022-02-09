@@ -38,7 +38,7 @@ extension ViewController {
                 }
             }
             // Select node if not already selected
-            else {
+            else if selectedAtoms.count < 2 {
                 tappedNode?.addHighlight()
                 selectedAtoms.append(tappedNode!)
                 
@@ -60,13 +60,14 @@ extension ViewController {
                 node.removeFromParentNode()
                 node.removeAllActions()
             }
+            infoView.view.removeFromSuperview()
+            
             // Draw lines between selected atoms
-            var i = 0
-            while i < selectedAtoms.count {
-                var j = i+1
-                while j < selectedAtoms.count {
-                    let a = selectedAtoms[i]
-                    let b = selectedAtoms[j]
+            if selectedAtoms.count > 1 {
+                view.addSubview(infoView.view)
+                for i in 1...(selectedAtoms.count-1) {
+                    let a = selectedAtoms[i-1]
+                    let b = selectedAtoms[i]
                     
                     let x1 = a.position.x, y1 = a.position.y, z1 = a.position.z
                     let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
@@ -80,9 +81,10 @@ extension ViewController {
                     node.eulerAngles = SCNVector3(Float.pi / 2, acos((z2-z1)/dist), atan2((y2-y1),(x2-x1)))
                     masterLine.addChildNode(node)
                     
-                    j += 1
+                    infoView.rootView.atom1 = a.name!
+                    infoView.rootView.atom2 = b.name!
+                    infoView.rootView.dist = String(dist)
                 }
-                i += 1
             }
             
         }

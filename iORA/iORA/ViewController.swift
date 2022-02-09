@@ -7,6 +7,7 @@
 
 import UIKit
 import SceneKit
+import SwiftUI
 
 let scene = SCNScene()
 
@@ -37,12 +38,22 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stepSlider: UISlider!
     
+    let infoView = UIHostingController(rootView: InfoView(atom1: "-", atom2: "-", dist: "-"))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         engine.initialDraw();
-        
         sceneSetup()
+        
+        addChild(infoView)
+        view.addSubview(infoView.view)
+        infoView.view.translatesAutoresizingMaskIntoConstraints = false
+        infoView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
+        infoView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        infoView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        infoView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        infoView.view.removeFromSuperview()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         sceneView.addGestureRecognizer(tap)
