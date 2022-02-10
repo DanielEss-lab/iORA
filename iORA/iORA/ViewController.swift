@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stepSlider: UISlider!
     
-    let infoView = UIHostingController(rootView: InfoView(atom1: "-", atom2: "-", dist: "-"))
+    let infoView = UIHostingController(rootView: InfoView(atom1: "-", atom2: "-", atom3: "-", labelName: "Distance", labelData: "-"))
     
     override func viewDidLoad() {
         super.viewDidLoad()

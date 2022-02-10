@@ -38,7 +38,7 @@ extension ViewController {
                 }
             }
             // Select node if not already selected
-            else if selectedAtoms.count < 2 {
+            else if selectedAtoms.count < 3 {
                 tappedNode?.addHighlight()
                 selectedAtoms.append(tappedNode!)
                 
@@ -69,27 +69,66 @@ extension ViewController {
                     let a = selectedAtoms[i-1]
                     let b = selectedAtoms[i]
                     
-                    let x1 = a.position.x, y1 = a.position.y, z1 = a.position.z
-                    let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
+                    let dist = drawLine(a: a, b: b)
                     
-                    let dist = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2) + pow((z1 - z2), 2))
-                    
-                    let line = SCNCylinder(radius: 0.01, height: Double(dist))
-                    line.firstMaterial?.diffuse.contents = UIColor.red
-                    let node = SCNNode(geometry: line)
-                    node.position = SCNVector3(x: (x1 + x2) / 2, y: (y1 + y2) / 2, z: (z1 + z2) / 2)
-                    node.eulerAngles = SCNVector3(Float.pi / 2, acos((z2-z1)/dist), atan2((y2-y1),(x2-x1)))
-                    masterLine.addChildNode(node)
-                    
-                    infoView.rootView.atom1 = a.name!
-                    infoView.rootView.atom2 = b.name!
-                    infoView.rootView.dist = String(dist)
+                    infoView.rootView.labelData = String(dist)
+                }
+                infoView.rootView.atom1 = selectedAtoms[0].name!
+                infoView.rootView.atom2 = selectedAtoms[1].name!
+                infoView.rootView.atom3 = "-"
+                infoView.rootView.labelName = "Distance"
+                if selectedAtoms.count == 3 {
+                    infoView.rootView.atom3 = selectedAtoms[2].name!
+                    infoView.rootView.labelName = "Angle"
+                    infoView.rootView.labelData = String(calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])) + "°"
                 }
             }
             
         }
     }
+    
+    func calcDist(a: SCNNode, b: SCNNode) -> Float {
+        let x1 = a.position.x, y1 = a.position.y, z1 = a.position.z
+        let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
+        
+        return sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2) + pow((z1 - z2), 2))
+    }
+    
+    func calcAngle(a: SCNNode, b: SCNNode, c: SCNNode) -> Float {
+        let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
+        let x1 = a.position.x - x2,
+            y1 = a.position.y - y2,
+            z1 = a.position.z - z2
+        let x3 = c.position.x - x2,
+            y3 = c.position.y - y2,
+            z3 = c.position.z - z2
+        
+        let magnitude1 = calcDist(a: a, b: b)
+        let magnitude2 = calcDist(a: b, b: c)
+        let dotProduct = (x1 * x3) + (y1 * y3) + (z1 * z3)
+        
+        let angle = acos(dotProduct / (magnitude1 * magnitude2))
+        return angle * 180 / Float(Double.pi)
+    }
+    
+    func drawLine(a: SCNNode, b: SCNNode) -> Float {
+        let x1 = a.position.x, y1 = a.position.y, z1 = a.position.z
+        let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
+        
+        let dist = calcDist(a: a, b: b)
+        
+        let line = SCNCylinder(radius: 0.01, height: Double(dist))
+        line.firstMaterial?.diffuse.contents = UIColor.red
+        let node = SCNNode(geometry: line)
+        node.position = SCNVector3(x: (x1 + x2) / 2, y: (y1 + y2) / 2, z: (z1 + z2) / 2)
+        node.eulerAngles = SCNVector3(Float.pi / 2, acos((z2-z1)/dist), atan2((y2-y1),(x2-x1)))
+        masterLine.addChildNode(node)
+        
+        return dist
+    }
 }
+
+
 
 extension SCNNode {
     func addHighlight( _ highlighted : Bool = true, _ highlightedBitMask : Int = 2 ) {

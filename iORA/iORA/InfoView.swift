@@ -10,19 +10,23 @@ import SwiftUI
 struct InfoView: View {
     var atom1: String
     var atom2: String
-    var dist: String
+    var atom3: String
+    var labelName: String
+    var labelData: String
     
     var body: some View {
         HStack {
             VStack {
                 Text("Atom 1:")
                 Text("Atom 2:")
-                Text("Distance:")
+                Text("Atom 3:")
+                Text(labelName+":")
             }
             VStack {
                 Text(atom1)
                 Text(atom2)
-                Text(dist)
+                Text(atom3)
+                Text(labelData)
             }
         }
         .padding()
@@ -35,6 +39,10 @@ struct InfoView: View {
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView(atom1: "C", atom2: "C", dist: String(4.6702876))
+        InfoView(atom1: "C",
+                 atom2: "C",
+                 atom3: "H",
+                 labelName: "Distance",
+                 labelData: String(4.6702876))
     }
 }
