@@ -47,6 +47,11 @@ class Engine {
             bond.removeAllActions()
             bond.removeFromParentNode()
         }
+        for node in masterLine.childNodes {
+            node.removeFromParentNode()
+            node.removeAllActions()
+        }
+        selectedAtoms.removeAll()
         atomActions.removeAll()
         sceneAtoms.removeAll()
         sceneBonds.removeAll()
