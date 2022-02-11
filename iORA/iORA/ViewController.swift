@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stepSlider: UISlider!
     
-    let infoView = UIHostingController(rootView: InfoView(atom1: "-", atom2: "-", atom3: "-", labelName: "Distance", labelData: "-"))
+    let infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +51,10 @@ class ViewController: UIViewController {
         infoView.view.translatesAutoresizingMaskIntoConstraints = false
         infoView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
         infoView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        infoView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        infoView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         infoView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         infoView.view.removeFromSuperview()
+        infoView.view.backgroundColor = UIColor.white.withAlphaComponent(0.0)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
         sceneView.addGestureRecognizer(tap)

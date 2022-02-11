@@ -63,9 +63,14 @@ extension ViewController {
             infoView.view.removeFromSuperview()
             
             // Draw lines between selected atoms
-            if selectedAtoms.count > 1 {
+            if selectedAtoms.count > 0 {
                 view.addSubview(infoView.view)
-                for i in 1...(selectedAtoms.count-1) {
+                infoView.rootView.atoms = []
+                infoView.rootView.labelName = "Element"
+                infoView.rootView.labelData = selectedAtoms[0].name!
+            }
+            if selectedAtoms.count > 1 {
+                for i in 1..<selectedAtoms.count {
                     let a = selectedAtoms[i-1]
                     let b = selectedAtoms[i]
                     
@@ -73,12 +78,10 @@ extension ViewController {
                     
                     infoView.rootView.labelData = String(dist)
                 }
-                infoView.rootView.atom1 = selectedAtoms[0].name!
-                infoView.rootView.atom2 = selectedAtoms[1].name!
-                infoView.rootView.atom3 = "-"
+                infoView.rootView.atoms = [selectedAtoms[0].name!, selectedAtoms[1].name!]
                 infoView.rootView.labelName = "Distance"
                 if selectedAtoms.count == 3 {
-                    infoView.rootView.atom3 = selectedAtoms[2].name!
+                    infoView.rootView.atoms.append(selectedAtoms[2].name!) 
                     infoView.rootView.labelName = "Angle"
                     infoView.rootView.labelData = String(calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])) + "°"
                 }
