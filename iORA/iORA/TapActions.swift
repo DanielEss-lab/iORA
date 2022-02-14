@@ -38,7 +38,7 @@ extension ViewController {
                 }
             }
             // Select node if not already selected
-            else if selectedAtoms.count < 3 {
+            else if selectedAtoms.count < 4 {
                 tappedNode?.addHighlight()
                 selectedAtoms.append(tappedNode!)
                 
@@ -74,7 +74,8 @@ extension ViewController {
                     let a = selectedAtoms[i-1]
                     let b = selectedAtoms[i]
                     
-                    let dist = drawLine(a: a, b: b)
+                    var dist = drawLine(a: a, b: b)
+                    dist = round(dist * 100) / 100
                     
                     infoView.rootView.labelData = String(dist)
                 }
@@ -83,11 +84,79 @@ extension ViewController {
                 if selectedAtoms.count == 3 {
                     infoView.rootView.atoms.append(selectedAtoms[2].name!) 
                     infoView.rootView.labelName = "Angle"
-                    infoView.rootView.labelData = String(calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])) + "°"
+                    
+                    var angle = calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
+                    angle = round(angle)
+                    
+                    infoView.rootView.labelData = String(Int(angle)) + "°"
+                }
+                if selectedAtoms.count == 4 {
+                    infoView.rootView.atoms.append(selectedAtoms[2].name!)
+                    infoView.rootView.atoms.append(selectedAtoms[3].name!)
+                    infoView.rootView.labelName = "Dihedral Angle"
+                    
+                    var angle = calcDihedral(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2], d: selectedAtoms[3])
+                    angle = round(angle)
+                    
+                    infoView.rootView.labelData = String(Int(angle)) + "°"
+                    
+                    var triangle = drawTriangle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
+                    triangle.firstMaterial?.diffuse.contents = UIColor.yellow.withAlphaComponent(0.6)
+                    triangle = drawTriangle(a: selectedAtoms[1], b: selectedAtoms[2], c: selectedAtoms[3])
+                    triangle.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.6)
                 }
             }
             
         }
+    }
+    
+    func drawTriangle(a: SCNNode, b: SCNNode, c: SCNNode) -> SCNGeometry {
+        let vector1 = SCNVector3(a.position.x, a.position.y, a.position.z)
+        let vector2 = SCNVector3(b.position.x, b.position.y, b.position.z)
+        let vector3 = SCNVector3(c.position.x, c.position.y, c.position.z)
+        
+        let indices: [Int32] = [0, 1, 2]
+        let source = SCNGeometrySource(vertices: [vector1, vector2, vector3])
+        let element = SCNGeometryElement(indices: indices, primitiveType: .triangles)
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        
+        geometry.firstMaterial?.isDoubleSided = true
+        let node = SCNNode(geometry: geometry)
+        masterLine.addChildNode(node)
+        return geometry
+    }
+    
+    func calcDihedral(a: SCNNode, b: SCNNode, c: SCNNode, d: SCNNode) -> Float {
+        let x1 = a.position.x, y1 = a.position.y, z1 = a.position.z
+        let x2 = b.position.x, y2 = b.position.y, z2 = b.position.z
+        let x3 = c.position.x, y3 = c.position.y, z3 = c.position.z
+        let x4 = d.position.x, y4 = d.position.y, z4 = d.position.z
+        
+        let B1x = x2 - x1, B1y = y2 - y1, B1z = z2 - z1
+        let B2x = x3 - x2, B2y = y3 - y2, B2z = z3 - z2
+        let B3x = x4 - x3, B3y = y4 - y3, B3z = z4 - z3
+        
+        let modB2 = sqrt(pow(B2x, 2) + pow(B2y, 2) + pow(B2z, 2))
+        
+        // yAx is x-coord. etc of modulus of B2 times B1
+        let yAx = modB2 * B1x
+        let yAy = modB2 * B1y
+        let yAz = modB2 * B1z
+        
+        // CP2 is the crossproduct of B2 and B3
+        let CP2x = (B2y * B3z) - (B2z * B3y)
+        let CP2y = (B2z * B3x) - (B2x * B3z)
+        let CP2z = (B2x * B3y) - (B2y * B3x)
+        let termY = (yAx * CP2x) + (yAy * CP2y) + (yAz * CP2z)
+        
+        // CP is the crossproduct of B1 and B2
+        let CPx = (B1y * B2z) - (B1z * B2y)
+        let CPy = (B1z * B2x) - (B1x * B2z)
+        let CPz = (B1x * B2y) - (B1y * B2x)
+        let termX = (CPx * CP2x) + (CPy * CP2y) + (CPz * CP2z)
+        
+        let dihed4 = atan2(termY, termX)  * 180 / Float(Double.pi)
+        return dihed4
     }
     
     func calcDist(a: SCNNode, b: SCNNode) -> Float {
@@ -120,7 +189,7 @@ extension ViewController {
         
         let dist = calcDist(a: a, b: b)
         
-        let line = SCNCylinder(radius: 0.01, height: Double(dist))
+        let line = SCNCylinder(radius: 0.02, height: Double(dist))
         line.firstMaterial?.diffuse.contents = UIColor.red
         let node = SCNNode(geometry: line)
         node.position = SCNVector3(x: (x1 + x2) / 2, y: (y1 + y2) / 2, z: (z1 + z2) / 2)
