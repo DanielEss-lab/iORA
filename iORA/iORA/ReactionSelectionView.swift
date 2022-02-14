@@ -37,7 +37,7 @@ struct ReactionSelectionView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle("Reaction Selection")
+            .navigationTitle("Reactions")
         }
     }
 }
