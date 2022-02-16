@@ -35,7 +35,7 @@ struct InfoView: View {
         }
         .padding()
         .overlay(
-            RoundedRectangle(cornerRadius: 0) // was 10
+            RoundedRectangle(cornerRadius: 0)
                 .stroke(Color.white , lineWidth: 2)
         )
         .offset(x:20)

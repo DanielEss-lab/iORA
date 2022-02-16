@@ -38,7 +38,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stepSlider: UISlider!
     
-    let infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
+    var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        selectedAtoms.removeAll()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,20 +85,6 @@ class ViewController: UIViewController {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: getCameraPosition(maxX: maxX, maxY: maxY, maxZ: maxZ))
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         scene.rootNode.addChildNode(cameraNode)
-        
-        // ATOM GLOW
-        if let path = Bundle.main.path(forResource: "NodeTechnique", ofType: "plist") {
-            if let dict = NSDictionary(contentsOfFile: path)  {
-                let dict2 = dict as! [String : AnyObject]
-                let technique = SCNTechnique(dictionary:dict2)
-                
-                // Set glow color
-                let color = SCNVector3(1.0, 0.0, 0.0)
-                technique?.setValue(NSValue(scnVector3: color), forKeyPath: "glowColorSymbol")
-                
-                sceneView.technique = technique
-            }
-        }
         
         // Scene light
         let lightNode = SCNNode()

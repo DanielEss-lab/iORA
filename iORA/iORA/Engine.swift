@@ -38,24 +38,6 @@ class Engine {
         let atoms: [Atom] = states[0].atoms
         let bonds: [Bond] = states[0].bonds
         
-        // reset scene
-        for atom in sceneAtoms {
-            atom.removeAllActions()
-            atom.removeFromParentNode()
-        }
-        for bond in sceneBonds {
-            bond.removeAllActions()
-            bond.removeFromParentNode()
-        }
-        for node in masterLine.childNodes {
-            node.removeFromParentNode()
-            node.removeAllActions()
-        }
-        selectedAtoms.removeAll()
-        atomActions.removeAll()
-        sceneAtoms.removeAll()
-        sceneBonds.removeAll()
-        
         //draw atoms
         for atom in atoms {
             makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
@@ -66,8 +48,7 @@ class Engine {
     }
     
     
-    func drawBond(atom1: Atom, atom2: Atom, givenDist: Double)
-    {
+    func drawBond(atom1: Atom, atom2: Atom, givenDist: Double) {
         
         //to add once I get file loader updated to pull in number of bonds, ie. single, double
         //currently just updates all bonds to be triple
