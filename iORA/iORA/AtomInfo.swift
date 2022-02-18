@@ -36,6 +36,8 @@ struct AtomMeasurement {
     let color: UIColor
 }
 
+// TODO: Add custom radius to every element
+
 let H = AtomMeasurement(name: "H", atomicRadius: 0.53, ionicRadius: 0.25, covalentRadius: 0.37, vanDerWallsRadius: 1.2, crystalRadius: 0.1, customRadius: 0.3, color: white)
 let He = AtomMeasurement(name: "He", atomicRadius: 0.31, ionicRadius: 0.31, covalentRadius: 0.32, vanDerWallsRadius: 1.4, crystalRadius: nil, customRadius: 0.31, color: cyan)
 let Li = AtomMeasurement(name: "Li", atomicRadius: 1.67, ionicRadius: 1.45, covalentRadius: 1.34, vanDerWallsRadius: 1.82, crystalRadius: 0.9, customRadius: 1.45, color: violet)

@@ -21,59 +21,50 @@ let RADIUS = 0.04
 
 class Engine {
     
-    func getStates()->[State]
-    {
-        return states
-    }
-    func getAtoms()->[Atom]
-    {
-        return currentAtoms
-    }
-    func getBonds()->[Bond]
-    {
-        return currentBonds
-    }
-    
-    func initialDraw()
-    {
-        var fileLoader = FileLoader()
-        
-        let fileName = "sdfFiles/bullvalenetraj"
-        
-        let bundle = Bundle(for: type(of: self))
+    func initialDraw() {
+        let fileLoader = FileLoader()
+        let fileName = "sdfFiles/" + globalReaction
+        let bundle = Bundle.main
         let path = bundle.path(forResource: fileName, ofType: "sdf")
-
         guard let unwrappedPath = path else {
             return
         }
-        
         let url = URL(fileURLWithPath: unwrappedPath)
         
+        let reaction: Reaction
         do {
-            try fileLoader = fileLoader.parseReactionFile(inputFile: url)
+            reaction = try fileLoader.parseReactionFile(inputFile: url).getReaction()
         }
-        catch
-        {
+        catch {
             print(error)
+            return
         }
         
         //FIXME: below is the code to just implement one state, so I am pulling the first one. I need to add the ability to handle multiple states but that is for later
         
-        let reaction = fileLoader.getReaction()
+        let states: [State] = reaction.getStates()
+        let atoms: [Atom] = states[0].atoms
+        let bonds: [Bond] = states[0].bonds
         
-        states = reaction.getStates()
-        currentAtoms = states[0].atoms
-        currentBonds = states[0].bonds
+        // reset scene
+        for atom in sceneAtoms {
+            atom.removeAllActions()
+            atom.removeFromParentNode()
+        }
+        for bond in sceneBonds {
+            bond.removeAllActions()
+            bond.removeFromParentNode()
+        }
+        atomActions.removeAll()
+        sceneAtoms.removeAll()
+        sceneBonds.removeAll()
         
         //draw atoms
-        for atom in currentAtoms
-        {
+        for atom in atoms {
             makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
         }
-        
-        for bond in currentBonds
-        {
-            drawBond(bond: bond, givenDist: 1.0)
+        for bond in bonds {
+            drawBond(atom1: bond.atom1, atom2: bond.atom2, givenDist: 1.0)
         }
     }
     
@@ -183,23 +174,17 @@ class Engine {
         let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         
         baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        
         baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
-        
         baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
     
         
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
-        
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
-        
         baseGeometry3.firstMaterial?.transparency = CGFloat(transparencyFactor)
     
         
         let node1 = SCNNode(geometry: baseGeometry1)
-        
         let node2 = SCNNode(geometry: baseGeometry2)
-        
         let node3 = SCNNode(geometry: baseGeometry3)
         
         node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
