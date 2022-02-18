@@ -10,6 +10,7 @@
 		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
 		277E421827459239001B90F9 /* b.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 277E421727459239001B90F9 /* b.sdf */; };
 		277E421A2745924D001B90F9 /* c.sdf in Resources */ = {isa = PBXBuildFile; fileRef = 277E42192745924D001B90F9 /* c.sdf */; };
+		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
 		27CB5E7E2716B049002A07A7 /* sdfFiles in Resources */ = {isa = PBXBuildFile; fileRef = 27CB5E7D2716B049002A07A7 /* sdfFiles */; };
 		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
 		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
@@ -50,6 +51,7 @@
 		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		277E421727459239001B90F9 /* b.sdf */ = {isa = PBXFileReference; lastKnownFileType = text; path = b.sdf; sourceTree = "<group>"; };
 		277E42192745924D001B90F9 /* c.sdf */ = {isa = PBXFileReference; lastKnownFileType = text; path = c.sdf; sourceTree = "<group>"; };
+		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
 		27CB5E7D2716B049002A07A7 /* sdfFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdfFiles; sourceTree = "<group>"; };
 		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		88BB930125A43F760093746B = {
 			isa = PBXGroup;
 			children = (
+				27AD922127BF9519003745B0 /* line.png */,
 				88BB930C25A43F760093746B /* iORA */,
 				88BB932325A43F790093746B /* iORATests */,
 				88BB932E25A43F7A0093746B /* iORAUITests */,
@@ -293,6 +296,7 @@
 			files = (
 				277E421827459239001B90F9 /* b.sdf in Resources */,
 				27CB5E7E2716B049002A07A7 /* sdfFiles in Resources */,
+				27AD922227BF9519003745B0 /* line.png in Resources */,
 				88BB931A25A43F790093746B /* LaunchScreen.storyboard in Resources */,
 				277E421A2745924D001B90F9 /* c.sdf in Resources */,
 				88BB931725A43F790093746B /* Assets.xcassets in Resources */,

@@ -45,10 +45,14 @@ class ViewController: UIViewController {
         sceneSetup()
         
         // Animation timer 
-        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
-            weak var pass = self
-            timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
-        }
+//        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
+//            weak var pass = self
+//            timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+//        }
+        //FIXME: This will break some things
+        weak var pass = self
+        timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+        
     }
     
     
@@ -90,31 +94,52 @@ class ViewController: UIViewController {
     
     //FIXME: Not currently functioning
     @objc func animate() {
-        if(!scene.isPaused) {
-            for atom in sceneAtoms {
-                atom.runAction(atomActions[atom]!.actions[step])
+        if (!scene.isPaused)
+        {
+            if (step < (engine.getStates().count) - 1)
+            {
+                step += 1
+                engine.drawState(stateNum: step)
             }
-            step += 1
-            
-            stepSlider.value = Float(step)
-        }
-        else {
-            for atom in sceneAtoms {
-                atom.position = atomActions[atom]?.positions[step] ?? SCNVector3(0, 0, 0)
+            else
+            {
+                step = 0
             }
-            
         }
         
-        if step >= atomActions[sceneAtoms[0]]?.actions.count ?? 0 {
-            step = 0
-        }
-        
-        //updateBonds()
+        stepSlider.value = Float(step)
     }
     
     //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
+    }
+    
+    @IBAction func playPauseButtonTapped(_ sender: Any) {
+        let playBtn = sender as! UIButton
+        
+        sceneView.scene?.isPaused = !(sceneView.scene!.isPaused)
+        
+        if sceneView.scene!.isPaused {
+            playBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
+        else {
+            playBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        }
+        
+        //animate()
+    }
+    
+    @IBAction func buttonTouchDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.25) {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
+    }
+    
+    @IBAction func buttonTouchUp(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.25) {
+            sender.transform = CGAffineTransform.identity
+        }
     }
     
     func getCameraPosition(maxX: Double, maxY: Double, maxZ: Double) -> Float {
