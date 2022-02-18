@@ -282,12 +282,15 @@ class Engine {
         atomNode.name = atomName
         masterAtom.addChildNode(atomNode)
         
-        atomActions[atomNode] = AtomInfo(positions: [SCNVector3(coords[0], coords[1], coords[2])], actions: [])
+        //uncomment this to restore atomActions
+        //atomActions[atomNode] = AtomInfo(positions: [SCNVector3(coords[0], coords[1], coords[2])], actions: [])
         sceneAtoms.append(atomNode)
     }
     
     func drawState(stateNum: Int)
     {
+        currentAtoms.removeAll()
+        currentBonds.removeAll()
         currentAtoms = states[stateNum].atoms
         currentBonds = states[stateNum].bonds
         
