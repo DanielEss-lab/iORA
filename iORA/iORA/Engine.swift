@@ -17,6 +17,8 @@ var states = [State]()
 var currentAtoms = [Atom]()
 var currentBonds = [Bond]()
 
+let RADIUS = 0.04
+
 class Engine {
     
     func getStates()->[State]
@@ -134,7 +136,7 @@ class Engine {
         let node1 = SCNNode(geometry: baseGeometry1)
         node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
                                     y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+                                    z: Float((c[4] + c[5]) / 2))
         node1.eulerAngles = SCNVector3((Float.pi / 2),
                                        acos((c[5]-c[4])/Float((distance))),
                                        atan2((c[3]-c[2]),(c[1]-c[0])))
@@ -237,7 +239,7 @@ class Engine {
     func drawOnePartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float)
     {
         
-        let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
         
         baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -245,16 +247,16 @@ class Engine {
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
         
-        let width = Float(xdist)
-        let height = Float(ydist)
-        let repeatCountPerMeter = Float(0.1)
+        let width = Float(RADIUS)
+        let height = Float(distance)
+        let repeatCountPerMeter = Float(8)
         
         baseGeometry1.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(width * repeatCountPerMeter, height * repeatCountPerMeter, 1)
         
         let node1 = SCNNode(geometry: baseGeometry1)
         node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
                                     y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+                                    z: Float((c[4] + c[5]) / 2))
         node1.eulerAngles = SCNVector3((Float.pi / 2),
                                        acos((c[5]-c[4])/Float((distance))),
                                        atan2((c[3]-c[2]),(c[1]-c[0])))
