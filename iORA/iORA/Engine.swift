@@ -21,6 +21,19 @@ let RADIUS = 0.04
 
 class Engine {
     
+    func getStates()->[State]
+        {
+            return states
+        }
+        func getAtoms()->[Atom]
+        {
+            return currentAtoms
+        }
+        func getBonds()->[Bond]
+        {
+            return currentBonds
+        }
+    
     func initialDraw() {
         let fileLoader = FileLoader()
         let fileName = "sdfFiles/" + globalReaction
@@ -42,9 +55,9 @@ class Engine {
         
         //FIXME: below is the code to just implement one state, so I am pulling the first one. I need to add the ability to handle multiple states but that is for later
         
-        let states: [State] = reaction.getStates()
-        let atoms: [Atom] = states[0].atoms
-        let bonds: [Bond] = states[0].bonds
+        states = reaction.getStates()
+        currentAtoms = states[0].atoms
+        currentBonds = states[0].bonds
         
         // reset scene
         for atom in sceneAtoms {
@@ -60,11 +73,11 @@ class Engine {
         sceneBonds.removeAll()
         
         //draw atoms
-        for atom in atoms {
+        for atom in currentAtoms {
             makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
         }
-        for bond in bonds {
-            drawBond(atom1: bond.atom1, atom2: bond.atom2, givenDist: 1.0)
+        for bond in currentBonds {
+            drawBond(bond: bond, givenDist: 1.0)
         }
     }
     
