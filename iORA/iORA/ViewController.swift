@@ -7,6 +7,7 @@
 
 import UIKit
 import SceneKit
+import SwiftUI
 
 let scene = SCNScene()
 
@@ -37,11 +38,21 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var stepSlider: UISlider!
     
+    var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        selectedAtoms.removeAll()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         engine.initialDraw();
-        
         sceneSetup()
         
         // Animation timer 
@@ -53,6 +64,18 @@ class ViewController: UIViewController {
         weak var pass = self
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
         
+        addChild(infoView)
+        view.addSubview(infoView.view)
+        infoView.view.translatesAutoresizingMaskIntoConstraints = false
+        infoView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = false
+        infoView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        infoView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        infoView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        infoView.view.removeFromSuperview()
+        infoView.view.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
+        sceneView.addGestureRecognizer(tap)
     }
     
     
@@ -88,6 +111,7 @@ class ViewController: UIViewController {
         
         scene.rootNode.addChildNode(masterAtom)
         scene.rootNode.addChildNode(masterBond)
+        scene.rootNode.addChildNode(masterLine)
         
         sceneView.scene = scene
     }
@@ -156,6 +180,7 @@ class ViewController: UIViewController {
         
         // Could I make it so that you could have a lookup hash map that will be sorted, then just run them off of that?
     }
+    
 }
 
 struct AtomInfo {

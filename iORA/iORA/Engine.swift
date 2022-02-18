@@ -59,19 +59,6 @@ class Engine {
         currentAtoms = states[0].atoms
         currentBonds = states[0].bonds
         
-        // reset scene
-        for atom in sceneAtoms {
-            atom.removeAllActions()
-            atom.removeFromParentNode()
-        }
-        for bond in sceneBonds {
-            bond.removeAllActions()
-            bond.removeFromParentNode()
-        }
-        atomActions.removeAll()
-        sceneAtoms.removeAll()
-        sceneBonds.removeAll()
-        
         //draw atoms
         for atom in currentAtoms {
             makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
