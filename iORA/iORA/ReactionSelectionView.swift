@@ -88,7 +88,7 @@ let subCategories = [
 struct ReactionSelectionView: View {
     var body: some View {
         NavigationView {
-            List(subCategories.filter{ $0.reactions.count > 0 }, id: \.name) { r in
+            List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
                 NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
                     Text(r.name)
                 }
@@ -99,16 +99,39 @@ struct ReactionSelectionView: View {
     }
 }
 
+struct EmptyPage: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("Check back soon to see more reactions!")
+            Spacer()
+            Spacer()
+            Spacer()
+        }
+    }
+}
+
 struct Submenu: View {
     let reactions: [ReactionFile]
     let previous: String
     var body: some View {
-        List(reactions, id: \.name) { r in
-            NavigationLink(destination: ReactionView(reactionFile: r)) {
-                Text(r.name)
-            }
-            .navigationBarTitleDisplayMode(.inline)
+        getDestination()
+    }
+    
+    func getDestination() -> AnyView {
+        switch reactions.count {
+        case 0:
+            return AnyView(EmptyPage())
+        case 1:
+            return AnyView(ReactionView(reactionFile: reactions[0]))
+        default:
+            return AnyView(
+                List(reactions, id: \.name) { r in
+                    NavigationLink(destination: ReactionView(reactionFile: r)) {
+                        Text(r.name)
+                    }.navigationBarTitleDisplayMode(.inline)
+                }.navigationTitle(previous)
+            )
         }
-        .navigationTitle(previous)
     }
 }
