@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         engine.initialDraw();
         sceneSetup()
         
-        stepSlider.maximumValue = Float(states.count)
+        stepSlider.maximumValue = Float(states.count - 1)
         
         // Animation timer 
 //        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
