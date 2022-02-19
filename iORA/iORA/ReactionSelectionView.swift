@@ -81,7 +81,7 @@ let subCategories = [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Carbonyl Addition",
                 reactions: [
-                    ReactionFile(name: "AdN Acetone", filename: "AdN_Acetone.sdf")
+                    ReactionFile(name: "AdN Acetone", filename: "AdN_Acetone")
                 ].sorted(by: { $0.name < $1.name }))
 ].sorted(by: { $0.name < $1.name })
 

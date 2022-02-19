@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     func sceneSetup() {
         stepSlider.maximumValue = Float(atomActions[sceneAtoms[0]]?.actions.count ?? 1)
         
-        scene.isPaused = false // FIXME: Delete
+        scene.isPaused = true // FIXME: Delete
         
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: getCameraPosition(maxX: maxX, maxY: maxY, maxZ: maxZ))
