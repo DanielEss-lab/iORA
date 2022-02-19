@@ -60,8 +60,8 @@ class Engine {
         currentBonds = states[0].bonds
         
         //draw atoms
-        for atom in currentAtoms {
-            makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
+        for (i, atom) in currentAtoms.enumerated() {
+            atomMap[i] = makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
         }
         for bond in currentBonds {
             drawBond(bond: bond, givenDist: 1.0)
@@ -252,9 +252,9 @@ class Engine {
     
     
     
-    func makeAtom(atomName: String, coords: [Double], scene: SCNScene) {
+    func makeAtom(atomName: String, coords: [Double], scene: SCNScene) -> SCNNode? {
         guard let radius = atomRadii[atomName]?.customRadius,
-              let color = atomRadii[atomName]?.color else { return }
+              let color = atomRadii[atomName]?.color else { return nil }
         
         let atomGeometry = SCNSphere(radius: CGFloat(radius))
         let atomMaterial = SCNMaterial()
@@ -270,6 +270,7 @@ class Engine {
         //uncomment this to restore atomActions
         //atomActions[atomNode] = AtomInfo(positions: [SCNVector3(coords[0], coords[1], coords[2])], actions: [])
         sceneAtoms.append(atomNode)
+        return atomNode
     }
     
     func drawState(stateNum: Int)
@@ -281,10 +282,10 @@ class Engine {
         
         sceneBonds.removeAll()
         sceneAtoms.removeAll()
-        masterAtom.enumerateChildNodes
+        /*masterAtom.enumerateChildNodes
         { (node, stop) in
                 node.removeFromParentNode()
-        }
+        }*/
         masterBond.enumerateChildNodes
         { (node, stop) in
                 node.removeFromParentNode()
@@ -293,9 +294,10 @@ class Engine {
         
         
         //draw atoms
-        for atom in currentAtoms
-        {
-            makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
+        for (i, atom) in currentAtoms.enumerated() {
+            if let node = atomMap[i] {
+                node.position = SCNVector3(x: Float(atom.xPosition), y: Float(atom.yPosition), z: Float(atom.zPosition))
+            }
         }
         
         for bond in currentBonds
