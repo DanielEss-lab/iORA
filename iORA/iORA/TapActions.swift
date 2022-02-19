@@ -12,6 +12,8 @@ import SceneKit
 var selectedAtoms: [SCNNode] = []
 let masterLine = SCNNode()
 
+var atomMap: [Int:SCNNode] = [:]
+
 extension ViewController {
     @objc func handleTap(rec: UITapGestureRecognizer) {
         let location: CGPoint = rec.location(in: self.sceneView)
@@ -22,91 +24,106 @@ extension ViewController {
                 return
             }
             
-            // Unselect node if already selected
             if let atom = tappedNode, selectedAtoms.contains(atom) {
-                atom.removeHighlight()
-            
-                let color = atomRadii[atom.name!]?.color
-                let atomMaterial = SCNMaterial()
-                atomMaterial.diffuse.contents = color
-                atomMaterial.specular.contents = UIColor.white
-                atomMaterial.shininess = 0.75
-                atom.geometry?.materials = [atomMaterial]
-                
-                if let index = selectedAtoms.firstIndex(of: atom) {
-                    selectedAtoms.remove(at: index)
-                }
+                unselectNode(atom)
             }
-            // Select node if not already selected
             else if selectedAtoms.count < 4 {
-                tappedNode?.addHighlight()
-                selectedAtoms.append(tappedNode!)
+                selectNode(tappedNode)
+            }
+            
+            removeLines()
+            drawLines()
+        }
+    }
+    
+    func unselectNode(_ atom: SCNNode) {
+        atom.removeHighlight()
+    
+        let color = atomRadii[atom.name!]?.color
+        let atomMaterial = SCNMaterial()
+        atomMaterial.diffuse.contents = color
+        atomMaterial.specular.contents = UIColor.white
+        atomMaterial.shininess = 0.75
+        atom.geometry?.materials = [atomMaterial]
+        
+        if let index = selectedAtoms.firstIndex(of: atom) {
+            selectedAtoms.remove(at: index)
+        }
+    }
+    
+    func selectNode(_ tappedNode: SCNNode?) {
+        tappedNode?.addHighlight()
+        selectedAtoms.append(tappedNode!)
+        
+        let selectedMaterial = SCNMaterial()
+        tappedNode?.geometry?.firstMaterial = selectedMaterial
+        
+        SCNTransaction.begin()
+        SCNTransaction.animationDuration = 0.0
+        SCNTransaction.completionBlock = {
+            SCNTransaction.animationDuration = 0.0
+            selectedMaterial.emission.contents = UIColor.red
+            selectedMaterial.shininess = 0.75
+        }
+        SCNTransaction.commit()
+    }
+    
+    func updateLines() {
+        removeLines()
+        drawLines()
+    }
+    
+    func removeLines() {
+        for node in masterLine.childNodes {
+            node.removeFromParentNode()
+            node.removeAllActions()
+        }
+        infoView.view.removeFromSuperview()
+    }
+    
+    func drawLines() {
+        if selectedAtoms.count > 0 {
+            view.addSubview(infoView.view)
+            infoView.rootView.atoms = []
+            infoView.rootView.labelName = "Element"
+            infoView.rootView.labelData = selectedAtoms[0].name!
+        }
+        if selectedAtoms.count > 1 {
+            for i in 1..<selectedAtoms.count {
+                let a = selectedAtoms[i-1]
+                let b = selectedAtoms[i]
                 
-                let selectedMaterial = SCNMaterial()
-                tappedNode?.geometry?.firstMaterial = selectedMaterial
+                var dist = drawLine(a: a, b: b)
+                dist = round(dist * 100) / 100
                 
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                SCNTransaction.completionBlock = {
-                    SCNTransaction.animationDuration = 0.5
-                    selectedMaterial.emission.contents = UIColor.red
-                    selectedMaterial.shininess = 0.75
-                }
-                SCNTransaction.commit()
+                infoView.rootView.labelData = String(dist)
             }
-            
-            // Remove all existing lines
-            for node in masterLine.childNodes {
-                node.removeFromParentNode()
-                node.removeAllActions()
+            infoView.rootView.atoms = [selectedAtoms[0].name!, selectedAtoms[1].name!]
+            infoView.rootView.labelName = "Distance"
+            if selectedAtoms.count == 3 {
+                infoView.rootView.atoms.append(selectedAtoms[2].name!)
+                infoView.rootView.labelName = "Angle"
+                
+                var angle = calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
+                angle = round(angle)
+                
+                infoView.rootView.labelData = String(Int(angle)) + "°"
             }
-            infoView.view.removeFromSuperview()
-            
-            // Draw lines between selected atoms
-            if selectedAtoms.count > 0 {
-                view.addSubview(infoView.view)
-                infoView.rootView.atoms = []
-                infoView.rootView.labelName = "Element"
-                infoView.rootView.labelData = selectedAtoms[0].name!
+            if selectedAtoms.count == 4 {
+                infoView.rootView.atoms.append(selectedAtoms[2].name!)
+                infoView.rootView.atoms.append(selectedAtoms[3].name!)
+                infoView.rootView.labelName = "Dihedral Angle"
+                
+                var angle = calcDihedral(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2], d: selectedAtoms[3])
+                angle = round(angle)
+                
+                infoView.rootView.labelData = String(Int(angle)) + "°"
+                
+                var triangle = drawTriangle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
+                triangle.firstMaterial?.diffuse.contents = UIColor.yellow.withAlphaComponent(0.6)
+                triangle = drawTriangle(a: selectedAtoms[1], b: selectedAtoms[2], c: selectedAtoms[3])
+                triangle.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.6)
             }
-            if selectedAtoms.count > 1 {
-                for i in 1..<selectedAtoms.count {
-                    let a = selectedAtoms[i-1]
-                    let b = selectedAtoms[i]
-                    
-                    var dist = drawLine(a: a, b: b)
-                    dist = round(dist * 100) / 100
-                    
-                    infoView.rootView.labelData = String(dist)
-                }
-                infoView.rootView.atoms = [selectedAtoms[0].name!, selectedAtoms[1].name!]
-                infoView.rootView.labelName = "Distance"
-                if selectedAtoms.count == 3 {
-                    infoView.rootView.atoms.append(selectedAtoms[2].name!) 
-                    infoView.rootView.labelName = "Angle"
-                    
-                    var angle = calcAngle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
-                    angle = round(angle)
-                    
-                    infoView.rootView.labelData = String(Int(angle)) + "°"
-                }
-                if selectedAtoms.count == 4 {
-                    infoView.rootView.atoms.append(selectedAtoms[2].name!)
-                    infoView.rootView.atoms.append(selectedAtoms[3].name!)
-                    infoView.rootView.labelName = "Dihedral Angle"
-                    
-                    var angle = calcDihedral(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2], d: selectedAtoms[3])
-                    angle = round(angle)
-                    
-                    infoView.rootView.labelData = String(Int(angle)) + "°"
-                    
-                    var triangle = drawTriangle(a: selectedAtoms[0], b: selectedAtoms[1], c: selectedAtoms[2])
-                    triangle.firstMaterial?.diffuse.contents = UIColor.yellow.withAlphaComponent(0.6)
-                    triangle = drawTriangle(a: selectedAtoms[1], b: selectedAtoms[2], c: selectedAtoms[3])
-                    triangle.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.6)
-                }
-            }
-            
         }
     }
     
