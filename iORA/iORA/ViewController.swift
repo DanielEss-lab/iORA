@@ -35,8 +35,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var sceneView: SCNView!
     let cameraNode = SCNNode()
     var timer = Timer()
+    var isLooping = true;
 
     @IBOutlet weak var stepSlider: UISlider!
+    @IBOutlet weak var stepAheadButton: UIButton!
+    @IBOutlet weak var skipAheadButton: UIButton!
+    @IBOutlet weak var skipToEndButton: UIButton!
+    @IBOutlet weak var stepBackButton: UIButton!
+    @IBOutlet weak var skipBackButton: UIButton!
+    @IBOutlet weak var skipToBeginningButton: UIButton!
+    //@IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var loopButton: UIButton!
+    @IBOutlet weak var speedSlider: UISlider!
+    //@IBOutlet weak var lockCameraButton: UIButton!
+    
+    
+    
     
     var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
     
@@ -52,15 +66,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loopButton?.backgroundColor = UIColor.systemGray
+        
         engine.initialDraw();
         sceneSetup()
+        
+        stepSlider.maximumValue = Float(states.count)
         
         // Animation timer 
 //        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
 //            weak var pass = self
 //            timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
 //        }
-        //FIXME: This will break some things
+        //FIXME: This may break some things
         weak var pass = self
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
         
@@ -122,22 +140,30 @@ class ViewController: UIViewController {
         {
             if (step < (engine.getStates().count) - 1)
             {
-                step += 1
                 engine.drawState(stateNum: step)
                 updateLines()
+                step += 1
             }
-            else
+            else if (isLooping)
             {
                 step = 0
             }
+            else
+            {
+                sceneView.scene?.isPaused = true
+            }
         }
-        
         stepSlider.value = Float(step)
     }
     
     //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
+        if (scene.isPaused)
+        {
+            engine.drawState(stateNum: step)
+            updateLines()
+        }
     }
     
     @IBAction func playPauseButtonTapped(_ sender: Any) {
@@ -165,6 +191,29 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func loopButtonPressed(_ sender: Any) {
+        let loopBtn = sender as! UIButton
+        isLooping.toggle()
+        if isLooping {
+            loopBtn.tintColor = UIColor.systemBlue
+        }
+        else {
+            loopBtn.tintColor = UIColor.systemGray
+        }
+    }
+    
+    @IBAction func skipToEndButtonTapped(_ sender: Any)
+    {
+        //let skipBtn = sender as! UIButton
+        step = states.count
+        scene.isPaused = true
+    }
+    
+    @IBAction func skipToBeginningButtonTapped(_ sender: Any)
+    {
+        step = 0
+    }
+    
     func getCameraPosition(maxX: Double, maxY: Double, maxZ: Double) -> Float {
         let finalX = 3 * maxX + 11
         let finalY = 3 * maxY + 11
@@ -173,11 +222,9 @@ class ViewController: UIViewController {
         return Float(max(finalX, finalY, finalZ))
     }
 
-    //FIXME: Not currently functioning
+    //not currently used
     func sortAtoms() {
         sceneAtoms = sceneAtoms.sorted(by: { $0.name ?? "He" < $1.name ?? "He" })
-        
-        // Could I make it so that you could have a lookup hash map that will be sorted, then just run them off of that?
     }
     
 }

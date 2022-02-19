@@ -23,13 +23,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-fz-GRS">
                                 <rect key="frame" x="20" y="632" width="374" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS2-rp-hxh">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS2-rp-hxh">
                                         <rect key="frame" x="0.0" y="25.5" width="75" height="29.5"/>
                                         <state key="normal" image="backward.end.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-EE-aya">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-EE-aya">
                                         <rect key="frame" x="75" y="21.5" width="74.5" height="37.5"/>
                                         <state key="normal" image="gobackward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
@@ -47,13 +47,13 @@
                                             <action selector="playPauseButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="f0M-JO-dCz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-qB-ua3">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-qB-ua3">
                                         <rect key="frame" x="224.5" y="21.5" width="74.5" height="37.5"/>
                                         <state key="normal" image="goforward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-LO-zIU">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-LO-zIU">
                                         <rect key="frame" x="299" y="25.5" width="75" height="29.5"/>
                                         <state key="normal" image="forward.end.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
@@ -70,24 +70,36 @@
                                     <action selector="stepSliderChanged:" destination="TSw-hy-FCY" eventType="valueChanged" id="Bwc-Oo-XvW"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-us-auw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-us-auw" userLabel="loopButton">
                                 <rect key="frame" x="285.5" y="794" width="32.5" height="26.5"/>
                                 <state key="normal" image="repeat" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="FVG-Ya-CCb"/>
+                                    <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpOutside" id="A7E-N3-6DD"/>
+                                    <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="dFT-7g-4rJ"/>
+                                    <action selector="loopButtonPressed:" destination="TSw-hy-FCY" eventType="touchUpOutside" id="T8m-g9-Cky"/>
+                                    <action selector="loopButtonPressed:" destination="TSw-hy-FCY" eventType="touchUpInside" id="hkT-qH-ENU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUu-w4-kKo">
                                 <rect key="frame" x="101" y="796" width="37.5" height="25"/>
                                 <state key="normal" image="backward.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="47V-P4-K2S"/>
+                                    <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="XTP-Mo-xRD"/>
+                                    <action selector="skipToBeginningButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="h1c-gY-ORG"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-E5-DVa">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-E5-DVa">
                                 <rect key="frame" x="44" y="826" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="TS"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIb-5p-5mJ">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIb-5p-5mJ">
                                 <rect key="frame" x="341" y="827" width="29" height="27"/>
                                 <state key="normal" image="info.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
