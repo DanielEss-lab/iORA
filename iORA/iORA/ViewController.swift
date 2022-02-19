@@ -150,8 +150,6 @@ class ViewController: UIViewController {
         else {
             playBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         }
-        
-        //animate()
     }
     
     @IBAction func buttonTouchDown(_ sender: UIButton) {
