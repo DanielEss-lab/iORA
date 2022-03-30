@@ -49,18 +49,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider!
     //@IBOutlet weak var lockCameraButton: UIButton!
     
-    
-    
-    
     var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if !sceneView.scene!.isPaused { // This is very necessary. Without it everything breaks
+            sceneView.scene!.isPaused = true
+        }
+        
+        for atom in sceneAtoms {
+            atom.removeFromParentNode()
+        }
+        for bond in sceneBonds {
+            bond.removeFromParentNode()
+        }
         
         scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         }
+        sceneAtoms.removeAll()
+        sceneBonds.removeAll()
         selectedAtoms.removeAll()
+        step = 0
     }
     
     override func viewDidLoad() {
@@ -136,20 +147,16 @@ class ViewController: UIViewController {
     
     //FIXME: Not currently functioning
     @objc func animate() {
-        if (!scene.isPaused)
-        {
-            if (step < (engine.getStates().count) - 1)
-            {
+        if (!scene.isPaused) {
+            if (step < (engine.getStates().count) - 1) {
                 engine.drawState(stateNum: step)
                 updateLines()
                 step += 1
             }
-            else if (isLooping)
-            {
+            else if (isLooping) {
                 step = 0
             }
-            else
-            {
+            else {
                 sceneView.scene?.isPaused = true
             }
         }
@@ -159,8 +166,7 @@ class ViewController: UIViewController {
     //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
-        if (scene.isPaused)
-        {
+        if (scene.isPaused) {
             engine.drawState(stateNum: step)
             updateLines()
         }
@@ -202,15 +208,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func skipToEndButtonTapped(_ sender: Any)
-    {
+    @IBAction func skipToEndButtonTapped(_ sender: Any) {
         //let skipBtn = sender as! UIButton
         step = states.count
         scene.isPaused = true
     }
     
-    @IBAction func skipToBeginningButtonTapped(_ sender: Any)
-    {
+    @IBAction func skipToBeginningButtonTapped(_ sender: Any) {
         step = 0
     }
     

@@ -21,18 +21,17 @@ let RADIUS = 0.04
 
 class Engine {
     
-    func getStates()->[State]
-        {
-            return states
-        }
-        func getAtoms()->[Atom]
-        {
-            return currentAtoms
-        }
-        func getBonds()->[Bond]
-        {
-            return currentBonds
-        }
+    func getStates()->[State] {
+        return states
+    }
+        
+    func getAtoms()->[Atom] {
+        return currentAtoms
+    }
+        
+    func getBonds()->[Bond] {
+        return currentBonds
+    }
     
     func initialDraw() {
         let fileLoader = FileLoader()
@@ -47,8 +46,7 @@ class Engine {
         let reaction: Reaction
         do {
             reaction = try fileLoader.parseReactionFile(inputFile: url).getReaction()
-        }
-        catch {
+        } catch {
             print(error)
             return
         }
@@ -69,8 +67,7 @@ class Engine {
     }
     
     
-    func drawBond(bond: Bond, givenDist: Double)
-    {
+    func drawBond(bond: Bond, givenDist: Double) {
         let atom1 = bond.atom1
         let atom2 = bond.atom2
         
@@ -93,33 +90,24 @@ class Engine {
         
         let transparencyFactor = 1 - ((givenDist - 0.8) / 0.7)
         
-        if ( bond.order == 1)
-        {
+        if ( bond.order == 1) {
             drawSingle(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
-        }
-        else if (bond.order == 2)
-        {
+        } else if (bond.order == 2) {
             drawDouble(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
-        }
-        else if (bond.order == 3)
-        {
+        } else if (bond.order == 3) {
             drawTriple(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
-        }
-        else if (bond.order == 0.5)
-        {
+        } else if (bond.order == 0.5) {
             drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
         }
         //FIXME: Need to add other partial bonds, but for now anything that is not a normal bond will be single partial
-        else
-        {
+        else {
             drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
         }
         
         
     }
     
-    func drawSingle(distance: Float, c: [Float], transparencyFactor: Double)
-    {
+    func drawSingle(distance: Float, c: [Float], transparencyFactor: Double) {
         let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -136,8 +124,7 @@ class Engine {
         masterBond.addChildNode(node1)
     }
     
-    func drawDouble(distance: Float, c: [Float], transparencyFactor: Double)
-    {
+    func drawDouble(distance: Float, c: [Float], transparencyFactor: Double) {
         let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
@@ -167,8 +154,7 @@ class Engine {
         masterBond.addChildNode(node2)
     }
     
-    func drawTriple(distance: Float, c: [Float], transparencyFactor: Double)
-    {
+    func drawTriple(distance: Float, c: [Float], transparencyFactor: Double) {
         let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
@@ -176,12 +162,10 @@ class Engine {
         baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
         baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
         baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
-    
         
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry3.firstMaterial?.transparency = CGFloat(transparencyFactor)
-    
         
         let node1 = SCNNode(geometry: baseGeometry1)
         let node2 = SCNNode(geometry: baseGeometry2)
@@ -221,8 +205,7 @@ class Engine {
         masterBond.addChildNode(node3)
     }
     
-    func drawOnePartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float)
-    {
+    func drawOnePartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
         
         let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
         
@@ -253,8 +236,26 @@ class Engine {
     
     
     func makeAtom(atomName: String, coords: [Double], scene: SCNScene) -> SCNNode? {
-        guard let radius = atomRadii[atomName]?.customRadius,
-              let color = atomRadii[atomName]?.color else { return nil }
+        let radius: Double
+        
+        /*if let customRadius = atomRadii[atomName]?.customRadius {
+            radius = customRadius
+        } else if let atomicRadius = atomRadii[atomName]?.atomicRadius {
+            radius = atomicRadius
+        } else {
+            return nil
+        }*/
+        
+        if let atomCovalent = atomRadii[atomName]?.covalentRadius,
+           let carbonCovalent = atomRadii["C"]?.covalentRadius,
+           let carbonCustom = atomRadii["C"]?.customRadius {
+            
+            radius = carbonCustom * abs(log2(1 + (atomCovalent / carbonCovalent) ))
+        } else {
+            return nil
+        }
+                    
+        guard let color = atomRadii[atomName]?.color else { return nil }
         
         let atomGeometry = SCNSphere(radius: CGFloat(radius))
         let atomMaterial = SCNMaterial()
@@ -273,8 +274,7 @@ class Engine {
         return atomNode
     }
     
-    func drawState(stateNum: Int)
-    {
+    func drawState(stateNum: Int) {
         currentAtoms.removeAll()
         currentBonds.removeAll()
         currentAtoms = states[stateNum].atoms
@@ -286,12 +286,10 @@ class Engine {
         { (node, stop) in
                 node.removeFromParentNode()
         }*/
-        masterBond.enumerateChildNodes
-        { (node, stop) in
+        masterBond.enumerateChildNodes {
+            (node, stop) in
                 node.removeFromParentNode()
         }
-        
-        
         
         //draw atoms
         for (i, atom) in currentAtoms.enumerated() {
@@ -300,8 +298,7 @@ class Engine {
             }
         }
         
-        for bond in currentBonds
-        {
+        for bond in currentBonds {
             drawBond(bond: bond, givenDist: 1.0)
         }
     }
