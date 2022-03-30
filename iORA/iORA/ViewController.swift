@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         sceneBonds.removeAll()
         selectedAtoms.removeAll()
         step = 0
+        timer.invalidate()
     }
     
     override func viewDidLoad() {
