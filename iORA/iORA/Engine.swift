@@ -233,18 +233,8 @@ class Engine {
         masterBond.addChildNode(node1)
     }
     
-    
-    
     func makeAtom(atomName: String, coords: [Double], scene: SCNScene) -> SCNNode? {
         let radius: Double
-        
-        /*if let customRadius = atomRadii[atomName]?.customRadius {
-            radius = customRadius
-        } else if let atomicRadius = atomRadii[atomName]?.atomicRadius {
-            radius = atomicRadius
-        } else {
-            return nil
-        }*/
         
         if let atomCovalent = atomRadii[atomName]?.covalentRadius,
            let carbonCovalent = atomRadii["C"]?.covalentRadius,
