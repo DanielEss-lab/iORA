@@ -22,7 +22,7 @@ var sceneAtoms: [SCNNode] = []
 var atomActions: [SCNNode: AtomInfo] = [:]
 var sceneBonds: [SCNNode] = []
 
-var stepDuration = 0.02
+var stepDuration = 0.1 // fps = 1 / stepDuration
 var step = 0
 let scaleFactor = 1.0
 

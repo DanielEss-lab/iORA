@@ -248,8 +248,9 @@ class Engine {
         
         if let atomCovalent = atomRadii[atomName]?.covalentRadius,
            let carbonCovalent = atomRadii["C"]?.covalentRadius,
-           let carbonCustom = atomRadii["C"]?.customRadius {
+           var carbonCustom = atomRadii["C"]?.customRadius {
             
+            carbonCustom *= 0.75
             radius = carbonCustom * abs(log2(1 + (atomCovalent / carbonCovalent) ))
         } else {
             return nil
