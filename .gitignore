@@ -3,11 +3,7 @@
 
 ## User settings
 **/xcuserdata/
-<<<<<<< HEAD
 **/.xcuserstate
-=======
-*xcuserstate
->>>>>>> db55d8134dbf6461878c006be90016773602635c
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
