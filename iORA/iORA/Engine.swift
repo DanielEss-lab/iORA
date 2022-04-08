@@ -98,6 +98,10 @@ class Engine {
             drawTriple(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
         } else if (bond.order == 0.5) {
             drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+        } else if (bond.order == 1.5) {
+            drawSingleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+        } else if (bond.order == 2.5) {
+            drawDoubleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
         }
         //FIXME: Need to add other partial bonds, but for now anything that is not a normal bond will be single partial
         else {
@@ -232,6 +236,113 @@ class Engine {
         sceneBonds.append(node1)
         masterBond.addChildNode(node1)
     }
+    
+    func drawSingleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
+        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
+        
+        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
+        baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
+        baseGeometry1.firstMaterial?.isDoubleSided = true
+        
+        let width = Float(RADIUS)
+        let height = Float(distance)
+        let repeatCountPerMeter = Float(8)
+        
+        baseGeometry1.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(width * repeatCountPerMeter, height * repeatCountPerMeter, 1)
+        
+        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
+        baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
+        
+        let node1 = SCNNode(geometry: baseGeometry1)
+        let node2 = SCNNode(geometry: baseGeometry2)
+        node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
+                                    y: Float((c[2] + c[3]) / 2),
+                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+        node2.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
+                                    y: Float((c[2] + c[3]) / 2),
+                                    z: Float((c[4] + c[5]) / 2) + 0.09)
+        node1.eulerAngles = SCNVector3((Float.pi / 2),
+                                       acos((c[5]-c[4])/Float((distance))),
+                                       atan2((c[3]-c[2]),(c[1]-c[0])))
+        node2.eulerAngles = SCNVector3((Float.pi / 2),
+                                       acos((c[5]-c[4])/Float((distance))),
+                                       atan2((c[3]-c[2]),(c[1]-c[0])))
+        
+        sceneBonds.append(node1)
+        masterBond.addChildNode(node1)
+        
+        sceneBonds.append(node2)
+        masterBond.addChildNode(node2)
+    }
+    
+    func drawDoubleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
+        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
+        
+        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
+        baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
+        baseGeometry1.firstMaterial?.isDoubleSided = true
+        
+        let width = Float(RADIUS)
+        let height = Float(distance)
+        let repeatCountPerMeter = Float(8)
+        
+        baseGeometry1.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(width * repeatCountPerMeter, height * repeatCountPerMeter, 1)
+        
+        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        
+        //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        
+        //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
+        baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
+        baseGeometry3.firstMaterial?.transparency = CGFloat(transparencyFactor)
+        
+        let node1 = SCNNode(geometry: baseGeometry1)
+        let node2 = SCNNode(geometry: baseGeometry2)
+        let node3 = SCNNode(geometry: baseGeometry3)
+        
+        node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
+                                    y: Float((c[2] + c[3]) / 2),
+                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+        
+        node2.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
+                                    y: Float((c[2] + c[3]) / 2),
+                                    z: Float((c[4] + c[5]) / 2) + 0.09)
+        
+        node3.position = SCNVector3(x: Float((c[0] + c[1]) / 2) + 0.09,
+                                    y: Float((c[2] + c[3]) / 2) + 0.09,
+                                    z: Float((c[4] + c[5]) / 2) + 0.09)
+        
+        node1.eulerAngles = SCNVector3((Float.pi / 2),
+                                       acos((c[5]-c[4])/Float((distance))),
+                                       atan2((c[3]-c[2]),(c[1]-c[0])))
+        
+        node2.eulerAngles = SCNVector3((Float.pi / 2),
+                                       acos((c[5]-c[4])/Float((distance))),
+                                       atan2((c[3]-c[2]),(c[1]-c[0])))
+        
+        node3.eulerAngles = SCNVector3((Float.pi / 2),
+                                       acos((c[5]-c[4])/Float((distance))),
+                                       atan2((c[3]-c[2]),(c[1]-c[0])))
+        
+        sceneBonds.append(node1)
+        masterBond.addChildNode(node1)
+        
+        sceneBonds.append(node2)
+        masterBond.addChildNode(node2)
+        
+        sceneBonds.append(node3)
+        masterBond.addChildNode(node3)
+    }
+
+
     
     func makeAtom(atomName: String, coords: [Double], scene: SCNScene) -> SCNNode? {
         let radius: Double
