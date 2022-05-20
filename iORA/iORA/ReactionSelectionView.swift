@@ -20,7 +20,8 @@ struct SubCategory {
 let subCategories = [
     SubCategory(name: "Reduction",
                 reactions: [
-                    ReactionFile(name: "AdN Red Acetone", filename: "AdN_Red_Acetone")
+                    ReactionFile(name: "AdN Red Acetone", filename: "AdN_Red_Acetone"),
+                    ReactionFile(name: "AdN Red Acetone (Updated)", filename: "AdN_Red_Acetone2")
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Bronsted Acid-Base",
                 reactions: [
@@ -46,7 +47,7 @@ let subCategories = [
                 reactions: [
                     ReactionFile(name: "AdE Butene", filename: "AdE_Butene"),
                     ReactionFile(name: "AdE Hydroboration", filename: "AdE_Hydroboration"),
-                    ReactionFile(name: "AdE Carbene Addtion", filename: "AdE_Carbene_addtion")
+                    ReactionFile(name: "AdE Carbene Addition", filename: "AdE_Carbene_addtion")
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Diene Addition",
                 reactions: [
