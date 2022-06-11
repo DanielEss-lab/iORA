@@ -46,7 +46,7 @@ let subCategories = [
                 reactions: [
                     ReactionFile(name: "AdE Butene", filename: "AdE_Butene"),
                     ReactionFile(name: "AdE Hydroboration", filename: "AdE_Hydroboration"),
-                    ReactionFile(name: "AdE Carbene Addtion", filename: "AdE_Carbene_addtion")
+                    ReactionFile(name: "AdE Carbene Addition", filename: "AdE_Carbene_addtion")
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Diene Addition",
                 reactions: [

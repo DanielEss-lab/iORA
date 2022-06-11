@@ -52,6 +52,7 @@ extension ViewController {
     }
     
     func selectNode(_ tappedNode: SCNNode?) {
+        print("\n\n>>>>\t[", tappedNode!.position.x, tappedNode!.position.y, tappedNode!.position.z, "] Frame:", step)
         tappedNode?.addHighlight()
         selectedAtoms.append(tappedNode!)
         
