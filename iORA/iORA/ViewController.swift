@@ -13,7 +13,9 @@ let scene = SCNScene()
 
 var engine = Engine()
 
-let distMult = 1
+let defaults = UserDefaults.standard
+
+let distMult = 1.0
 
 let masterAtom = SCNNode()
 let masterBond = SCNNode()
@@ -22,7 +24,7 @@ var sceneAtoms: [SCNNode] = []
 var atomActions: [SCNNode: AtomInfo] = [:]
 var sceneBonds: [SCNNode] = []
 
-var stepDuration = 0.1 // fps = 1 / stepDuration
+var stepDuration = defaults.double(forKey: "STEP_DURATION") //0.1 // fps = 1 / stepDuration
 var step = 0
 let scaleFactor = 1.0
 
@@ -35,7 +37,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var sceneView: SCNView!
     let cameraNode = SCNNode()
     var timer = Timer()
-    var isLooping = true;
+    var isLooping = true
+    var isReversed = false
+    var speedSetting = 0
 
     @IBOutlet weak var stepSlider: UISlider!
     @IBOutlet weak var stepAheadButton: UIButton!
@@ -44,9 +48,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepBackButton: UIButton!
     @IBOutlet weak var skipBackButton: UIButton!
     @IBOutlet weak var skipToBeginningButton: UIButton!
+    @IBOutlet weak var transitionStateButton: UIButton!
     //@IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var loopButton: UIButton!
-    @IBOutlet weak var speedSlider: UISlider!
+    @IBOutlet weak var speedButton: UIButton!
     //@IBOutlet weak var lockCameraButton: UIButton!
     
     var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
@@ -79,6 +84,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loopButton?.backgroundColor = UIColor.systemGray
+        let initializeDefaults = Defaults()
+        initializeDefaults.setUp()
         
         engine.initialDraw();
         sceneSetup()
@@ -212,12 +219,64 @@ class ViewController: UIViewController {
     @IBAction func skipToEndButtonTapped(_ sender: Any) {
         //let skipBtn = sender as! UIButton
         step = states.count
-        scene.isPaused = true
+        //scene.isPaused = true
     }
     
     @IBAction func skipToBeginningButtonTapped(_ sender: Any) {
         step = 0
     }
+    
+    @IBAction func speedButtonTapped(_ sender: Any) {
+        let speedButton = sender as! UIButton
+        
+        if speedSetting >= 6
+        {
+            speedSetting = 0
+        }
+        else
+        {
+            speedSetting+=1
+        }
+        
+        if speedSetting == 0 {
+            speedButton.setTitle("1x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION")
+        }
+        else if speedSetting == 1 {
+            speedButton.setTitle("2x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.5
+        }
+        else if speedSetting == 2 {
+            speedButton.setTitle("3x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.33
+        }
+        else if speedSetting == 3 {
+            speedButton.setTitle("4x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.25
+        }
+        else if speedSetting == 4 {
+            speedButton.setTitle("10x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.1
+        }
+        else if speedSetting == 5 {
+            speedButton.setTitle(".5x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
+        }
+        else if speedSetting == 6 {
+            speedButton.setTitle(".25x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 4
+        }
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: stepDuration, target: self as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func transitionStateButtonTapped(_ sender: Any)
+    {
+        step = states.count / 2
+        engine.drawState(stateNum: step)
+        updateLines()
+    }
+    
     
     func getCameraPosition(maxX: Double, maxY: Double, maxZ: Double) -> Float {
         let finalX = 3 * maxX + 11
