@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
-		2781909D285B9E7100E8FAB3 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781909C285B9E7100E8FAB3 /* OptionsView.swift */; };
-		2781909F286A92E500E8FAB3 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2781909E286A92E500E8FAB3 /* Defaults.swift */; };
 		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
 		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
 		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
@@ -53,8 +51,6 @@
 
 /* Begin PBXFileReference section */
 		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
-		2781909C285B9E7100E8FAB3 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
-		2781909E286A92E500E8FAB3 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
 		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
@@ -163,8 +159,6 @@
 				84FAC23E278F861F002B2A53 /* HostingController.swift */,
 				84FAC240278F868C002B2A53 /* View.storyboard */,
 				8458AFE127B47A2600CD07F0 /* InfoView.swift */,
-				2781909C285B9E7100E8FAB3 /* OptionsView.swift */,
-				2781909E286A92E500E8FAB3 /* Defaults.swift */,
 			);
 			path = iORA;
 			sourceTree = "<group>";
@@ -323,7 +317,6 @@
 				84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */,
 				8477AB8327AB55BE00C682A5 /* TapActions.swift in Sources */,
 				84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */,
-				2781909D285B9E7100E8FAB3 /* OptionsView.swift in Sources */,
 				2767D12D2758075000619CE1 /* Engine.swift in Sources */,
 				88BB931225A43F760093746B /* ViewController.swift in Sources */,
 				27CB5E872716B982002A07A7 /* State.swift in Sources */,
@@ -331,7 +324,6 @@
 				27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */,
 				88BB930E25A43F760093746B /* AppDelegate.swift in Sources */,
 				27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */,
-				2781909F286A92E500E8FAB3 /* Defaults.swift in Sources */,
 				88BB934F25A4F6D20093746B /* AtomInfo.swift in Sources */,
 				27CB5E852716B965002A07A7 /* Bond.swift in Sources */,
 				88BB931025A43F760093746B /* SceneDelegate.swift in Sources */,
