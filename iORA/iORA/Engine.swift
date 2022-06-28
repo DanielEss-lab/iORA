@@ -17,7 +17,7 @@ var states = [StateObj]()
 var currentAtoms = [Atom]()
 var currentBonds = [Bond]()
 
-var RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS")
+var RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS") // = 0.4
 
 class Engine {
     
