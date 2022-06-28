@@ -7,17 +7,17 @@
 //
 
 public class Reaction {
-    private var states: [State]
+    private var states: [StateObj]
 
     init() {
         states = []
     }
     
-    public func addState(_ state: State) {
+    public func addState(_ state: StateObj) {
         self.states.append(state)
     }
     
-    public func getStates() -> [State] {
+    public func getStates() -> [StateObj] {
         return self.states
     }
 }

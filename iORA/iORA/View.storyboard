@@ -141,9 +141,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cE8-J0-NyI" kind="popoverPresentation" popoverAnchorView="zYU-90-iSv" id="Yri-lv-Xyb">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="cE8-J0-NyI" kind="show" id="Yri-lv-Xyb"/>
                                 </connections>
                             </button>
                         </subviews>

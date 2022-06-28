@@ -13,15 +13,15 @@ import SceneKit
 
 //engine puts all of the atoms from the data classes into SceneKit nodes that are then rendered in the scene setup section of the ViewController
 
-var states = [State]()
+var states = [StateObj]()
 var currentAtoms = [Atom]()
 var currentBonds = [Bond]()
 
-let RADIUS = 0.04
+var RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS")
 
 class Engine {
     
-    func getStates()->[State] {
+    func getStates()->[StateObj] {
         return states
     }
         
@@ -392,6 +392,10 @@ class Engine {
             (node, stop) in
                 node.removeFromParentNode()
         }
+        
+        //experiment
+        RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS")
+        //
         
         //draw atoms
         for (i, atom) in currentAtoms.enumerated() {
