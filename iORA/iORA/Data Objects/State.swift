@@ -6,7 +6,7 @@
 //  Copyright © 2021 Gabriel Reed. All rights reserved.
 //
 
-public class StateObj {
+public class State {
     public let atoms: [Atom]
     public let bonds: [Bond]
     

@@ -156,7 +156,7 @@ public class FileLoader {
         
         if self.ignoreLinesStart == 0 && self.numAtoms == 0 && self.numBonds == 0 {
             if self.ignoreLinesEnd == 1 {
-                self.reaction.addState(StateObj.init(atoms: self.arrayAtoms, bonds: self.arrayBonds))
+                self.reaction.addState(State.init(atoms: self.arrayAtoms, bonds: self.arrayBonds))
             }
             else if self.ignoreLinesEnd == 0 {
                 self.resetVars()

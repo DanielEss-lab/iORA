@@ -15,22 +15,16 @@ class OptionsViewHostingController: UIHostingController<OptionsView> {
     }
 }
 
-struct OptionsView: View {
-    @State private var radius = ""
-    var body: some View {
-        VStack(alignment: .center) {
-            TextField("Bond Width", text: $radius)
-        }
-        .onDisappear {
-            self.assignRadius()
-        }
-    }
 
-    func assignRadius()
-    {
-        if radius != "0"
-        {
-            UserDefaults.standard.set(Double(radius), forKey: "BOND_RADIUS")
+
+struct OptionsView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            Text("Settings will be here soon!")
+            Spacer()
+            Spacer()
+            Spacer()
         }
     }
 }

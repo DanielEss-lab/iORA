@@ -13,7 +13,7 @@
 		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
 		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
 		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
-		27CB5E872716B982002A07A7 /* StateObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E862716B982002A07A7 /* StateObj.swift */; };
+		27CB5E872716B982002A07A7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E862716B982002A07A7 /* State.swift */; };
 		27CB5E892716B99D002A07A7 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E882716B99D002A07A7 /* Reaction.swift */; };
 		27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E8A2716BD59002A07A7 /* FileLoader.swift */; };
 		84368E6E27BDB34000DAD4CD /* sdfFiles in Resources */ = {isa = PBXBuildFile; fileRef = 84368E6D27BDB34000DAD4CD /* sdfFiles */; };
@@ -58,7 +58,7 @@
 		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
 		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
-		27CB5E862716B982002A07A7 /* StateObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObj.swift; sourceTree = "<group>"; };
+		27CB5E862716B982002A07A7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		27CB5E882716B99D002A07A7 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
 		27CB5E8A2716BD59002A07A7 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
 		84368E6D27BDB34000DAD4CD /* sdfFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdfFiles; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			children = (
 				27CB5E822716B942002A07A7 /* Atom.swift */,
 				27CB5E842716B965002A07A7 /* Bond.swift */,
-				27CB5E862716B982002A07A7 /* StateObj.swift */,
+				27CB5E862716B982002A07A7 /* State.swift */,
 				27CB5E882716B99D002A07A7 /* Reaction.swift */,
 			);
 			path = "Data Objects";
@@ -326,7 +326,7 @@
 				2781909D285B9E7100E8FAB3 /* OptionsView.swift in Sources */,
 				2767D12D2758075000619CE1 /* Engine.swift in Sources */,
 				88BB931225A43F760093746B /* ViewController.swift in Sources */,
-				27CB5E872716B982002A07A7 /* StateObj.swift in Sources */,
+				27CB5E872716B982002A07A7 /* State.swift in Sources */,
 				84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */,
 				27CB5E8B2716BD59002A07A7 /* FileLoader.swift in Sources */,
 				88BB930E25A43F760093746B /* AppDelegate.swift in Sources */,

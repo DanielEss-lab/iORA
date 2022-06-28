@@ -80,13 +80,6 @@ class ViewController: UIViewController {
         timer.invalidate()
     }
     
-    //this fix makes the view load twice in the beginning. For now its fine but I will want to fix this soon
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewDidDisappear(true)
-        viewDidLoad()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
