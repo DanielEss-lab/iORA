@@ -266,11 +266,11 @@ class ViewController: UIViewController {
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.1
         }
         else if speedSetting == 5 {
-            speedButton.setTitle(".5x", for: .normal)
+            speedButton.setTitle("0.5x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
         }
         else if speedSetting == 6 {
-            speedButton.setTitle(".25x", for: .normal)
+            speedButton.setTitle("0.25x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 4
         }
         timer.invalidate()
@@ -279,7 +279,8 @@ class ViewController: UIViewController {
     
     @IBAction func transitionStateButtonTapped(_ sender: Any)
     {
-        step = states.count / 2
+        //step = states.count / 2
+        step = globalTransitionState
         engine.drawState(stateNum: step)
         updateLines()
     }

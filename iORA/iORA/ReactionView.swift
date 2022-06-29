@@ -15,18 +15,20 @@ struct ReactionView: View {
         Text(reactionFile.name)
             .font(.system(size: 20))
             .bold()
-        ReactionStoryboardViewController(filename: reactionFile.filename)
+        ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
     }
 }
 
 var globalReaction = ""
+var globalTransitionState = 0
 
 struct ReactionStoryboardViewController: UIViewControllerRepresentable {
     let filename: String
     let fileLoader = FileLoader()
     
-    init(filename: String) {
+    init(filename: String, transitionState: Int) {
         self.filename = filename
+        globalTransitionState = transitionState
         globalReaction = filename
     }
     
