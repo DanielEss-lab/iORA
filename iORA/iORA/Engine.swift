@@ -17,7 +17,7 @@ var states = [StateObj]()
 var currentAtoms = [Atom]()
 var currentBonds = [Bond]()
 
-var RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS") // = 0.4
+//var RADIUS = UserDefaults.standard.double(forKey: "PARTIAL_BOND_RADIUS") // = 0.4
 
 class Engine {
     
@@ -61,13 +61,15 @@ class Engine {
         for (i, atom) in currentAtoms.enumerated() {
             atomMap[i] = makeAtom(atomName: atom.symbol, coords: [atom.xPosition, atom.yPosition, atom.zPosition], scene: scene)
         }
+        let colored = UserDefaults.standard.bool(forKey: "ARE_BONDS_COLORED")
+        let radius = UserDefaults.standard.double(forKey: "BOND_RADIUS")
         for bond in currentBonds {
-            drawBond(bond: bond, givenDist: 1.0)
+            drawBond(bond: bond, givenDist: 1.0, colored: colored, radius: radius)
         }
     }
     
     
-    func drawBond(bond: Bond, givenDist: Double) {
+    func drawBond(bond: Bond, givenDist: Double, colored: Bool, radius: Double) {
         let atom1 = bond.atom1
         let atom2 = bond.atom2
         
@@ -91,29 +93,33 @@ class Engine {
         let transparencyFactor = 1 - ((givenDist - 0.8) / 0.7)
         
         if ( bond.order == 1) {
-            drawSingle(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
+            drawSingle(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, colored: colored, radius: radius)
         } else if (bond.order == 2) {
-            drawDouble(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
+            drawDouble(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, colored: colored, radius: radius)
         } else if (bond.order == 3) {
-            drawTriple(distance: distance, c: coordinates, transparencyFactor: transparencyFactor)
+            drawTriple(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, colored: colored, radius: radius)
         } else if (bond.order == 0.5) {
-            drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+            drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist, colored: colored, radius: radius)
         } else if (bond.order == 1.5) {
-            drawSingleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+            drawSingleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist, colored: colored, radius: radius)
         } else if (bond.order == 2.5) {
-            drawDoubleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+            drawDoubleAndPartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist, colored: colored, radius: radius)
         }
         //FIXME: Need to add other partial bonds, but for now anything that is not a normal bond will be single partial
         else {
-            drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist)
+            drawOnePartial(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, xdist: xdist, ydist: ydist, colored: colored, radius: radius)
         }
         
         
     }
     
-    func drawSingle(distance: Float, c: [Float], transparencyFactor: Double) {
-        let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+    func drawSingle(distance: Float, c: [Float], transparencyFactor: Double, colored: Bool, radius: Double) {
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        if colored {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+        } else {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor.gray
+        }
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
         let node1 = SCNNode(geometry: baseGeometry1)
@@ -128,11 +134,16 @@ class Engine {
         masterBond.addChildNode(node1)
     }
     
-    func drawDouble(distance: Float, c: [Float], transparencyFactor: Double) {
-        let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+    func drawDouble(distance: Float, c: [Float], transparencyFactor: Double, colored: Bool, radius: Double) {
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        let baseGeometry2 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        if colored {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        } else {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor.gray
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor.gray
+        }
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
@@ -158,14 +169,20 @@ class Engine {
         masterBond.addChildNode(node2)
     }
     
-    func drawTriple(distance: Float, c: [Float], transparencyFactor: Double) {
-        let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+    func drawTriple(distance: Float, c: [Float], transparencyFactor: Double, colored: Bool, radius: Double) {
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        let baseGeometry2 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        let baseGeometry3 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
-        baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        if colored {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+            baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        } else {
+            baseGeometry1.firstMaterial?.diffuse.contents = UIColor.gray
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor.gray
+            baseGeometry3.firstMaterial?.diffuse.contents = UIColor.gray
+        }
         
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -209,9 +226,9 @@ class Engine {
         masterBond.addChildNode(node3)
     }
     
-    func drawOnePartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
+    func drawOnePartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
         
-        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
         baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -219,7 +236,7 @@ class Engine {
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
         
-        let width = Float(RADIUS)
+        let width = Float(radius) * 2/3
         let height = Float(distance)
         let repeatCountPerMeter = Float(8)
         
@@ -237,23 +254,27 @@ class Engine {
         masterBond.addChildNode(node1)
     }
     
-    func drawSingleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
-        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
+    func drawSingleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
         baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
         
-        let width = Float(RADIUS)
+        let width = Float(radius) * 2/3
         let height = Float(distance)
         let repeatCountPerMeter = Float(8)
         
         baseGeometry1.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(width * repeatCountPerMeter, height * repeatCountPerMeter, 1)
         
-        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        let baseGeometry2 = SCNCylinder(radius: radius, height: CGFloat(distance))
         //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        if colored {
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        } else {
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor.gray
+        }
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
@@ -279,26 +300,31 @@ class Engine {
         masterBond.addChildNode(node2)
     }
     
-    func drawDoubleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float) {
-        let baseGeometry1 = SCNCylinder(radius: RADIUS, height: CGFloat(distance))
+    func drawDoubleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
+        let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
         baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
         
-        let width = Float(RADIUS)
+        let width = Float(radius) * 2/3
         let height = Float(distance)
         let repeatCountPerMeter = Float(8)
         
         baseGeometry1.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(width * repeatCountPerMeter, height * repeatCountPerMeter, 1)
         
-        let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
+        let baseGeometry2 = SCNCylinder(radius: radius, height: CGFloat(distance))
+        let baseGeometry3 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
         //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
-        baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        if colored {
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+            baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        } else {
+            baseGeometry2.firstMaterial?.diffuse.contents = UIColor.gray
+            baseGeometry3.firstMaterial?.diffuse.contents = UIColor.gray
+        }
         
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -352,7 +378,7 @@ class Engine {
            var carbonCustom = atomRadii["C"]?.customRadius {
             
             carbonCustom *= 0.75
-            radius = carbonCustom * abs(log2(1 + (atomCovalent / carbonCovalent) ))
+            radius = carbonCustom * abs(log2(1 + (atomCovalent / carbonCovalent) )) * UserDefaults.standard.double(forKey: "ATOM_RADIUS_MULTIPLIER")
         } else {
             return nil
         }
@@ -394,7 +420,7 @@ class Engine {
         }
         
         //experiment
-        RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS")
+        //RADIUS = UserDefaults.standard.double(forKey: "BOND_RADIUS")
         //
         
         //draw atoms
@@ -403,9 +429,10 @@ class Engine {
                 node.position = SCNVector3(x: Float(atom.xPosition), y: Float(atom.yPosition), z: Float(atom.zPosition))
             }
         }
-        
+        let colored = UserDefaults.standard.bool(forKey: "ARE_BONDS_COLORED")
+        let radius = UserDefaults.standard.double(forKey: "BOND_RADIUS")
         for bond in currentBonds {
-            drawBond(bond: bond, givenDist: 1.0)
+            drawBond(bond: bond, givenDist: 1.0, colored: colored, radius: radius)
         }
     }
     
