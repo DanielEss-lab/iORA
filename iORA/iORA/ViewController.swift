@@ -12,6 +12,7 @@ import SwiftUI
 let scene = SCNScene()
 
 var engine = Engine()
+let defaults = UserDefaults.standard
 
 let distMult = 1
 
@@ -22,9 +23,10 @@ var sceneAtoms: [SCNNode] = []
 var atomActions: [SCNNode: AtomInfo] = [:]
 var sceneBonds: [SCNNode] = []
 
-var stepDuration = 0.1 // fps = 1 / stepDuration
+var stepDuration = defaults.double(forKey: "STEP_DURATION") // fps = 1 / stepDuration
 var step = 0
 let scaleFactor = 1.0
+var speedSetting = 0;
 
 var maxX = 0.0
 var maxY = 0.0
@@ -78,6 +80,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+        defaultInit.setUp()
+        
         loopButton?.backgroundColor = UIColor.systemGray
         
         engine.initialDraw();
@@ -85,12 +90,6 @@ class ViewController: UIViewController {
         
         stepSlider.maximumValue = Float(states.count - 1)
         
-        // Animation timer 
-//        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
-//            weak var pass = self
-//            timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
-//        }
-        //FIXME: This may break some things
         weak var pass = self
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
         
@@ -225,6 +224,58 @@ class ViewController: UIViewController {
         let finalZ = maxZ + 11
         
         return Float(max(finalX, finalY, finalZ))
+    }
+    
+    @IBAction func speedButtonTapped(_ sender: Any) {
+        let speedButton = sender as! UIButton
+        
+        if speedSetting >= 6
+        {
+            speedSetting = 0
+        }
+        else
+        {
+            speedSetting+=1
+        }
+        
+        if speedSetting == 0 {
+            speedButton.setTitle("1x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION")
+        }
+        else if speedSetting == 1 {
+            speedButton.setTitle("2x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.5
+        }
+        else if speedSetting == 2 {
+            speedButton.setTitle("3x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.33
+        }
+        else if speedSetting == 3 {
+            speedButton.setTitle("4x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.25
+        }
+        else if speedSetting == 4 {
+            speedButton.setTitle("10x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.1
+        }
+        else if speedSetting == 5 {
+            speedButton.setTitle("0.5x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
+        }
+        else if speedSetting == 6 {
+            speedButton.setTitle("0.25x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 4
+        }
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: stepDuration, target: self as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func transitionStateButtonTapped(_ sender: Any)
+    {
+        step = states.count / 2
+        //step = globalTransitionState
+        engine.drawState(stateNum: step)
+        updateLines()
     }
 
     //not currently used
