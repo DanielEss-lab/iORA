@@ -18,8 +18,8 @@ class Defaults {
             defaults.set(0.1, forKey: "STEP_DURATION")
             //defaults.set(1.0, forKey: "DISTANCE_MULTIPLIER")
             defaults.set(1.0, forKey: "SCALE_FACTOR")
-            defaults.set(0.6, forKey: "BOND_RADIUS")
-            defaults.set(0.4, forKey: "PARTIAL_BOND_RADIUS")
+            defaults.set(0.06, forKey: "BOND_RADIUS")
+            defaults.set(0.04, forKey: "PARTIAL_BOND_RADIUS")
             defaults.set(false, forKey: "COLORED_BONDS")
             
             //..
