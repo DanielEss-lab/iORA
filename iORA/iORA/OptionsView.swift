@@ -17,7 +17,7 @@ import Combine
 }*/
 
 enum LightSources: String, CaseIterable, Identifiable {
-    case directional, omni, ambient, spot
+    case ambient, directional, omni, spot
     var id: Self { self }
 }
 
