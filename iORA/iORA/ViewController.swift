@@ -81,10 +81,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
-        defaultInit.setUp()
+        //let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+        //defaultInit.setUp()
         
         loopButton?.backgroundColor = UIColor.systemGray
+        let initializeDefaults = Defaults()
+            initializeDefaults.setUp()
         
         engine.initialDraw();
         sceneSetup()

@@ -89,14 +89,33 @@ let subCategories = [
 struct ReactionSelectionView: View {
     var body: some View {
         NavigationView {
-            List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
-                NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
-                    Text(r.name)
+             ZStack {
+                List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
+                    NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
+                        Text(r.name)
+                    }
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Reactions")
+            
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: OptionsView()) {
+                        Image(systemName: "gear")
+                            .onAppear {
+                                let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+                                defaultInit.setUp()
+                            }.padding()
+                    }
+                }
+                Spacer()
+                
             }
-            .navigationTitle("Reactions")
         }
+        }
+        
     }
 }
 
