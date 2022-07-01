@@ -24,17 +24,27 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-fz-GRS">
                                 <rect key="frame" x="20" y="632" width="374" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS2-rp-hxh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS2-rp-hxh">
                                         <rect key="frame" x="0.0" y="25.5" width="75" height="29.5"/>
                                         <state key="normal" image="backward.end.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="bwg-yG-9vt"/>
+                                            <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="r4V-CM-FoP"/>
+                                            <action selector="skipToBeginningButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="y8D-03-qZd"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-EE-aya">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-EE-aya">
                                         <rect key="frame" x="75" y="21.5" width="74.5" height="37.5"/>
                                         <state key="normal" image="gobackward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="eS6-1E-QmI"/>
+                                            <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="j0Z-vG-obg"/>
+                                            <action selector="stepBackwardButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="lNd-CS-XaW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr7-CD-jh0">
                                         <rect key="frame" x="149.5" y="16" width="75" height="48.5"/>
@@ -48,17 +58,27 @@
                                             <action selector="playPauseButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="f0M-JO-dCz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-qB-ua3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-qB-ua3">
                                         <rect key="frame" x="224.5" y="21.5" width="74.5" height="37.5"/>
                                         <state key="normal" image="goforward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="DsY-3T-lP5"/>
+                                            <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="dNX-Y3-Tun"/>
+                                            <action selector="stepForwardButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="DFc-MQ-2IZ"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-LO-zIU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-LO-zIU">
                                         <rect key="frame" x="299" y="25.5" width="75" height="29.5"/>
                                         <state key="normal" image="forward.end.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="uh1-jy-a1K"/>
+                                            <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="kQm-e9-LWi"/>
+                                            <action selector="skipToEndButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="wOP-mo-rP1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -86,13 +106,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUu-w4-kKo">
                                 <rect key="frame" x="101" y="796" width="37.5" height="25"/>
-                                <state key="normal" image="backward.fill" catalog="system">
+                                <state key="normal" image="forward.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonTouchDown:" destination="TSw-hy-FCY" eventType="touchDown" id="47V-P4-K2S"/>
                                     <action selector="buttonTouchUp:" destination="TSw-hy-FCY" eventType="touchUpInside" id="XTP-Mo-xRD"/>
-                                    <action selector="skipToBeginningButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="h1c-gY-ORG"/>
+                                    <action selector="reverseButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="mfv-hq-nyR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-E5-DVa">
@@ -155,8 +175,8 @@
     </scenes>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
-        <image name="backward.fill" catalog="system" width="128" height="79"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="gobackward" catalog="system" width="121" height="128"/>
         <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

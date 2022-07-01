@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     let cameraNode = SCNNode()
     var timer = Timer()
     var isLooping = true;
+    var isReversed = false;
 
     @IBOutlet weak var stepSlider: UISlider!
     @IBOutlet weak var stepAheadButton: UIButton!
@@ -145,25 +146,44 @@ class ViewController: UIViewController {
         sceneView.scene = scene
     }
     
-    //FIXME: Not currently functioning
     @objc func animate() {
-        if (!scene.isPaused) {
-            if (step < (engine.getStates().count) - 1) {
+        if (!scene.isPaused && !isReversed)
+        {
+            if (step < (engine.getStates().count) - 1)
+            {
                 engine.drawState(stateNum: step)
                 updateLines()
                 step += 1
             }
-            else if (isLooping) {
+            else if (isLooping)
+            {
                 step = 0
             }
-            else {
+            else
+            {
+                sceneView.scene?.isPaused = true
+            }
+        }
+        else if (!scene.isPaused)
+        {
+            if step > 0
+            {
+                engine.drawState(stateNum: step)
+                updateLines()
+                step -= 1
+            }
+            else if (isLooping)
+            {
+                step = engine.getStates().count - 1
+            }
+            else
+            {
                 sceneView.scene?.isPaused = true
             }
         }
         stepSlider.value = Float(step)
     }
     
-    //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
         if (scene.isPaused) {
@@ -210,12 +230,16 @@ class ViewController: UIViewController {
     
     @IBAction func skipToEndButtonTapped(_ sender: Any) {
         //let skipBtn = sender as! UIButton
-        step = states.count
+        step = states.count - 1
         scene.isPaused = true
+        engine.drawState(stateNum: step)
+        updateLines()
     }
     
     @IBAction func skipToBeginningButtonTapped(_ sender: Any) {
         step = 0
+        engine.drawState(stateNum: step)
+        updateLines()
     }
     
     func getCameraPosition(maxX: Double, maxY: Double, maxZ: Double) -> Float {
@@ -277,6 +301,33 @@ class ViewController: UIViewController {
         engine.drawState(stateNum: step)
         updateLines()
     }
+    @IBAction func stepForwardButtonTapped(_ sender: Any)
+    {
+        step+=1
+        engine.drawState(stateNum: step)
+        updateLines()
+    }
+    @IBAction func stepBackwardButtonTapped(_ sender: Any)
+    {
+        step-=1
+        engine.drawState(stateNum: step)
+        updateLines()
+    }
+    @IBAction func reverseButtonTapped(_ sender: Any)
+    {
+        let reverseButton = sender as! UIButton
+        isReversed = !(isReversed)
+        
+        if isReversed
+        {
+            reverseButton.setImage(UIImage(systemName: "backward.fill"), for: .normal)
+        }
+        else
+        {
+            reverseButton.setImage(UIImage(systemName: "forward.fill"), for: .normal)
+        }
+    }
+    
 
     //not currently used
     func sortAtoms() {
