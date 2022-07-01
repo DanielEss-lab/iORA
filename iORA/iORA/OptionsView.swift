@@ -29,6 +29,7 @@ struct OptionsView: View {
     @State private var selectedAtomSize: Size = .normal
     @State private var selectedBondSize: Size = .normal
     @State private var coloredToggle = true
+    @State private var transparentToggle = true
     @State private var bgColor: Color = Color.blue
     @State private var selectedLightSource: LightSources = .directional
     
@@ -73,6 +74,7 @@ struct OptionsView: View {
                             selection: $bgColor,
                             supportsOpacity: false)
                 Toggle("Colored Bonds", isOn: $coloredToggle)
+                Toggle("Transparent Bonds", isOn: $transparentToggle)
             }
                     
         }
@@ -103,6 +105,7 @@ struct OptionsView: View {
             }
             
             self.coloredToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_COLORED")
+            self.transparentToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_TRANSPARENT")
             self.bgColor = Color(UserDefaults.standard.backgroundColor!)
             self.selectedLightSource = LightSources(rawValue: UserDefaults.standard.string(forKey: "LIGHT_SOURCE")!) ?? .directional
             
@@ -129,7 +132,7 @@ struct OptionsView: View {
             UserDefaults.standard.set(self.selectedLightSource.rawValue, forKey: "LIGHT_SOURCE")
             UserDefaults.standard.backgroundColor = UIColor(self.bgColor)
             UserDefaults.standard.set(self.coloredToggle, forKey: "ARE_BONDS_COLORED")
-            
+            UserDefaults.standard.set(self.transparentToggle, forKey: "ARE_BONDS_TRANSPARENT")
         }
     }
 }

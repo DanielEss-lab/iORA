@@ -95,7 +95,12 @@ class Engine {
         
         let distance = sqrtf((Float(xdist + ydist + zdist)) * Float(distMult))
         
-        let transparencyFactor = 1 - ((givenDist - 0.8) / 0.7)
+        let transparencyFactor: Double// = 1 - ((givenDist - 0.8) / 0.7)
+        if defaults.bool(forKey: "ARE_BONDS_TRANSPARENT") {
+            transparencyFactor = 0.3
+        } else {
+            transparencyFactor = 1
+        }
         
         if ( bond.order == 1) {
             drawSingle(distance: distance, c: coordinates, transparencyFactor: transparencyFactor, colored: colored, radius: radius)

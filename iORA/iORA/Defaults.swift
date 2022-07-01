@@ -24,7 +24,8 @@ class Defaults {
             defaults.set(LightSources.ambient.rawValue, forKey: "LIGHT_SOURCE")
             defaults.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00)
             defaults.set(false, forKey: "ARE_BONDS_COLORED")
-            UserDefaults.standard.set(1.0, forKey: "ATOM_RADIUS_MULTIPLIER")
+            defaults.set(true, forKey: "ARE_BONDS_TRANSPARENT")
+            defaults.set(1.0, forKey: "ATOM_RADIUS_MULTIPLIER")
             
             //..
             defaults.set(true, forKey: "SET_UP_PERFORMED")
