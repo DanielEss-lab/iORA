@@ -135,13 +135,15 @@ class ViewController: UIViewController {
         // Ambient light
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
-        ambientLightNode.light?.type = .ambient
+        ambientLightNode.light?.type = SCNLight.LightType(rawValue: UserDefaults.standard.string(forKey: "LIGHT_SOURCE")!)
+        //ambientLightNode.light?.type = .ambient
         ambientLightNode.light?.color = UIColor.darkGray
         ambientLightNode.position = SCNVector3(0.0, 0.0, -20.0)
         ambientLightNode.light?.intensity = 1200 // Default 3500
         scene.rootNode.addChildNode(ambientLightNode)
         
-        sceneView.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00) // Dark blue
+        sceneView.backgroundColor = UserDefaults.standard.backgroundColor
+        //sceneView.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00) // Dark blue
         sceneView.allowsCameraControl = true
         
         scene.rootNode.addChildNode(masterAtom)
