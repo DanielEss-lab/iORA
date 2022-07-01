@@ -19,6 +19,13 @@ var currentBonds = [Bond]()
 
 let RADIUS = 0.04
 
+
+//TEMPORARY COLOR DEFINITIONS
+let grayTemp = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
+let redTemp = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+let blueTemp = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+let greenTemp = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
+
 class Engine {
     
     func getStates()->[State] {
@@ -113,7 +120,7 @@ class Engine {
     
     func drawSingle(distance: Float, c: [Float], transparencyFactor: Double) {
         let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
+        baseGeometry1.firstMaterial?.diffuse.contents = grayTemp
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
         let node1 = SCNNode(geometry: baseGeometry1)
@@ -131,8 +138,8 @@ class Engine {
     func drawDouble(distance: Float, c: [Float], transparencyFactor: Double) {
         let baseGeometry1 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        baseGeometry1.firstMaterial?.diffuse.contents = grayTemp
+        baseGeometry2.firstMaterial?.diffuse.contents = grayTemp
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
@@ -163,9 +170,9 @@ class Engine {
         let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
-        baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        baseGeometry1.firstMaterial?.diffuse.contents = grayTemp
+        baseGeometry2.firstMaterial?.diffuse.contents = grayTemp
+        baseGeometry3.firstMaterial?.diffuse.contents = grayTemp
         
         baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
@@ -253,7 +260,7 @@ class Engine {
         
         let baseGeometry2 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
+        baseGeometry2.firstMaterial?.diffuse.contents = grayTemp
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)
         
@@ -297,8 +304,8 @@ class Engine {
         let baseGeometry3 = SCNCylinder(radius: 0.06, height: CGFloat(distance))
         
         //baseGeometry1.firstMaterial?.diffuse.contents = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
-        baseGeometry2.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.00)
-        baseGeometry3.firstMaterial?.diffuse.contents = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
+        baseGeometry2.firstMaterial?.diffuse.contents = grayTemp
+        baseGeometry3.firstMaterial?.diffuse.contents = grayTemp
         
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry2.firstMaterial?.transparency = CGFloat(transparencyFactor)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
+		27A22514286E616000810C60 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A22513286E616000810C60 /* Defaults.swift */; };
 		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
 		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
 		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		27A22513286E616000810C60 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
 		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				84FAC23E278F861F002B2A53 /* HostingController.swift */,
 				84FAC240278F868C002B2A53 /* View.storyboard */,
 				8458AFE127B47A2600CD07F0 /* InfoView.swift */,
+				27A22513286E616000810C60 /* Defaults.swift */,
 			);
 			path = iORA;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */,
+				27A22514286E616000810C60 /* Defaults.swift in Sources */,
 				8477AB8327AB55BE00C682A5 /* TapActions.swift in Sources */,
 				84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */,
 				2767D12D2758075000619CE1 /* Engine.swift in Sources */,

@@ -12,6 +12,7 @@ import SwiftUI
 let scene = SCNScene()
 
 var engine = Engine()
+let defaults = UserDefaults.standard
 
 let distMult = 1
 
@@ -22,9 +23,10 @@ var sceneAtoms: [SCNNode] = []
 var atomActions: [SCNNode: AtomInfo] = [:]
 var sceneBonds: [SCNNode] = []
 
-var stepDuration = 0.1 // fps = 1 / stepDuration
+var stepDuration = defaults.double(forKey: "STEP_DURATION") // fps = 1 / stepDuration
 var step = 0
 let scaleFactor = 1.0
+var speedSetting = 0;
 
 var maxX = 0.0
 var maxY = 0.0
@@ -36,6 +38,7 @@ class ViewController: UIViewController {
     let cameraNode = SCNNode()
     var timer = Timer()
     var isLooping = true;
+    var isReversed = false;
 
     @IBOutlet weak var stepSlider: UISlider!
     @IBOutlet weak var stepAheadButton: UIButton!
@@ -78,6 +81,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+        defaultInit.setUp()
+        
         loopButton?.backgroundColor = UIColor.systemGray
         
         engine.initialDraw();
@@ -85,12 +91,6 @@ class ViewController: UIViewController {
         
         stepSlider.maximumValue = Float(states.count - 1)
         
-        // Animation timer 
-//        if atomActions[sceneAtoms[0]]?.actions.count ?? 0 > 0 {
-//            weak var pass = self
-//            timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
-//        }
-        //FIXME: This may break some things
         weak var pass = self
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
         
@@ -110,6 +110,9 @@ class ViewController: UIViewController {
     
     
     func sceneSetup() {
+        stepDuration = defaults.double(forKey: "STEP_DURATION")
+        speedSetting = 0
+        
         stepSlider.maximumValue = Float(atomActions[sceneAtoms[0]]?.actions.count ?? 1)
         
         scene.isPaused = true // FIXME: Delete
@@ -146,25 +149,32 @@ class ViewController: UIViewController {
         sceneView.scene = scene
     }
     
-    //FIXME: Not currently functioning
     @objc func animate() {
-        if (!scene.isPaused) {
+        if (!scene.isPaused && !isReversed) {
             if (step < (engine.getStates().count) - 1) {
                 engine.drawState(stateNum: step)
                 updateLines()
                 step += 1
-            }
-            else if (isLooping) {
+            } else if (isLooping) {
                 step = 0
+            } else {
+                sceneView.scene?.isPaused = true
             }
-            else {
+        }
+        else if (!scene.isPaused) {
+            if step > 0 {
+                engine.drawState(stateNum: step)
+                updateLines()
+                step -= 1
+            } else if (isLooping) {
+                step = engine.getStates().count - 1
+            } else {
                 sceneView.scene?.isPaused = true
             }
         }
         stepSlider.value = Float(step)
     }
     
-    //FIXME: Not currently functioning
     @IBAction func stepSliderChanged(_ sender: Any) {
         step = Int(stepSlider.value)
         if (scene.isPaused) {
@@ -211,12 +221,16 @@ class ViewController: UIViewController {
     
     @IBAction func skipToEndButtonTapped(_ sender: Any) {
         //let skipBtn = sender as! UIButton
-        step = states.count
+        step = states.count - 1
         scene.isPaused = true
+        engine.drawState(stateNum: step)
+        updateLines()
     }
     
     @IBAction func skipToBeginningButtonTapped(_ sender: Any) {
         step = 0
+        engine.drawState(stateNum: step)
+        updateLines()
     }
     
     func getCameraPosition(maxX: Double, maxY: Double, maxZ: Double) -> Float {
@@ -226,6 +240,73 @@ class ViewController: UIViewController {
         
         return Float(max(finalX, finalY, finalZ))
     }
+    
+    @IBAction func speedButtonTapped(_ sender: Any) {
+        let speedButton = sender as! UIButton
+        
+        speedSetting += 1
+        speedSetting %= 7
+        
+        switch speedSetting {
+        case 0:
+            speedButton.setTitle("1x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION")
+        case 1:
+            speedButton.setTitle("2x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.5
+        case 2:
+            speedButton.setTitle("3x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.33
+        case 3:
+            speedButton.setTitle("4x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.25
+        case 4:
+            speedButton.setTitle("10x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.1
+        case 5:
+            speedButton.setTitle("0.25x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 4
+        case 6:
+            speedButton.setTitle("0.5x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
+        default:
+            break
+        }
+        
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: stepDuration, target: self as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func transitionStateButtonTapped(_ sender: Any) {
+        step = globalTransitionState
+        engine.drawState(stateNum: step)
+        updateLines()
+    }
+    @IBAction func stepForwardButtonTapped(_ sender: Any){
+        if step < engine.getStates().count - 1 {
+            step += 1
+            engine.drawState(stateNum: step)
+            updateLines()
+        }
+    }
+    @IBAction func stepBackwardButtonTapped(_ sender: Any) {
+        if step > 0 {
+            step -= 1
+            engine.drawState(stateNum: step)
+            updateLines()
+        }
+    }
+    @IBAction func reverseButtonTapped(_ sender: Any) {
+        let reverseButton = sender as! UIButton
+        isReversed = !(isReversed)
+        
+        if isReversed {
+            reverseButton.setImage(UIImage(systemName: "backward.fill"), for: .normal)
+        } else {
+            reverseButton.setImage(UIImage(systemName: "forward.fill"), for: .normal)
+        }
+    }
+    
 
     //not currently used
     func sortAtoms() {
