@@ -303,15 +303,21 @@ class ViewController: UIViewController {
     }
     @IBAction func stepForwardButtonTapped(_ sender: Any)
     {
-        step+=1
-        engine.drawState(stateNum: step)
-        updateLines()
+        if step < engine.getStates().count - 1
+        {
+            step+=1
+            engine.drawState(stateNum: step)
+            updateLines()
+        }
     }
     @IBAction func stepBackwardButtonTapped(_ sender: Any)
     {
-        step-=1
-        engine.drawState(stateNum: step)
-        updateLines()
+        if step > 0
+        {
+            step-=1
+            engine.drawState(stateNum: step)
+            updateLines()
+        }
     }
     @IBAction func reverseButtonTapped(_ sender: Any)
     {
