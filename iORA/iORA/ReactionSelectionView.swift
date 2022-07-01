@@ -97,11 +97,7 @@ struct ReactionSelectionView: View {
                     .navigationBarTitleDisplayMode(.inline)
                 }
                 .navigationTitle("Reactions")
-            
-            
-            VStack {
-                HStack {
-                    Spacer()
+                .toolbar {
                     NavigationLink(destination: OptionsView()) {
                         Image(systemName: "gear")
                             .onAppear {
@@ -110,10 +106,8 @@ struct ReactionSelectionView: View {
                             }.padding()
                     }
                 }
-                Spacer()
-                
-            }
-        }
+                 
+             }
         }
         
     }
