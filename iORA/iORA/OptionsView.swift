@@ -81,24 +81,25 @@ struct OptionsView: View {
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            let temp = UserDefaults.standard.double(forKey: "BOND_RADIUS")
-            switch UserDefaults.standard.double(forKey: "BOND_RADIUS") {
-            case 0.03:
+            var temp = UserDefaults.standard.double(forKey: "BOND_RADIUS")
+            switch temp {
+            case _ where temp < 0.04:
                 self.selectedBondSize = .small
-            case 0.06:
+            case 0.04..<0.09:
                 self.selectedBondSize = .normal
-            case 0.08:
+            case _ where temp >= 0.09:
                 self.selectedBondSize = .large
             default:
                 self.selectedBondSize = .normal
             }
             
-            switch UserDefaults.standard.double(forKey: "ATOM_RADIUS_MULTIPLIER") {
-            case 0.5:
+            temp = UserDefaults.standard.double(forKey: "ATOM_RADIUS_MULTIPLIER")
+            switch temp {
+            case _ where temp < 0.75:
                 self.selectedAtomSize = .small
-            case 1.0:
+            case 0.75..<1.5:
                 self.selectedAtomSize = .normal
-            case 2.0:
+            case _ where temp >= 1.5:
                 self.selectedAtomSize = .large
             default:
                 self.selectedAtomSize = .normal
