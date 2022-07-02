@@ -13,7 +13,7 @@ class Defaults {
     
     func setUp()
     {
-        if defaults.bool(forKey: "SET_UP_PERFORMED") == false
+        if defaults.bool(forKey: "SET_UP_PERFORMED_2") == false
         {
             defaults.set(0.1, forKey: "STEP_DURATION")
             //defaults.set(1.0, forKey: "DISTANCE_MULTIPLIER")
@@ -28,7 +28,7 @@ class Defaults {
             defaults.set(1.0, forKey: "ATOM_RADIUS_MULTIPLIER")
             
             //..
-            defaults.set(true, forKey: "SET_UP_PERFORMED")
+            defaults.set(true, forKey: "SET_UP_PERFORMED_2")
         }
     }
 }
