@@ -401,6 +401,11 @@ class Engine {
         atomMaterial.diffuse.contents = color
         atomMaterial.specular.contents = UIColor.white
         atomMaterial.shininess = 0.75
+        
+        //emission creates lighting without a lighting object. The object will be lit regardless of surroundings
+        //atomMaterial.emission.contents = UIColor.white //color
+        //atomMaterial.emission.intensity = 0.01
+        
         atomGeometry.materials = [atomMaterial]
         let atomNode = SCNNode(geometry: atomGeometry)
         atomNode.position = SCNVector3(coords[0], coords[1], coords[2])
