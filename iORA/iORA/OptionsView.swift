@@ -76,7 +76,7 @@ struct OptionsView: View {
                 Toggle("Colored Bonds", isOn: $coloredToggle)
                 Toggle("Transparent Bonds", isOn: $transparentToggle)
             }
-                    
+            Text("Developed by Daniel Ess, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Gabriel Reed").font(.footnote)
         }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
