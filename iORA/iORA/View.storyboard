@@ -85,14 +85,14 @@
                                     <constraint firstAttribute="height" constant="80" id="eIH-bQ-oep"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-Xw-sWk">
-                                <rect key="frame" x="18" y="735" width="378" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-Xw-sWk">
+                                <rect key="frame" x="18" y="735" width="378" height="16"/>
                                 <connections>
                                     <action selector="stepSliderChanged:" destination="TSw-hy-FCY" eventType="valueChanged" id="Bwc-Oo-XvW"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-us-auw" userLabel="loopButton">
-                                <rect key="frame" x="285.5" y="794" width="32.5" height="26.5"/>
+                                <rect key="frame" x="265.5" y="779" width="32.5" height="41.5"/>
                                 <state key="normal" image="repeat" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUu-w4-kKo">
-                                <rect key="frame" x="101" y="796" width="37.5" height="25"/>
+                                <rect key="frame" x="122" y="781" width="37.5" height="37.5"/>
                                 <state key="normal" image="forward.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
@@ -115,8 +115,8 @@
                                     <action selector="reverseButtonTapped:" destination="TSw-hy-FCY" eventType="touchUpInside" id="mfv-hq-nyR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-E5-DVa">
-                                <rect key="frame" x="44" y="826" width="30" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-E5-DVa">
+                                <rect key="frame" x="44" y="812" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="TS"/>
                                 <connections>
@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIb-5p-5mJ">
-                                <rect key="frame" x="340" y="827" width="30" height="27"/>
+                                <rect key="frame" x="340" y="812" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="1x">
                                     <color key="titleColor" name="AccentColor"/>
@@ -141,26 +141,28 @@
                         <viewLayoutGuide key="safeArea" id="bsA-mI-h2v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uIb-5p-5mJ" firstAttribute="leading" secondItem="HK4-us-auw" secondAttribute="trailing" constant="42" id="0m0-Aq-uB6"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="kxF-fz-GRS" secondAttribute="trailing" constant="20" id="3SE-VD-HdF"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="uIb-5p-5mJ" secondAttribute="trailing" constant="44" id="3tA-lq-rzg"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="9Zu-Xw-sWk" secondAttribute="trailing" constant="20" id="5yx-49-r2p"/>
+                            <constraint firstItem="HK4-us-auw" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="29" id="Kgs-8l-0LX"/>
+                            <constraint firstItem="KUu-w4-kKo" firstAttribute="leading" secondItem="Jhj-E5-DVa" secondAttribute="trailing" constant="48" id="NTz-kP-a10"/>
+                            <constraint firstItem="bsA-mI-h2v" firstAttribute="bottom" secondItem="HK4-us-auw" secondAttribute="bottom" constant="41.5" id="OTN-tC-h4v"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="bottom" secondItem="uIb-5p-5mJ" secondAttribute="bottom" constant="8" id="Pos-wB-YRf"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="VT7-NQ-ZOv" secondAttribute="trailing" constant="20" id="TmR-z2-hcN"/>
-                            <constraint firstItem="KUu-w4-kKo" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="31" id="UbT-BP-6mW"/>
                             <constraint firstItem="VT7-NQ-ZOv" firstAttribute="top" secondItem="bsA-mI-h2v" secondAttribute="top" id="XHF-MN-4Qe"/>
                             <constraint firstItem="kxF-fz-GRS" firstAttribute="top" secondItem="VT7-NQ-ZOv" secondAttribute="bottom" constant="20" id="XIW-PH-qWz"/>
                             <constraint firstItem="9Zu-Xw-sWk" firstAttribute="top" secondItem="kxF-fz-GRS" secondAttribute="bottom" constant="23" id="ZC2-hJ-21a"/>
                             <constraint firstItem="9Zu-Xw-sWk" firstAttribute="leading" secondItem="bsA-mI-h2v" secondAttribute="leading" constant="20" id="Zjt-vq-F9x"/>
-                            <constraint firstItem="bsA-mI-h2v" firstAttribute="bottom" secondItem="HK4-us-auw" secondAttribute="bottom" constant="41.5" id="bIl-7c-7tF"/>
-                            <constraint firstItem="KUu-w4-kKo" firstAttribute="leading" secondItem="bsA-mI-h2v" secondAttribute="leading" constant="101" id="bMO-Au-uiJ"/>
+                            <constraint firstItem="uIb-5p-5mJ" firstAttribute="centerY" secondItem="Jhj-E5-DVa" secondAttribute="centerY" id="cmE-ls-9Zp"/>
+                            <constraint firstItem="KUu-w4-kKo" firstAttribute="baseline" secondItem="HK4-us-auw" secondAttribute="baseline" id="fFO-lT-nlr"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="bottom" secondItem="VT7-NQ-ZOv" secondAttribute="bottom" constant="250" id="fJT-z1-26l"/>
                             <constraint firstItem="VT7-NQ-ZOv" firstAttribute="leading" secondItem="bsA-mI-h2v" secondAttribute="leading" constant="20" id="hDA-EY-u2b"/>
                             <constraint firstItem="Jhj-E5-DVa" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="62" id="hly-nF-bdi"/>
                             <constraint firstItem="kxF-fz-GRS" firstAttribute="leading" secondItem="bsA-mI-h2v" secondAttribute="leading" constant="20" id="khu-Px-gBy"/>
-                            <constraint firstItem="HK4-us-auw" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="29" id="n0k-Rl-GXl"/>
                             <constraint firstItem="Jhj-E5-DVa" firstAttribute="leading" secondItem="bsA-mI-h2v" secondAttribute="leading" constant="44" id="pM3-ez-pHj"/>
+                            <constraint firstItem="KUu-w4-kKo" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="31" id="pwb-JQ-fWp"/>
                             <constraint firstItem="uIb-5p-5mJ" firstAttribute="top" secondItem="9Zu-Xw-sWk" secondAttribute="bottom" constant="62" id="qTg-1W-Co8"/>
-                            <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="HK4-us-auw" secondAttribute="trailing" constant="96" id="xsx-XR-mpj"/>
                         </constraints>
                     </view>
                     <connections>
