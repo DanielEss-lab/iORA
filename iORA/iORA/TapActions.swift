@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SceneKit
+import SwiftUI
 
 var selectedAtoms: [SCNNode] = []
 let masterLine = SCNNode()
@@ -83,6 +84,21 @@ extension ViewController {
     }
     
     func drawLines() {
+        // TODO: figure out how to change infoView foreground color
+        // set to white here
+        if let color = UserDefaults.standard.backgroundColor {
+            var r: CGFloat = 0
+            var g: CGFloat = 0
+            var b: CGFloat = 0
+            var a: CGFloat = 0
+            color.getRed(&r, green: &g, blue: &b, alpha: &a)
+            // https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+            if ((r * 0.299) + (g * 0.587) + (b * 0.114)) > (150 / 255) {
+                // set to black here
+            }
+        }
+        
+        
         if selectedAtoms.count > 0 {
             view.addSubview(infoView.view)
             infoView.rootView.atoms = []

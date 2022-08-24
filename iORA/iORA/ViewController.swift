@@ -81,10 +81,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
-        defaultInit.setUp()
+        //let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+        //defaultInit.setUp()
         
         loopButton?.backgroundColor = UIColor.systemGray
+        let initializeDefaults = Defaults()
+            initializeDefaults.setUp()
         
         engine.initialDraw();
         sceneSetup()
@@ -110,6 +112,9 @@ class ViewController: UIViewController {
     
     
     func sceneSetup() {
+        stepDuration = defaults.double(forKey: "STEP_DURATION")
+        speedSetting = 0
+        
         stepSlider.maximumValue = Float(atomActions[sceneAtoms[0]]?.actions.count ?? 1)
         
         scene.isPaused = true // FIXME: Delete
@@ -130,13 +135,15 @@ class ViewController: UIViewController {
         // Ambient light
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
-        ambientLightNode.light?.type = .ambient
+        ambientLightNode.light?.type = SCNLight.LightType(rawValue: UserDefaults.standard.string(forKey: "LIGHT_SOURCE")!)
+        //ambientLightNode.light?.type = .ambient
         ambientLightNode.light?.color = UIColor.darkGray
         ambientLightNode.position = SCNVector3(0.0, 0.0, -20.0)
         ambientLightNode.light?.intensity = 1200 // Default 3500
         scene.rootNode.addChildNode(ambientLightNode)
         
-        sceneView.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00) // Dark blue
+        sceneView.backgroundColor = UserDefaults.standard.backgroundColor
+        //sceneView.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00) // Dark blue
         sceneView.allowsCameraControl = true
         
         scene.rootNode.addChildNode(masterAtom)
@@ -147,37 +154,25 @@ class ViewController: UIViewController {
     }
     
     @objc func animate() {
-        if (!scene.isPaused && !isReversed)
-        {
-            if (step < (engine.getStates().count) - 1)
-            {
+        if (!scene.isPaused && !isReversed) {
+            if (step < (engine.getStates().count) - 1) {
                 engine.drawState(stateNum: step)
                 updateLines()
                 step += 1
-            }
-            else if (isLooping)
-            {
+            } else if (isLooping) {
                 step = 0
-            }
-            else
-            {
+            } else {
                 sceneView.scene?.isPaused = true
             }
         }
-        else if (!scene.isPaused)
-        {
-            if step > 0
-            {
+        else if (!scene.isPaused) {
+            if step > 0 {
                 engine.drawState(stateNum: step)
                 updateLines()
                 step -= 1
-            }
-            else if (isLooping)
-            {
+            } else if (isLooping) {
                 step = engine.getStates().count - 1
-            }
-            else
-            {
+            } else {
                 sceneView.scene?.isPaused = true
             }
         }
@@ -253,83 +248,65 @@ class ViewController: UIViewController {
     @IBAction func speedButtonTapped(_ sender: Any) {
         let speedButton = sender as! UIButton
         
-        if speedSetting >= 6
-        {
-            speedSetting = 0
-        }
-        else
-        {
-            speedSetting+=1
-        }
+        speedSetting += 1
+        speedSetting %= 7
         
-        if speedSetting == 0 {
+        switch speedSetting {
+        case 0:
             speedButton.setTitle("1x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION")
-        }
-        else if speedSetting == 1 {
+        case 1:
             speedButton.setTitle("2x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.5
-        }
-        else if speedSetting == 2 {
+        case 2:
             speedButton.setTitle("3x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.33
-        }
-        else if speedSetting == 3 {
+        case 3:
             speedButton.setTitle("4x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.25
-        }
-        else if speedSetting == 4 {
+        case 4:
             speedButton.setTitle("10x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 0.1
-        }
-        else if speedSetting == 5 {
-            speedButton.setTitle("0.5x", for: .normal)
-            stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
-        }
-        else if speedSetting == 6 {
+        case 5:
             speedButton.setTitle("0.25x", for: .normal)
             stepDuration = defaults.double(forKey: "STEP_DURATION") * 4
+        case 6:
+            speedButton.setTitle("0.5x", for: .normal)
+            stepDuration = defaults.double(forKey: "STEP_DURATION") * 2
+        default:
+            break
         }
+        
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: self as Any, selector: #selector(animate), userInfo: nil, repeats: true)
     }
     
-    @IBAction func transitionStateButtonTapped(_ sender: Any)
-    {
-        step = states.count / 2
-        //step = globalTransitionState
+    @IBAction func transitionStateButtonTapped(_ sender: Any) {
+        step = globalTransitionState
         engine.drawState(stateNum: step)
         updateLines()
     }
-    @IBAction func stepForwardButtonTapped(_ sender: Any)
-    {
-        if step < engine.getStates().count - 1
-        {
-            step+=1
+    @IBAction func stepForwardButtonTapped(_ sender: Any){
+        if step < engine.getStates().count - 1 {
+            step += 1
             engine.drawState(stateNum: step)
             updateLines()
         }
     }
-    @IBAction func stepBackwardButtonTapped(_ sender: Any)
-    {
-        if step > 0
-        {
-            step-=1
+    @IBAction func stepBackwardButtonTapped(_ sender: Any) {
+        if step > 0 {
+            step -= 1
             engine.drawState(stateNum: step)
             updateLines()
         }
     }
-    @IBAction func reverseButtonTapped(_ sender: Any)
-    {
+    @IBAction func reverseButtonTapped(_ sender: Any) {
         let reverseButton = sender as! UIButton
         isReversed = !(isReversed)
         
-        if isReversed
-        {
+        if isReversed {
             reverseButton.setImage(UIImage(systemName: "backward.fill"), for: .normal)
-        }
-        else
-        {
+        } else {
             reverseButton.setImage(UIImage(systemName: "forward.fill"), for: .normal)
         }
     }
