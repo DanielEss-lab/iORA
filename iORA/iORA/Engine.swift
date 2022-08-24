@@ -292,11 +292,11 @@ class Engine {
         let node1 = SCNNode(geometry: baseGeometry1)
         let node2 = SCNNode(geometry: baseGeometry2)
         node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
-                                    y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+                                    y: Float((c[2] + c[3]) / 2) - 0.09,
+                                    z: Float((c[4] + c[5]) / 2) /*- 0.09*/)
         node2.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
-                                    y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) + 0.09)
+                                    y: Float((c[2] + c[3]) / 2) + 0.09,
+                                    z: Float((c[4] + c[5]) / 2) /*+ 0.09*/)
         node1.eulerAngles = SCNVector3((Float.pi / 2),
                                        acos((c[5]-c[4])/Float((distance))),
                                        atan2((c[3]-c[2]),(c[1]-c[0])))
