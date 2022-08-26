@@ -14,7 +14,7 @@
         <scene sceneID="P7f-sW-2eu">
             <objects>
                 <viewController id="TSw-hy-FCY" customClass="ViewController" customModule="iORA" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iu1-J2-53n">
+                    <view key="view" contentMode="scaleToFill" id="iu1-J2-53n" customClass="SCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
