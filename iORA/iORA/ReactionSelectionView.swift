@@ -33,7 +33,7 @@ let subCategories = [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkyl Substitution",
                 reactions: [
-                    ReactionFile(name: "SN1: Tert-Butyl Iodide", filename: "SN1_Iodotertbutane", transitionState: 75),
+                    ReactionFile(name: "SN1: Tert-Butyl Iodide", filename: "SN1_Iodotertbutane", transitionState: 70),
                     ReactionFile(name: "SN2: 2-Bromobutane", filename: "SN2_2-Bromobutane", transitionState: 525),
                     ReactionFile(name: "SN2: Nonproductive Ethyl Chloride", filename: "SN2_Chloroethane_nonproductive", transitionState: 0),
                     ReactionFile(name: "SN2: Ethyl Chloride", filename: "SN2_Chloroethane", transitionState: 1020),
@@ -45,7 +45,7 @@ let subCategories = [
     SubCategory(name: "Elimination",
                 reactions: [
                     ReactionFile(name: "E1cb", filename: "E1cb_PhenylChloroNitroPropane", transitionState: 245),
-                    ReactionFile(name: "E2: 2-Bromobutane", filename: "E2_2-Bromobutane", transitionState: 350),
+                    //ReactionFile(name: "E2: 2-Bromobutane", filename: "E2_2-Bromobutane", transitionState: 350),
                     ReactionFile(name: "E2: 2-Bromobutane", filename: "2-BromobutaneMeO", transitionState: 1004), // New one
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkene Addition",
@@ -55,6 +55,11 @@ let subCategories = [
                     ReactionFile(name: "CCI2 Carbene Addition", filename: "AdE_Carbene_addtion", transitionState: 275),
                     ReactionFile(name: "CH2 Carbene", filename: "CH2TripletCarbeneEthylene", transitionState: 108),
                     ReactionFile(name: "CH2 Carbene Trans-2 Butene", filename: "TripletCarbeneAlkene", transitionState: 145),
+                ].sorted(by: { $0.name < $1.name })),
+    SubCategory(name: "Alkyne Addition",
+                reactions: [
+                    //ReactionFile(name: "3-Hexyne Hydrochloric", filename: "3-Hexyne_Hydrochloric_OLD", transitionState: 164),
+                    ReactionFile(name: "3-Hexyne Hydrochloric", filename: "3-Hexyne_Hydrochloric", transitionState: 233),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Diene Addition",
                 reactions: [
@@ -96,11 +101,6 @@ let subCategories = [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Aromatic Substitution",
                 reactions: [
-                ].sorted(by: { $0.name < $1.name })),
-    SubCategory(name: "Alkyne Addition",
-                reactions: [
-                    //ReactionFile(name: "3-Hexyne Hydrochloric", filename: "3-Hexyne_Hydrochloric_OLD", transitionState: 164),
-                    ReactionFile(name: "3-Hexyne Hydrochloric", filename: "3-Hexyne_Hydrochloric", transitionState: 233),
                 ].sorted(by: { $0.name < $1.name })),
     /*SubCategory(name: "Uncategorized",
                 reactions: [
