@@ -17,7 +17,7 @@ class Defaults {
             //defaults.set(1.0, forKey: "DISTANCE_MULTIPLIER")
             defaults.set(1.0, forKey: "SCALE_FACTOR")
             defaults.set(0.06, forKey: "BOND_RADIUS")
-            defaults.set(LightSources.ambient.rawValue, forKey: "LIGHT_SOURCE")
+            defaults.set(LightSources.directional.rawValue, forKey: "LIGHT_SOURCE")
             defaults.backgroundColor = UIColor(red: 0.09, green: 0.28, blue: 0.59, alpha: 1.00)
             defaults.set(false, forKey: "ARE_BONDS_COLORED")
             defaults.set(false, forKey: "ARE_BONDS_TRANSPARENT")
