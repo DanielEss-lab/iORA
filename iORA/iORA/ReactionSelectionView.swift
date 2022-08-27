@@ -37,10 +37,10 @@ let subCategories = [
                     ReactionFile(name: "SN2: 2-Bromobutane", filename: "SN2_2-Bromobutane", transitionState: 525),
                     ReactionFile(name: "SN2: Nonproductive Ethyl Chloride", filename: "SN2_Chloroethane_nonproductive", transitionState: 0),
                     ReactionFile(name: "SN2: Ethyl Chloride", filename: "SN2_Chloroethane", transitionState: 1020),
-                    ReactionFile(name: "SN2: Methyl Iodide", filename: "Nitrogen_Methyl_Iodine", transitionState: 194),
+                    ReactionFile(name: "SN2: Methyl Iodide", filename: "Nitrogen_Methyl_Iodine", transitionState: 220),
                     //ReactionFile(name: "SN2: Methyl Ammonium", filename: "CH3SMeN(Me)3", transitionState: 1000), // old
                     ReactionFile(name: "SN2: Methyl Ammonium", filename: "SN2_Methyl_Ammonium", transitionState: 424),
-                    ReactionFile(name: "SN2: Benzyl Bromide", filename: "MethylOxide_BenzylBromide", transitionState: 166),
+                    ReactionFile(name: "SN2: Benzyl Bromide", filename: "MethylOxide_BenzylBromide", transitionState: 162),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Elimination",
                 reactions: [
@@ -54,7 +54,7 @@ let subCategories = [
                     ReactionFile(name: "BH3 Hydroboration", filename: "AdE_Hydroboration", transitionState: 200),
                     ReactionFile(name: "CCI2 Carbene Addition", filename: "AdE_Carbene_addtion", transitionState: 275),
                     ReactionFile(name: "CH2 Carbene", filename: "CH2TripletCarbeneEthylene", transitionState: 108),
-                    ReactionFile(name: "CH2 Carbene Trans-2 Butene", filename: "TripletCarbeneAlkene", transitionState: 145),
+                    ReactionFile(name: "CH2 Carbene Trans-2 Butene", filename: "TripletCarbeneAlkene", transitionState: 148),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkyne Addition",
                 reactions: [
@@ -88,7 +88,7 @@ let subCategories = [
                 reactions: [
                     //ReactionFile(name: "AdR TertButyl", filename: "AdR_TertButyl", transitionState: 1025),
                     ReactionFile(name: "Intramolecular HAT", filename: "HAT_Butoxy", transitionState: 430),
-                    ReactionFile(name: "CH4-Chlorine Radical", filename: "MethaneChlorineRadical", transitionState: 56),
+                    ReactionFile(name: "CH4-Chlorine Radical", filename: "MethaneChlorineRadical", transitionState: 55),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Pericyclic",
                 reactions: [
