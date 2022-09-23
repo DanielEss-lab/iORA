@@ -23,7 +23,7 @@
 		84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */; };
 		84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23C278F85C1002B2A53 /* ReactionView.swift */; };
 		84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23E278F861F002B2A53 /* HostingController.swift */; };
-		84FAC241278F868C002B2A53 /* View.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC240278F868C002B2A53 /* View.storyboard */; };
+		84FAC241278F868C002B2A53 /* View.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC240278F868C002B2A53 /* View.storyboard */; settings = {ASSET_TAGS = (99, ts, ); }; };
 		88BB930E25A43F760093746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930D25A43F760093746B /* AppDelegate.swift */; };
 		88BB931025A43F760093746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930F25A43F760093746B /* SceneDelegate.swift */; };
 		88BB931225A43F760093746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB931125A43F760093746B /* ViewController.swift */; };
@@ -252,6 +252,10 @@
 		88BB930225A43F760093746B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					99,
+					ts,
+				);
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {

@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider!
     //@IBOutlet weak var lockCameraButton: UIButton!
     
-    var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-"))
+    var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-", color: Color.white))
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -81,6 +81,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let ts = self.view.viewWithTag(99) as? UIButton
+        ts?.isEnabled = (globalTransitionState > 0)
+
         //let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
         //defaultInit.setUp()
         
@@ -95,6 +98,18 @@ class ViewController: UIViewController {
         
         weak var pass = self
         timer = Timer.scheduledTimer(timeInterval: stepDuration, target: pass as Any, selector: #selector(animate), userInfo: nil, repeats: true)
+        
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        UserDefaults.standard.backgroundColor?.getRed(&r, green: &g, blue: &b, alpha: &a)
+        r *= 0.299 * 256
+        g *= 0.587 * 256
+        b *= 0.114 * 256
+        if r + g + b > 150 {
+            infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-", color: Color.black))
+        }
         
         addChild(infoView)
         view.addSubview(infoView.view)
