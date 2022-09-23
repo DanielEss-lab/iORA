@@ -23,6 +23,8 @@ let redTemp = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
 let blueTemp = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
 let greenTemp = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
 
+let partialLine = UIImage(named: "line")!
+
 class Engine {
     
     func getStates()->[StateObj] {
@@ -240,7 +242,7 @@ class Engine {
         
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
@@ -267,7 +269,7 @@ class Engine {
     func drawSingleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
@@ -314,7 +316,7 @@ class Engine {
     func drawDoubleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
