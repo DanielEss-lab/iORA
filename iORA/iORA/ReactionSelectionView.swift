@@ -21,10 +21,9 @@ struct SubCategory {
 let subCategories = [
     SubCategory(name: "Conformational Change",
                 reactions: [
-                    ReactionFile(name: "Conf Butane", filename: "Conf_Butane", transitionState: -1), // <- Remove?? Same as butane
-                    //ReactionFile(name: "Butane", filename: "butane", transitionState: -1), // <- Rename to conf butane??
-                    ReactionFile(name: "Ethane", filename: "ethane", transitionState: -1),
-                    ReactionFile(name: "Chloroethane", filename: "chloroethane", transitionState: -1),
+                    ReactionFile(name: "Conf Butane", filename: "butane_eclipsed_TS870", transitionState: -1), // Remove Conf_Butane
+                    ReactionFile(name: "Ethane", filename: "ethane_TS_10K", transitionState: -1), // Remove ethane
+                    ReactionFile(name: "Chloroethane", filename: "Chloroenthane_TS_10K", transitionState: -1), // Remove chlorotethan
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Bronsted Acid-Base",
                 reactions: [
@@ -70,7 +69,7 @@ let subCategories = [
     SubCategory(name: "Oxidation",
                 reactions: [
                     ReactionFile(name: "Cis Alkene Epoxidation", filename: "AdE_Epoxidation_Z", transitionState: 1010),
-                    ReactionFile(name: "Trans Alkene Epoxidation", filename: "AdE_Epoxidation_E", transitionState: 1020)
+                    ReactionFile(name: "Trans Alkene Epoxidation", filename: "Butene_EA_dimethyloxirane", transitionState: 528) // Need to delete old AdE_Epoxidation_E file
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Reduction",
                 reactions: [
