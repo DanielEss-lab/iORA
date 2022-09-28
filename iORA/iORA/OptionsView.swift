@@ -33,6 +33,8 @@ struct OptionsView: View {
     @State private var bgColor: Color = Color.blue
     @State private var selectedLightSource: LightSources = .directional
     
+    @State private var isPresentingConfirm: Bool = false
+    
     var body: some View {
         List {
             Section(header: Text("Sizing")) {
@@ -76,65 +78,99 @@ struct OptionsView: View {
                 Toggle("Colored Bonds", isOn: $coloredToggle)
                 Toggle("Transparent Bonds", isOn: $transparentToggle)
             }
-            Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess").font(.footnote)
+            
+            Section() {
+                Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess").font(.footnote)
+            }
+            
+            Section() {
+                Button("Reset to Defaults") {
+                  isPresentingConfirm = true
+                }
+                .foregroundColor(.red)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .actionSheet(isPresented: $isPresentingConfirm) {
+                    ActionSheet(
+                        title: Text("This action will reset all settings and cannot be undone"),
+                        buttons: [
+                            .destructive(Text("Reset to Defaults")) {
+                                UserDefaults.standard.set(false, forKey: "SET_UP_PERFORMED_2")
+                                let defaults = Defaults()
+                                defaults.setUp()
+                                self.loadSettings()
+                                isPresentingConfirm = false
+                            },
+                            .cancel()
+                        ]
+                    )
+                }
+            }
+            
         }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            var temp = UserDefaults.standard.double(forKey: "BOND_RADIUS")
-            switch temp {
-            case _ where temp < 0.04:
-                self.selectedBondSize = .small
-            case 0.04..<0.09:
-                self.selectedBondSize = .normal
-            case _ where temp >= 0.09:
-                self.selectedBondSize = .large
-            default:
-                self.selectedBondSize = .normal
-            }
-            
-            temp = UserDefaults.standard.double(forKey: "ATOM_RADIUS_MULTIPLIER")
-            switch temp {
-            case _ where temp < 0.75:
-                self.selectedAtomSize = .small
-            case 0.75..<1.5:
-                self.selectedAtomSize = .normal
-            case _ where temp >= 1.5:
-                self.selectedAtomSize = .large
-            default:
-                self.selectedAtomSize = .normal
-            }
-            
-            self.coloredToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_COLORED")
-            self.transparentToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_TRANSPARENT")
-            self.bgColor = Color(UserDefaults.standard.backgroundColor!)
-            self.selectedLightSource = LightSources(rawValue: UserDefaults.standard.string(forKey: "LIGHT_SOURCE")!) ?? .directional
-            
+            self.loadSettings()
         }
         .onDisappear {
-            switch self.selectedAtomSize {
-            case Size.small:
-                UserDefaults.standard.set(0.5, forKey: "ATOM_RADIUS_MULTIPLIER")
-            case Size.normal:
-                UserDefaults.standard.set(1.0, forKey: "ATOM_RADIUS_MULTIPLIER")
-            case Size.large:
-                UserDefaults.standard.set(2.0, forKey: "ATOM_RADIUS_MULTIPLIER")
-            }
-            
-            switch self.selectedBondSize {
-            case Size.small:
-                UserDefaults.standard.set(0.03, forKey: "BOND_RADIUS")
-            case Size.normal:
-                UserDefaults.standard.set(0.06, forKey: "BOND_RADIUS")
-            case Size.large:
-                UserDefaults.standard.set(0.12, forKey: "BOND_RADIUS")
-            }
-            
-            UserDefaults.standard.set(self.selectedLightSource.rawValue, forKey: "LIGHT_SOURCE")
-            UserDefaults.standard.backgroundColor = UIColor(self.bgColor)
-            UserDefaults.standard.set(self.coloredToggle, forKey: "ARE_BONDS_COLORED")
-            UserDefaults.standard.set(self.transparentToggle, forKey: "ARE_BONDS_TRANSPARENT")
+            self.saveSettings()
         }
+    }
+    
+    func loadSettings() {
+        var temp = UserDefaults.standard.double(forKey: "BOND_RADIUS")
+        switch temp {
+        case _ where temp < 0.04:
+            self.selectedBondSize = .small
+        case 0.04..<0.09:
+            self.selectedBondSize = .normal
+        case _ where temp >= 0.09:
+            self.selectedBondSize = .large
+        default:
+            self.selectedBondSize = .normal
+        }
+        
+        temp = UserDefaults.standard.double(forKey: "ATOM_RADIUS_MULTIPLIER")
+        switch temp {
+        case _ where temp < 0.75:
+            self.selectedAtomSize = .small
+        case 0.75..<1.5:
+            self.selectedAtomSize = .normal
+        case _ where temp >= 1.5:
+            self.selectedAtomSize = .large
+        default:
+            self.selectedAtomSize = .normal
+        }
+        
+        self.coloredToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_COLORED")
+        self.transparentToggle = UserDefaults.standard.bool(forKey: "ARE_BONDS_TRANSPARENT")
+        self.bgColor = Color(UserDefaults.standard.backgroundColor!)
+        self.selectedLightSource = LightSources(rawValue: UserDefaults.standard.string(forKey: "LIGHT_SOURCE")!) ?? .directional
+    }
+    
+    func saveSettings() {
+        switch self.selectedAtomSize {
+        case Size.small:
+            UserDefaults.standard.set(0.5, forKey: "ATOM_RADIUS_MULTIPLIER")
+        case Size.normal:
+            UserDefaults.standard.set(1.0, forKey: "ATOM_RADIUS_MULTIPLIER")
+        case Size.large:
+            UserDefaults.standard.set(2.0, forKey: "ATOM_RADIUS_MULTIPLIER")
+        }
+        
+        switch self.selectedBondSize {
+        case Size.small:
+            UserDefaults.standard.set(0.03, forKey: "BOND_RADIUS")
+        case Size.normal:
+            UserDefaults.standard.set(0.06, forKey: "BOND_RADIUS")
+        case Size.large:
+            UserDefaults.standard.set(0.12, forKey: "BOND_RADIUS")
+        }
+        
+        UserDefaults.standard.set(self.selectedLightSource.rawValue, forKey: "LIGHT_SOURCE")
+        UserDefaults.standard.backgroundColor = UIColor(self.bgColor)
+        UserDefaults.standard.set(self.coloredToggle, forKey: "ARE_BONDS_COLORED")
+        UserDefaults.standard.set(self.transparentToggle, forKey: "ARE_BONDS_TRANSPARENT")
     }
 }
 

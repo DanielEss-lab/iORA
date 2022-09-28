@@ -81,6 +81,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.systemBackground 
+        
         let ts = self.view.viewWithTag(99) as? UIButton
         ts?.isEnabled = (globalTransitionState > 0)
 
