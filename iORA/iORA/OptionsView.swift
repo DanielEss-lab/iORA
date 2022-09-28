@@ -84,16 +84,16 @@ struct OptionsView: View {
             }
             
             Section() {
-                Button("Reset to Defaults") {
+                Button("Reset Settings") {
                   isPresentingConfirm = true
                 }
                 .foregroundColor(.red)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .actionSheet(isPresented: $isPresentingConfirm) {
                     ActionSheet(
-                        title: Text("This action will reset all settings and cannot be undone"),
+                        title: Text("This action will reset all settings and cannot be undone."),
                         buttons: [
-                            .destructive(Text("Reset to Defaults")) {
+                            .destructive(Text("Reset Settings")) {
                                 UserDefaults.standard.set(false, forKey: "SET_UP_PERFORMED_2")
                                 let defaults = Defaults()
                                 defaults.setUp()
