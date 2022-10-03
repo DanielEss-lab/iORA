@@ -81,10 +81,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.systemBackground 
+        self.view.backgroundColor = UIColor.systemBackground
         
         let ts = self.view.viewWithTag(99) as? UIButton
-        ts?.isEnabled = (globalTransitionState > 0)
+        ts?.isEnabled = (globalTransitionState >= 0)
 
         //let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
         //defaultInit.setUp()
