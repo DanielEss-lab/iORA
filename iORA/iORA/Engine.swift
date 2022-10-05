@@ -23,6 +23,8 @@ let redTemp = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
 let blueTemp = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
 let greenTemp = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
 
+let partialLine = UIImage(named: "line")!
+
 class Engine {
     
     func getStates()->[StateObj] {
@@ -240,7 +242,7 @@ class Engine {
         
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         //baseGeometry1.firstMaterial?.transparency = CGFloat(transparencyFactor)
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
@@ -267,7 +269,7 @@ class Engine {
     func drawSingleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
@@ -292,11 +294,11 @@ class Engine {
         let node1 = SCNNode(geometry: baseGeometry1)
         let node2 = SCNNode(geometry: baseGeometry2)
         node1.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
-                                    y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) - 0.09)
+                                    y: Float((c[2] + c[3]) / 2) - 0.09,
+                                    z: Float((c[4] + c[5]) / 2) /*- 0.09*/)
         node2.position = SCNVector3(x: Float((c[0] + c[1]) / 2),
-                                    y: Float((c[2] + c[3]) / 2),
-                                    z: Float((c[4] + c[5]) / 2) + 0.09)
+                                    y: Float((c[2] + c[3]) / 2) + 0.09,
+                                    z: Float((c[4] + c[5]) / 2) /*+ 0.09*/)
         node1.eulerAngles = SCNVector3((Float.pi / 2),
                                        acos((c[5]-c[4])/Float((distance))),
                                        atan2((c[3]-c[2]),(c[1]-c[0])))
@@ -314,7 +316,7 @@ class Engine {
     func drawDoubleAndPartial(distance: Float, c: [Float], transparencyFactor: Double, xdist: Float, ydist: Float, colored: Bool, radius: Double) {
         let baseGeometry1 = SCNCylinder(radius: radius, height: CGFloat(distance))
         
-        baseGeometry1.firstMaterial?.diffuse.contents = UIImage(named: "line")!
+        baseGeometry1.firstMaterial?.diffuse.contents = partialLine
         baseGeometry1.firstMaterial?.diffuse.wrapS = .repeat
         baseGeometry1.firstMaterial?.diffuse.wrapT = .repeat
         baseGeometry1.firstMaterial?.isDoubleSided = true
@@ -401,6 +403,11 @@ class Engine {
         atomMaterial.diffuse.contents = color
         atomMaterial.specular.contents = UIColor.white
         atomMaterial.shininess = 0.75
+        
+        //emission creates lighting without a lighting object. The object will be lit regardless of surroundings
+        //atomMaterial.emission.contents = UIColor.white //color
+        //atomMaterial.emission.intensity = 0.01
+        
         atomGeometry.materials = [atomMaterial]
         let atomNode = SCNNode(geometry: atomGeometry)
         atomNode.position = SCNVector3(coords[0], coords[1], coords[2])

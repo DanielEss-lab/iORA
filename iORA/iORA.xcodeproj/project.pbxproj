@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2762C60228AB76460038C7BA /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762C60128AB76460038C7BA /* Lighting.swift */; };
 		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
 		27A22514286E616000810C60 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A22513286E616000810C60 /* Defaults.swift */; };
 		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
@@ -22,7 +23,7 @@
 		84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */; };
 		84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23C278F85C1002B2A53 /* ReactionView.swift */; };
 		84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23E278F861F002B2A53 /* HostingController.swift */; };
-		84FAC241278F868C002B2A53 /* View.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC240278F868C002B2A53 /* View.storyboard */; };
+		84FAC241278F868C002B2A53 /* View.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FAC240278F868C002B2A53 /* View.storyboard */; settings = {ASSET_TAGS = (99, ts, ); }; };
 		88BB930E25A43F760093746B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930D25A43F760093746B /* AppDelegate.swift */; };
 		88BB931025A43F760093746B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB930F25A43F760093746B /* SceneDelegate.swift */; };
 		88BB931225A43F760093746B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB931125A43F760093746B /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2762C60128AB76460038C7BA /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
 		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		27A22513286E616000810C60 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				8458AFE127B47A2600CD07F0 /* InfoView.swift */,
 				27A22513286E616000810C60 /* Defaults.swift */,
 				84E0E5C9286F75D900D16B84 /* OptionsView.swift */,
+				2762C60128AB76460038C7BA /* Lighting.swift */,
 			);
 			path = iORA;
 			sourceTree = "<group>";
@@ -249,6 +252,10 @@
 		88BB930225A43F760093746B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					99,
+					ts,
+				);
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
@@ -325,6 +332,7 @@
 				8477AB8327AB55BE00C682A5 /* TapActions.swift in Sources */,
 				84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */,
 				2767D12D2758075000619CE1 /* Engine.swift in Sources */,
+				2762C60228AB76460038C7BA /* Lighting.swift in Sources */,
 				88BB931225A43F760093746B /* ViewController.swift in Sources */,
 				27CB5E872716B982002A07A7 /* State.swift in Sources */,
 				84FAC23F278F861F002B2A53 /* HostingController.swift in Sources */,
@@ -520,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.esslab.iora;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -541,7 +549,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.esslab.iora;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
