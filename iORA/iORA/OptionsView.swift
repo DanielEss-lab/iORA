@@ -45,6 +45,7 @@ struct OptionsView: View {
                             Text(size.rawValue.capitalized)
                         }
                     }
+                    .labelsHidden()
                     .pickerStyle(.menu)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -56,6 +57,7 @@ struct OptionsView: View {
                             Text(size.rawValue.capitalized)
                         }
                     }
+                    .labelsHidden()
                     .pickerStyle(.menu)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -69,6 +71,7 @@ struct OptionsView: View {
                             Text(source.rawValue.capitalized)
                         }
                     }
+                    .labelsHidden()
                     .pickerStyle(.menu)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
