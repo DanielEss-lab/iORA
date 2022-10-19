@@ -110,7 +110,7 @@ extension ViewController {
                 let a = selectedAtoms[i-1]
                 let b = selectedAtoms[i]
                 
-                var dist = drawLine(a: a, b: b)
+                let dist = drawLine(a: a, b: b)
                 
                 infoView.rootView.labelData = String(format: "%0.2f", dist)
             }
