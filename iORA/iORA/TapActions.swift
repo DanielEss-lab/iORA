@@ -111,9 +111,8 @@ extension ViewController {
                 let b = selectedAtoms[i]
                 
                 var dist = drawLine(a: a, b: b)
-                dist = round(dist * 100) / 100
                 
-                infoView.rootView.labelData = String(dist)
+                infoView.rootView.labelData = String(format: "%0.2f", dist)
             }
             infoView.rootView.atoms = [selectedAtoms[0].name!, selectedAtoms[1].name!]
             infoView.rootView.labelName = "Distance"
