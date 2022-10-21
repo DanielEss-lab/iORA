@@ -11,6 +11,7 @@ struct InfoView: View {
     var atoms: [String]
     var labelName: String
     var labelData: String
+    var color: Color = Color.white
     
     var body: some View {
         HStack {
@@ -36,17 +37,18 @@ struct InfoView: View {
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 0)
-                .stroke(Color.white , lineWidth: 2)
+                .stroke(color , lineWidth: 2)
         )
         .offset(x:20)
-        .foregroundColor(Color.white)
+        .foregroundColor(color)
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView(atoms: ["C","C","H"],
+        InfoView(atoms: ["C","C"],
                  labelName: "Distance",
-                 labelData: String(4.6702876))
+                 labelData: String(4.6702876),
+                 color: Color.blue)
     }
 }
