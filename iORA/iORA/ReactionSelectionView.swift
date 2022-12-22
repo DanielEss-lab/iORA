@@ -76,10 +76,13 @@ let subCategories = [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Carbonyl Addition",
                 reactions: [
-                    ReactionFile(name: "Addition: Cyanide + Acetone", filename: "AdN_Acetone", transitionState: 429) // 435
+                    ReactionFile(name: "Addition: Cyanide + Acetone", filename: "AdN_Acetone", transitionState: 429), // 435
+                    ReactionFile(name: "Electrocyclic: 3,4-Dimethylcyclobutene", filename: "hexadiene_TS_dimethylcyclobutene", transitionState: 1000),
+                    ReactionFile(name: "Gignard: MeMgBr + Propionaldehyde", filename: "propanal_NA_secbutanol", transitionState: 700),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Acyl Substitution",
                 reactions: [
+                    ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Enone", filename: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", transitionState: 449),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Radical",
                 reactions: [
@@ -89,6 +92,7 @@ let subCategories = [
     SubCategory(name: "Pericyclic",
                 reactions: [
                     ReactionFile(name: "Cope: 1,5-hexadiene", filename: "hexadiene_cope_hexadiene_complete", transitionState: 501),
+                    ReactionFile(name: "Cope: 3,4-Dimethylhexa-1,5-diene", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 849),
                     // ReactionFile(name: "Cope", filename: "Cope_hexadiene", transitionState: 1000),
                     ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Ethylene", filename: "butadiene_ethene_DA_cyclohexane_complete", transitionState: 200), // 226
                     //ReactionFile(name: "Butadiene-Ethylene 2", filename: "DA_Butadiene_Ethene", transitionState: 150),
@@ -105,8 +109,8 @@ let subCategories = [
                 ].sorted(by: { $0.name < $1.name })),
     /*SubCategory(name: "Uncategorized",
                 reactions: [
-                    ReactionFile(name: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", filename: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", transitionState: 458),
-                    ReactionFile(name: "dimethylhexadiene_cope_octadiene_complete", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 847),
+                    //ReactionFile(name: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", filename: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", transitionState: 458),
+                    //ReactionFile(name: "dimethylhexadiene_cope_octadiene_complete", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 847),
                 ]),*/
 ]
 
