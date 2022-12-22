@@ -89,7 +89,7 @@ struct OptionsView: View {
             }
             
             Section() {
-                Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess\n\nv"+UIApplication.appVersion!).font(.footnote)
+                Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess").font(.footnote)
             }
             
             Section() {
