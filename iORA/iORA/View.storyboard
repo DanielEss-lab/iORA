@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TSw-hy-FCY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TSw-hy-FCY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -146,7 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="bsA-mI-h2v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uIb-5p-5mJ" firstAttribute="leading" secondItem="HK4-us-auw" secondAttribute="trailing" constant="42" id="0m0-Aq-uB6"/>
+                            <constraint firstItem="bsA-mI-h2v" firstAttribute="leading" secondItem="HK4-us-auw" secondAttribute="trailing" constant="-298" id="0m0-Aq-uB6"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="kxF-fz-GRS" secondAttribute="trailing" constant="20" id="3SE-VD-HdF"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="uIb-5p-5mJ" secondAttribute="trailing" constant="44" id="3tA-lq-rzg"/>
                             <constraint firstItem="bsA-mI-h2v" firstAttribute="trailing" secondItem="9Zu-Xw-sWk" secondAttribute="trailing" constant="20" id="5yx-49-r2p"/>
