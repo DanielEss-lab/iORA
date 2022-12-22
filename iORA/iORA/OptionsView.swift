@@ -16,6 +16,12 @@ import Combine
     }
 }*/
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+}
+
 enum LightSources: String, CaseIterable, Identifiable {
     case ambient, directional, omni, spot
     var id: Self { self }
@@ -83,7 +89,7 @@ struct OptionsView: View {
             }
             
             Section() {
-                Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess").font(.footnote)
+                Text("Developed by Gabriel Reed, Jared Rossberg, Jeremiah Brown, Shusen Chen, and Prof. Daniel H. Ess\n\nv"+UIApplication.appVersion!).font(.footnote)
             }
             
             Section() {
