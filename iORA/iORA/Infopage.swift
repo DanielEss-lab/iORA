@@ -15,7 +15,6 @@ struct Infopage: View {
     var body: some View {
         Text(reaction.description)
             .onDisappear {
-                print("gone")
                 onInfoPage = false
             }
             .onAppear {
