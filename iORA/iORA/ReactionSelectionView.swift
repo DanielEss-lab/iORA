@@ -112,7 +112,7 @@ let subCategories = [
 
 struct ReactionSelectionView: View {
     var body: some View {
-        NavigationView {
+        //NavigationView {
              ZStack {
                 List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
                     NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
@@ -132,7 +132,7 @@ struct ReactionSelectionView: View {
                 }
                  
              }
-        }
+        //}
         
     }
 }

@@ -8,10 +8,13 @@
 import UIKit
 import SwiftUI
 
-class HostingController: UIHostingController<ReactionSelectionView> {
+//class HostingController: UIHostingController<ReactionSelectionView> {
+class HostingController: UIHostingController<Homepage> {
+    
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder,rootView: ReactionSelectionView());
+        //super.init(coder: coder,rootView: ReactionSelectionView());
+        super.init(coder: coder,rootView: Homepage());
     }
 
     override func viewDidLoad() {
