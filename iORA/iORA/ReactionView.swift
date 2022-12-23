@@ -12,10 +12,17 @@ struct ReactionView: View {
     let reactionFile: ReactionFile
     
     var body: some View {
-        Text(reactionFile.name)
-            .font(.system(size: 20))
-            .bold()
-        ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
+        VStack {
+            Text(reactionFile.name)
+                .font(.system(size: 20))
+                .bold()
+            ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
+        }
+        .toolbar {
+            NavigationLink(destination: Infopage(reaction: reactionFile)) {
+                Image(systemName: "info.circle").padding()
+            }
+        }
     }
 }
 
