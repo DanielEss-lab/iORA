@@ -55,6 +55,10 @@ class ViewController: UIViewController {
     var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-", color: Color.white))
     
     override func viewDidDisappear(_ animated: Bool) {
+        if onInfoPage {
+            return
+        }
+        
         super.viewDidDisappear(animated)
         
         if !sceneView.scene!.isPaused { // This is very necessary. Without it everything breaks

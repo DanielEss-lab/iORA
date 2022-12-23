@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var onInfoPage = false
+
 struct Infopage: View {
     let reaction: ReactionFile
     
@@ -14,6 +16,10 @@ struct Infopage: View {
         Text(reaction.description)
             .onDisappear {
                 print("gone")
+                onInfoPage = false
+            }
+            .onAppear {
+                onInfoPage = true
             }
     }
 }

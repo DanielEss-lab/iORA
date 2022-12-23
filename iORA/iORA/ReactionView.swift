@@ -20,7 +20,8 @@ struct ReactionView: View {
         }
         .toolbar {
             NavigationLink(destination: Infopage(reaction: reactionFile)) {
-                Image(systemName: "info.circle").padding()
+                Image(systemName: "info.circle")
+                    .padding()
             }
         }
     }
