@@ -11,7 +11,8 @@ struct HomepageButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color(red: 0, green: 0, blue: 0.5))
+            //.background(Color(red: 0, green: 0, blue: 0.5))
+            .background(Color(red: 0.09, green: 0.28, blue: 0.59))
             .foregroundColor(.white)
             .clipShape(Capsule())
     }

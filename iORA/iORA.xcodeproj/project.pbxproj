@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		8477AB8327AB55BE00C682A5 /* TapActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477AB8227AB55BE00C682A5 /* TapActions.swift */; };
 		847887F029551E7100C2A7E4 /* homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847887EF29551E7100C2A7E4 /* homepage.swift */; };
 		847887F22955273C00C2A7E4 /* TutorialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847887F12955273C00C2A7E4 /* TutorialPage.swift */; };
+		847887FE29678D5C00C2A7E4 /* tutorialGifs in Resources */ = {isa = PBXBuildFile; fileRef = 847887FD29678D5C00C2A7E4 /* tutorialGifs */; };
+		8478880129678DC400C2A7E4 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8478880029678DC400C2A7E4 /* FLAnimatedImage */; };
 		84E0E5CA286F75D900D16B84 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0E5C9286F75D900D16B84 /* OptionsView.swift */; };
 		84FAC23B278F858E002B2A53 /* ReactionSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */; };
 		84FAC23D278F85C1002B2A53 /* ReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC23C278F85C1002B2A53 /* ReactionView.swift */; };
@@ -69,6 +71,7 @@
 		8477AB8227AB55BE00C682A5 /* TapActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapActions.swift; sourceTree = "<group>"; };
 		847887EF29551E7100C2A7E4 /* homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepage.swift; sourceTree = "<group>"; };
 		847887F12955273C00C2A7E4 /* TutorialPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPage.swift; sourceTree = "<group>"; };
+		847887FD29678D5C00C2A7E4 /* tutorialGifs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tutorialGifs; sourceTree = "<group>"; };
 		84E0E5C9286F75D900D16B84 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		84FAC23A278F858E002B2A53 /* ReactionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionSelectionView.swift; sourceTree = "<group>"; };
 		84FAC23C278F85C1002B2A53 /* ReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8478880129678DC400C2A7E4 /* FLAnimatedImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,7 @@
 		88BB930C25A43F760093746B /* iORA */ = {
 			isa = PBXGroup;
 			children = (
+				847887FD29678D5C00C2A7E4 /* tutorialGifs */,
 				84368E6D27BDB34000DAD4CD /* sdfFiles */,
 				27CB5E812716B92E002A07A7 /* Data Objects */,
 				88BB931125A43F760093746B /* ViewController.swift */,
@@ -212,6 +217,9 @@
 			dependencies = (
 			);
 			name = iORA;
+			packageProductDependencies = (
+				8478880029678DC400C2A7E4 /* FLAnimatedImage */,
+			);
 			productName = iORA;
 			productReference = 88BB930A25A43F760093746B /* iORA.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +295,9 @@
 				Base,
 			);
 			mainGroup = 88BB930125A43F760093746B;
+			packageReferences = (
+				847887FF29678DC400C2A7E4 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+			);
 			productRefGroup = 88BB930B25A43F760093746B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -303,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847887FE29678D5C00C2A7E4 /* tutorialGifs in Resources */,
 				27AD922227BF9519003745B0 /* line.png in Resources */,
 				84368E6E27BDB34000DAD4CD /* sdfFiles in Resources */,
 				88BB931A25A43F790093746B /* LaunchScreen.storyboard in Resources */,
@@ -689,6 +701,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		847887FF29678DC400C2A7E4 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.16;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8478880029678DC400C2A7E4 /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 847887FF29678DC400C2A7E4 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88BB930225A43F760093746B /* Project object */;
 }
