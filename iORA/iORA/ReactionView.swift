@@ -8,8 +8,20 @@
 import SwiftUI
 import UIKit
 
+struct InfoViewButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            //.background(Color(red: 0, green: 0, blue: 0.5))
+            .background(Color(red: 0.09, green: 0.28, blue: 0.59))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+    }
+}
+
 struct ReactionView: View {
     let reactionFile: ReactionFile
+    @State private var isShowingInfoView = false
     
     var body: some View {
         VStack {
@@ -19,10 +31,21 @@ struct ReactionView: View {
             ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
         }
         .toolbar {
-            NavigationLink(destination: Infopage(reaction: reactionFile)) {
-                Image(systemName: "info.circle")
-                    .padding()
+            NavigationLink(destination: InfoPage(contents: reactionFile.description)) {
+                getToolbar()
             }
+        }
+    }
+    
+    func getToolbar() -> AnyView {
+        if reactionFile.description.isEmpty {
+            return AnyView(EmptyView())
+        } else {
+            return AnyView(Text("Rxn Info")
+                .padding(5)
+                .overlay(Capsule()
+                    .stroke(lineWidth: 2)
+            ))
         }
     }
 }

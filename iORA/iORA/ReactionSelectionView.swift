@@ -11,7 +11,7 @@ struct ReactionFile {
     let name: String
     let filename: String
     let transitionState: Int
-    let description: String
+    let description: [AnyView]
 }
 
 struct SubCategory {
@@ -22,91 +22,91 @@ struct SubCategory {
 let subCategories = [
     SubCategory(name: "Conformational Change",
                 reactions: [
-                    ReactionFile(name: "Butane (Anti to Gauche)", filename: "butane_eclipsed", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "Ethane (C-C Rotation)", filename: "ethane_TS_10K", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "Chloroethane (C-C Rotation)", filename: "Chloroenthane_TS_10K", transitionState: -1, description: "Put description here"),
+                    ReactionFile(name: "Butane (Anti to Gauche)", filename: "butane_eclipsed", transitionState: -1, description: Info_Butane_Anti_to_Gauche),
+                    ReactionFile(name: "Ethane (C-C Rotation)", filename: "ethane_TS_10K", transitionState: -1, description: Info_Ethane_C_C_Rotation),
+                    ReactionFile(name: "Chloroethane (C-C Rotation)", filename: "Chloroenthane_TS_10K", transitionState: -1, description: []),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Bronsted Acid-Base",
                 reactions: [
-                    ReactionFile(name: "Acetone-LDA", filename: "Acid-Base_Acetone_LDA", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "Trifluoroacetic Acid-Methoxide", filename: "Acid-Base_TFA_Methoxide", transitionState: -1, description: "Put description here")
+                    ReactionFile(name: "Acetone-LDA", filename: "Acid-Base_Acetone_LDA", transitionState: -1, description: Info_Acetone_LDA),
+                    ReactionFile(name: "Trifluoroacetic Acid-Methoxide", filename: "Acid-Base_TFA_Methoxide", transitionState: -1, description: Info_Trifluoroacetic_Acid_Methoxide)
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkyl Substitution",
                 reactions: [
-                    ReactionFile(name: "SN1: Tert-Butyl Iodide", filename: "SN1_Iodotertbutane", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "SN2: 2-Bromobutane + Methoxide", filename: "SN2_2-Bromobutane", transitionState: 500, description: "Put description here"), // 525
-                    ReactionFile(name: "SN2: Nonproductive Ethyl Chloride + Cyanide", filename: "SN2_Chloroethane_nonproductive", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "SN2: Ethyl Chloride + Cyanide", filename: "SN2_Chloroethane", transitionState: 1000, description: "Put description here"), //1020
-                    ReactionFile(name: "SN2: Methyl Iodide + Ammonia", filename: "Nitrogen_Methyl_Iodine", transitionState: 220, description: "Put description here"),
-                    ReactionFile(name: "SN2: Methyl Ammonium + Methanethiolate", filename: "SN2_Methyl_Ammonium", transitionState: 435, description: "Put description here"), //424
-                    ReactionFile(name: "SN2: Benzyl Bromide + Methoxide", filename: "MethylOxide_BenzylBromide", transitionState: 163, description: "Put description here"), // 162
+                    ReactionFile(name: "SN1: Tert-Butyl Iodide", filename: "SN1_Iodotertbutane", transitionState: -1, description: Info_SN1_Tert_Butyl_Iodide),
+                    ReactionFile(name: "SN2: 2-Bromobutane + Methoxide", filename: "SN2_2-Bromobutane", transitionState: 500, description: Info_SN2_2_Bromobutane_Methoxide), // 525
+                    ReactionFile(name: "SN2: Nonproductive Ethyl Chloride + Cyanide", filename: "SN2_Chloroethane_nonproductive", transitionState: -1, description: Info_SN2_Nonproductive_Ethyl_Chloride_Cyanide),
+                    ReactionFile(name: "SN2: Ethyl Chloride + Cyanide", filename: "SN2_Chloroethane", transitionState: 1000, description: Info_SN2_Ethyl_Chloride_Cyanide), //1020
+                    ReactionFile(name: "SN2: Methyl Iodide + Ammonia", filename: "Nitrogen_Methyl_Iodine", transitionState: 220, description: []),
+                    ReactionFile(name: "SN2: Methyl Ammonium + Methanethiolate", filename: "SN2_Methyl_Ammonium", transitionState: 435, description: []), //424
+                    ReactionFile(name: "SN2: Benzyl Bromide + Methoxide", filename: "MethylOxide_BenzylBromide", transitionState: 163, description: []), // 162
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Elimination",
                 reactions: [
-                    ReactionFile(name: "E1cb: Alkyl Chloride + Methoxide", filename: "E1cb_PhenylChloroNitroPropane", transitionState: -1, description: "Put description here"),
-                    ReactionFile(name: "E2: 2-Bromobutane (Primary) + Methoxide", filename: "2-BromobutaneMeO", transitionState: 1002, description: "Put description here"), // 1004
-                    ReactionFile(name: "E2: 2-Bromobutane (Secondary) + Methoxide", filename: "2-Bromobutane_E2_Butene", transitionState: 353, description: "Put description here"),
+                    ReactionFile(name: "E1cb: Alkyl Chloride + Methoxide", filename: "E1cb_PhenylChloroNitroPropane", transitionState: -1, description: []),
+                    ReactionFile(name: "E2: 2-Bromobutane (Primary) + Methoxide", filename: "2-BromobutaneMeO", transitionState: 1002, description: []), // 1004
+                    ReactionFile(name: "E2: 2-Bromobutane (Secondary) + Methoxide", filename: "2-Bromobutane_E2_Butene", transitionState: 353, description: Info_E2_2_Bromobutane_Secondary_Methoxide),
                     //ReactionFile(name: "SN2: 2-Bromobutane (Secondary)", filename: "SN2_2-Bromobutane_secondary", transitionState: 353),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkene Addition",
                 reactions: [
-                    ReactionFile(name: "HX: HBr + Isobutylene", filename: "AdE_Butene", transitionState: 158, description: "Put description here"), // 154
-                    ReactionFile(name: "Hydroboration: BH₃ + 1-Butene", filename: "AdE_Hydroboration", transitionState: 0, description: "Put description here"),
-                    ReactionFile(name: "Carbene: CCl₂ + Ethylene", filename: "AdE_Carbene_addtion", transitionState: 250, description: "Put description here"), //275
-                    ReactionFile(name: "Carbene: CH₂ + Ethylene (Triplet-Singlet Flip)", filename: "carbene_TS_cyclopantane_triplet_TS200", transitionState: 200, description: "Put description here"),
+                    ReactionFile(name: "HX: HBr + Isobutylene", filename: "AdE_Butene", transitionState: 158, description: []), // 154
+                    ReactionFile(name: "Hydroboration: BH₃ + 1-Butene", filename: "AdE_Hydroboration", transitionState: 0, description: []),
+                    ReactionFile(name: "Carbene: CCl₂ + Ethylene", filename: "AdE_Carbene_addtion", transitionState: 250, description: []), //275
+                    ReactionFile(name: "Carbene: CH₂ + Ethylene (Triplet-Singlet Flip)", filename: "carbene_TS_cyclopantane_triplet_TS200", transitionState: 200, description: []),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Alkyne Addition",
                 reactions: [
-                    ReactionFile(name: "HX: HCl + 3-Hexyne", filename: "3-Hexyne_Hydrochloric", transitionState: 231, description: "Put description here"), // 233
+                    ReactionFile(name: "HX: HCl + 3-Hexyne", filename: "3-Hexyne_Hydrochloric", transitionState: 231, description: []), // 233
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Diene Addition",
                 reactions: [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Rearrangement",
                 reactions: [
-                    ReactionFile(name: "Secondary to Tertiary Shift", filename: "MethylPentylCation_short", transitionState: -1, description: "Put description here"), // 159
-                    ReactionFile(name: "Secondary to Tertiary Shift (Extended Animation)", filename: "Rearrangement_MethylPentylCation", transitionState: -1, description: "Put description here") // 269
+                    ReactionFile(name: "Secondary to Tertiary Shift", filename: "MethylPentylCation_short", transitionState: -1, description: []), // 159
+                    ReactionFile(name: "Secondary to Tertiary Shift (Extended Animation)", filename: "Rearrangement_MethylPentylCation", transitionState: -1, description: []) // 269
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Oxidation",
                 reactions: [
-                    ReactionFile(name: "Epoxidation: Peracid + Trans-2-Butene", filename: "Butene_EA_dimethyloxirane", transitionState: 527, description: "Put description here") // 528
+                    ReactionFile(name: "Epoxidation: Peracid + Trans-2-Butene", filename: "Butene_EA_dimethyloxirane", transitionState: 527, description: []) // 528
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Reduction",
                 reactions: [
-                    ReactionFile(name: "Hydride Reduction: LAH + Acetone", filename: "AdN_Red_Acetone", transitionState: 1013, description: "Put description here")
+                    ReactionFile(name: "Hydride Reduction: LAH + Acetone", filename: "AdN_Red_Acetone", transitionState: 1013, description: [])
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Carbonyl Addition",
                 reactions: [
-                    ReactionFile(name: "Addition: Cyanide + Acetone", filename: "AdN_Acetone", transitionState: 429, description: "Put description here"), // 435
-                    ReactionFile(name: "Gignard: MeMgBr + Propionaldehyde", filename: "propanal_NA_secbutanol", transitionState: 700, description: "Put description here"),
+                    ReactionFile(name: "Addition: Cyanide + Acetone", filename: "AdN_Acetone", transitionState: 429, description: []), // 435
+                    ReactionFile(name: "Gignard: MeMgBr + Propionaldehyde", filename: "propanal_NA_secbutanol", transitionState: 700, description: []),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Acyl Substitution",
                 reactions: [
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Radical",
                 reactions: [
-                    ReactionFile(name: "Intramolecular HAT", filename: "HAT_Butoxy", transitionState: 426, description: "Put description here"), //430
-                    ReactionFile(name: "Hydrogen Atom Transfer (HAT): CH₄ + Cl Radical", filename: "MethaneChlorineRadical", transitionState: 55, description: "Put description here"),
+                    ReactionFile(name: "Intramolecular HAT", filename: "HAT_Butoxy", transitionState: 426, description: []), //430
+                    ReactionFile(name: "Hydrogen Atom Transfer (HAT): CH₄ + Cl Radical", filename: "MethaneChlorineRadical", transitionState: 55, description: []),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Pericyclic",
                 reactions: [
-                    ReactionFile(name: "Cope: 1,5-hexadiene", filename: "hexadiene_cope_hexadiene_complete", transitionState: 501, description: "Put description here"),
-                    ReactionFile(name: "Cope: 3,4-Dimethylhexa-1,5-diene", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 849, description: "Put description here"),
+                    ReactionFile(name: "Cope: 1,5-hexadiene", filename: "hexadiene_cope_hexadiene_complete", transitionState: 501, description: []),
+                    ReactionFile(name: "Cope: 3,4-Dimethylhexa-1,5-diene", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 849, description: []),
                     // ReactionFile(name: "Cope", filename: "Cope_hexadiene", transitionState: 1000),
-                    ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Ethylene", filename: "butadiene_ethene_DA_cyclohexane_complete", transitionState: 200, description: "Put description here"), // 226
-                    ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Enone", filename: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", transitionState: 449, description: "Put description here"),
+                    ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Ethylene", filename: "butadiene_ethene_DA_cyclohexane_complete", transitionState: 200, description: []), // 226
+                    ReactionFile(name: "Diels-Alder: 1,3-Butadiene + Enone", filename: "butadiene_acrylate_DA_cyclohexenecarboxylate_complete", transitionState: 449, description: []),
                     //ReactionFile(name: "Butadiene-Ethylene 2", filename: "DA_Butadiene_Ethene", transitionState: 150),
-                    ReactionFile(name: "Electrocyclic: Cyclobutene", filename: "Ringclosure_Butadiene", transitionState: 1000, description: "Put description here"),
-                    ReactionFile(name: "Electrocyclic: 3,4-Dimethylcyclobutene", filename: "hexadiene_TS_dimethylcyclobutene", transitionState: 1000, description: "Put description here"),
-                    ReactionFile(name: "Ene: Propylene + Ethylene", filename: "EneReaction", transitionState: 127, description: "Put description here"),
-                    ReactionFile(name: "OsO₄ + Ethylene", filename: "OsO4_complete", transitionState: 501, description: "Put description here"), // 526
+                    ReactionFile(name: "Electrocyclic: Cyclobutene", filename: "Ringclosure_Butadiene", transitionState: 1000, description: []),
+                    ReactionFile(name: "Electrocyclic: 3,4-Dimethylcyclobutene", filename: "hexadiene_TS_dimethylcyclobutene", transitionState: 1000, description: []),
+                    ReactionFile(name: "Ene: Propylene + Ethylene", filename: "EneReaction", transitionState: 127, description: []),
+                    ReactionFile(name: "OsO₄ + Ethylene", filename: "OsO4_complete", transitionState: 501, description: []), // 526
                     // ReactionFile(name: "OsO4-Ethylene", filename: "OsmiumTetroxide_Ethylene", transitionState: 157),
-                    ReactionFile(name: "1,3-Dipolar Cycloaddition: O₃ + Ethylene", filename: "Ozone_complete", transitionState: 499, description: "Put description here"), // 524
+                    ReactionFile(name: "1,3-Dipolar Cycloaddition: O₃ + Ethylene", filename: "Ozone_complete", transitionState: 499, description: []), // 524
                     // ReactionFile(name: "Ozone-Ethylene", filename: "Ozone_Ethylene", transitionState: 253),
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Aromatic Substitution",
                 reactions: [
-                    ReactionFile(name: "Friedel-Crafts Acylation", filename: "Toluene_acylium_AlCl4_TS_tolylethanone", transitionState: 499, description: "Put description here"), // 522
+                    ReactionFile(name: "Friedel-Crafts Acylation", filename: "Toluene_acylium_AlCl4_TS_tolylethanone", transitionState: 499, description: []), // 522
                 ].sorted(by: { $0.name < $1.name })),
     /*SubCategory(name: "Uncategorized",
                 reactions: [
@@ -114,6 +114,7 @@ let subCategories = [
                     //ReactionFile(name: "dimethylhexadiene_cope_octadiene_complete", filename: "dimethylhexadiene_cope_octadiene_complete", transitionState: 847),
                 ]),*/
 ]
+
 
 struct ReactionSelectionView: View {
     var body: some View {
