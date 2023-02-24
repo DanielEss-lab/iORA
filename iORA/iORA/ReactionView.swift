@@ -12,10 +12,29 @@ struct ReactionView: View {
     let reactionFile: ReactionFile
     
     var body: some View {
-        Text(reactionFile.name)
-            .font(.system(size: 20))
-            .bold()
-        ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
+        VStack {
+            Text(reactionFile.name)
+                .font(.system(size: 20))
+                .bold()
+            ReactionStoryboardViewController(filename: reactionFile.filename, transitionState: reactionFile.transitionState)
+        }
+        .toolbar {
+            NavigationLink(destination: InfoPage(contents: reactionFile.description)) {
+                getToolbar()
+            }
+        }
+    }
+
+    func getToolbar() -> AnyView {
+        if reactionFile.description.isEmpty {
+            return AnyView(EmptyView())
+        } else {
+            return AnyView(Text("Rxn Info")
+                .padding(5)
+                .overlay(Capsule()
+                    .stroke(lineWidth: 2)
+            ))
+        }
     }
 }
 

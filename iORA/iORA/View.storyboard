@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TSw-hy-FCY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TSw-hy-FCY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT7-NQ-ZOv">
-                                <rect key="frame" x="20" y="44" width="374" height="568"/>
+                                <rect key="frame" x="20" y="48" width="374" height="564"/>
                             </sceneKitView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kxF-fz-GRS">
                                 <rect key="frame" x="20" y="632" width="374" height="80"/>
@@ -171,6 +171,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playPauseButton" destination="Mr7-CD-jh0" id="SfO-b5-hse"/>
                         <outlet property="sceneView" destination="VT7-NQ-ZOv" id="24I-ME-ycI"/>
                         <outlet property="stepSlider" destination="9Zu-Xw-sWk" id="Y9A-J7-Stj"/>
                     </connections>
@@ -181,12 +182,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backward.end.fill" catalog="system" width="128" height="102"/>
-        <image name="forward.end.fill" catalog="system" width="128" height="102"/>
-        <image name="forward.fill" catalog="system" width="128" height="79"/>
-        <image name="gobackward" catalog="system" width="121" height="128"/>
-        <image name="goforward" catalog="system" width="121" height="128"/>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="backward.end.fill" catalog="system" width="128" height="101"/>
+        <image name="forward.end.fill" catalog="system" width="128" height="101"/>
+        <image name="forward.fill" catalog="system" width="128" height="77"/>
+        <image name="gobackward" catalog="system" width="119" height="128"/>
+        <image name="goforward" catalog="system" width="119" height="128"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="repeat" catalog="system" width="128" height="98"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

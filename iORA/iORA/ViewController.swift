@@ -51,10 +51,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var loopButton: UIButton!
     @IBOutlet weak var speedSlider: UISlider!
     //@IBOutlet weak var lockCameraButton: UIButton!
+    @IBOutlet weak var playPauseButton: UIButton!
     
     var infoView = UIHostingController(rootView: InfoView(atoms:["-"], labelName: "Distance", labelData: "-", color: Color.white))
     
     override func viewDidDisappear(_ animated: Bool) {
+        if onInfoPage {
+            sceneView.scene!.isPaused = true
+            playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            return
+        }
+        
         super.viewDidDisappear(animated)
         
         if !sceneView.scene!.isPaused { // This is very necessary. Without it everything breaks
