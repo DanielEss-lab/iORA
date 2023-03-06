@@ -99,9 +99,6 @@ let subCategories = [
                     ReactionFile(
                         name: "HX: HCl + 3-Hexyne", filename: "3-Hexyne_Hydrochloric", transitionState: 231,
                         description: "This trajectory shows the protonation of a disubstituted alkyne by HCl. Because no solvent was included in this simulation, and vinyl carbocations are inherently unstable compared to alkyl carbocations, there is no long-lived vinyl carbocation intermediate. Therefore, in this trajectory the addition occurs in a cis fashion."),
-                    ReactionFile(
-                        name: "1,2-Addition: HCl + 1,3-pentadiene", filename: "HCl-1,3,diene_full", transitionState: 300,
-                        description: "")
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Diene Addition",
                 reactions: [
