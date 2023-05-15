@@ -16,6 +16,12 @@ import Combine
     }
 }*/
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+}
+
 enum LightSources: String, CaseIterable, Identifiable {
     case ambient, directional, omni, spot
     var id: Self { self }
