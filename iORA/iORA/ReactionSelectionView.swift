@@ -103,7 +103,7 @@ let subCategories = [
     SubCategory(name: "Diene Addition",
                 reactions: [
                     ReactionFile(
-                        name: "1,2-Addition: HCl + 1,3-pentadiene", filename: "HCl-1,3,diene_full", transitionState: 300,
+                        name: "1,4-Addition: HCl + 1,3-pentadiene", filename: "HCl-1,3,diene_full", transitionState: 300,
                         description: "")
                 ].sorted(by: { $0.name < $1.name })),
     SubCategory(name: "Rearrangement",
