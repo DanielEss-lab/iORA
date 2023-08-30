@@ -8,10 +8,10 @@
 import UIKit
 import SwiftUI
 
-class HostingController: UIHostingController<ReactionSelectionView> {
+class HostingController: UIHostingController<StartMenu> {
 
     required init?(coder: NSCoder) {
-        super.init(coder: coder,rootView: ReactionSelectionView());
+        super.init(coder: coder,rootView: StartMenu());
     }
 
     override func viewDidLoad() {

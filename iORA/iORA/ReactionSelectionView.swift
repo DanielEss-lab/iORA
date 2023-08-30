@@ -198,6 +198,7 @@ struct ReactionSelectionView: View {
                         Text(r.name)
                     }
                     .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarHidden(true)
                 }
                 .navigationTitle("Reactions")
                 .toolbar {
@@ -209,10 +210,8 @@ struct ReactionSelectionView: View {
                             }.padding()
                     }
                 }
-                 
-             }
+            }
         }
-        
     }
 }
 
