@@ -191,24 +191,23 @@ let subCategories = [
 
 struct ReactionSelectionView: View {
     var body: some View {
-        NavigationView {
-             ZStack {
-                List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
-                    NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
-                        Text(r.name)
-                    }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarHidden(true)
+         ZStack {
+            List(subCategories/*.filter{ $0.reactions.count > 0 }*/, id: \.name) { r in
+                NavigationLink(destination: Submenu(reactions: r.reactions, previous: r.name)) {
+                    Text(r.name)
                 }
-                .navigationTitle("Reactions")
-                .toolbar {
-                    NavigationLink(destination: OptionsView()) {
-                        Image(systemName: "gear")
-                            .onAppear {
-                                let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
-                                defaultInit.setUp()
-                            }.padding()
-                    }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(false)
+            }
+            .navigationTitle("Reactions")
+            .toolbar {
+                NavigationLink(destination: OptionsView()) {
+                    Image(systemName: "gear")
+                        .onAppear {
+                            let defaultInit = Defaults() //It might be better to put this in AppDelegate or even SceneDelegate
+                            defaultInit.setUp()
+                        }.padding()
+                    
                 }
             }
         }
@@ -248,6 +247,12 @@ struct Submenu: View {
                     }.navigationBarTitleDisplayMode(.inline)
                 }.navigationTitle(previous)
             )
+        }
+    }
+    
+    struct ReactionSelectionView_Previews: PreviewProvider {
+        static var previews: some View {
+            ReactionSelectionView()
         }
     }
 }

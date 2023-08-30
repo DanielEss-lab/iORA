@@ -11,7 +11,6 @@ struct HomepageButtonStyle1: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            //.background(Color(red: 0, green: 0, blue: 0))
             .background(Color("Foreground"))
             .foregroundColor(Color("Background"))
             .clipShape(Capsule())
@@ -22,7 +21,6 @@ struct HomepageButtonStyle2: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            //.background(Color(red: 0, green: 0, blue: 0))
             .background(Color("Background"))
             .foregroundColor(Color("Foreground"))
             .overlay(
@@ -40,18 +38,17 @@ struct StartMenu: View {
         
         NavigationView {
             VStack() {
-                
+                Spacer().frame(height: 165)
                 Image("iORA Logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 309, height: 114)
                 
+                //TODO: Should rewrite this to be dynamic so it fits different devices
+                Spacer().frame(height: 100)
+                
                 NavigationLink(destination: TutorialPage(), isActive: $isShowingHowToView) { EmptyView() }
                 NavigationLink(destination: ReactionSelectionView(), isActive: $isShowingReactionSelectionView) { EmptyView() }
-                
-                //Image(.splash-screen)
-                
-                Spacer()
                 
                 HStack {
                     Button("Reactions") {
