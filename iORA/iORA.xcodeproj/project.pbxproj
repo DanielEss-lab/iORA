@@ -11,7 +11,6 @@
 		2762C60228AB76460038C7BA /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2762C60128AB76460038C7BA /* Lighting.swift */; };
 		2767D12D2758075000619CE1 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2767D12C2758075000619CE1 /* Engine.swift */; };
 		27A22514286E616000810C60 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A22513286E616000810C60 /* Defaults.swift */; };
-		27AD922227BF9519003745B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 27AD922127BF9519003745B0 /* line.png */; };
 		27CB5E832716B942002A07A7 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E822716B942002A07A7 /* Atom.swift */; };
 		27CB5E852716B965002A07A7 /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E842716B965002A07A7 /* Bond.swift */; };
 		27CB5E872716B982002A07A7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB5E862716B982002A07A7 /* State.swift */; };
@@ -60,7 +59,6 @@
 		2762C60128AB76460038C7BA /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
 		2767D12C2758075000619CE1 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		27A22513286E616000810C60 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
-		27AD922127BF9519003745B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = iORA/line.png; sourceTree = "<group>"; };
 		27CB5E822716B942002A07A7 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		27CB5E842716B965002A07A7 /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
 		27CB5E862716B982002A07A7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 		88BB930125A43F760093746B = {
 			isa = PBXGroup;
 			children = (
-				27AD922127BF9519003745B0 /* line.png */,
 				88BB930C25A43F760093746B /* iORA */,
 				88BB932325A43F790093746B /* iORATests */,
 				88BB932E25A43F7A0093746B /* iORAUITests */,
@@ -307,7 +304,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27AD922227BF9519003745B0 /* line.png in Resources */,
 				84368E6E27BDB34000DAD4CD /* sdfFiles in Resources */,
 				88BB931725A43F790093746B /* Assets.xcassets in Resources */,
 				274332112A9FCFB4003AA167 /* LaunchScreen.storyboard in Resources */,

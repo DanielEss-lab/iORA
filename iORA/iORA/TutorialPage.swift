@@ -11,7 +11,7 @@ struct TutorialPage: View {
     @State private var selection = 0
     
     ///  images with these names are placed  in my assets
-    let images = ["iORA Logo","2","3","4","5"]
+    let images = ["tutorial_1","tutorial_2","tutorial_3","tutorial_4","tutorial_5", "tutorial_6"]
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct TutorialPage: View {
             
             TabView(selection : $selection){
                 
-                ForEach(0..<5){ i in
+                ForEach(0..<6){ i in
                     Image("\(images[i])")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -29,7 +29,7 @@ struct TutorialPage: View {
 
                 
             }.tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))//.padding(.horizontal, 40)
         }
     }
 }

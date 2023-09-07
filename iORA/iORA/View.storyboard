@@ -61,6 +61,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-qB-ua3">
                                         <rect key="frame" x="224.5" y="21.5" width="74.5" height="37.5"/>
                                         <state key="normal" image="goforward" catalog="system">
+                                            <color key="titleColor" name="AccentColor"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                         </state>
                                         <connections>

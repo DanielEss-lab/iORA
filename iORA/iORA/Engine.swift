@@ -23,7 +23,7 @@ let redTemp = UIColor(red: 1.0, green: 0.75, blue: 0.75, alpha: 1.00)
 let blueTemp = UIColor(red: 0.75, green: 0.75, blue: 1.0, alpha: 1.0)
 let greenTemp = UIColor(red: 0.75, green: 1.0, blue: 0.75, alpha: 1.0)
 
-let partialLine = UIImage(named: "line")!
+let partialLine = UIImage(named: "bond_line")!
 
 class Engine {
     
@@ -56,8 +56,6 @@ class Engine {
             print(error)
             return
         }
-        
-        //FIXME: below is the code to just implement one state, so I am pulling the first one. I need to add the ability to handle multiple states but that is for later
         
         states = reaction.getStates()
         currentAtoms = states[0].atoms
