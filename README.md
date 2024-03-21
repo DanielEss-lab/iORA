@@ -6,18 +6,19 @@ Our goal is to develop a free, easily downloadable, easy to use, high image qual
 
 ### Progress
 
-The MoleculeDemo4 Xcode project contains almost all the functionality that should go into the final app. The code there is pretty cluttered and is prone to frequent crashes. It also has a few too many buttons. 
+iORA has officially been released to the App Store and is fully functional! We now hope to add features/QOL improvements to the app as we continue user testing. 
 
-The iORA Xcode project is a new project started to take just the good code, clean it up, and put it into a new project. While it includes the ability to select and display various reactions, it's still missing a lot of the functionality from MoleculeDemo4, including the following: 
-  - Working buttons
-  - Highlight tapped atoms 
-  - Dynamically change radius size 
+Features to be added: 
+  - The ability to view solvent
+  - Better lighting and customization
   
-Features that haven't been coded at all yet include the following: 
-  - Tapping a bond will give information about the 2 atoms it connects
-  - Dihedral angles when selecting 4 atoms
-  - The algorithm for calculating when atoms should bond is close but still makes extra bonds when it shouldn't at times. 
-
+Features that have been finished: 
+  - Transition States
+  - The ability to select/highlight atoms and view distances
+  - Dihedral angles
+  - Supplemental reading on select reactions
+  - Options menu
+  - Tutorial page
   
 ### BONDING ALGORITHM
 
