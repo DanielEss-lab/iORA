@@ -8,9 +8,11 @@
 
 public class Reaction {
     private var states: [StateObj]
+    public let solvent: Bool //FIXME: this may be unnecessary
 
     init() {
         states = []
+        self.solvent = false //FIXME: delete if unnecessary
     }
     
     public func addState(_ state: StateObj) {

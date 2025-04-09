@@ -12,12 +12,14 @@ import Foundation
 public class Atom {
     public let symbol: String // I'd prefer this to be an enum, but ¯\_(ツ)_/¯
     public let xPosition, yPosition, zPosition: Double
+    public let solvent: Bool
 
     init(symbol: String, x: Double, y: Double, z: Double) {
         self.symbol = symbol
         xPosition = x
         yPosition = y
         zPosition = z
+        self.solvent = false
     }
 }
 
