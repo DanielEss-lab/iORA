@@ -48,7 +48,7 @@ struct ReactionStoryboardViewController: UIViewControllerRepresentable {
     init(filename: String, transitionState: Int) {
         self.filename = filename
         globalTransitionState = transitionState
-        globalReaction = filename
+        globalReaction = filename //FIXME: Shouldn't be using global vars here, need to restructure this
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {

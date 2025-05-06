@@ -175,7 +175,7 @@ class ViewController: UIViewController {
         
 
         
-        
+        // This is where nodes are added to the scene
         scene.rootNode.addChildNode(masterAtom)
         scene.rootNode.addChildNode(masterBond)
         scene.rootNode.addChildNode(masterLine)

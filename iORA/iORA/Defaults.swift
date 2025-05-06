@@ -29,7 +29,7 @@ class Defaults {
     }
 }
 
-/* This code is StackOverflow and is used to allow storing colors inside UserDefaults. https://stackoverflow.com/questions/34366171/how-do-i-save-a-uicolor-with-userdefaults
+/* This code is from StackOverflow and is used to allow storing colors inside UserDefaults. https://stackoverflow.com/questions/34366171/how-do-i-save-a-uicolor-with-userdefaults
  */
 extension Numeric {
     var data: Data {
